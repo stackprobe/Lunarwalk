@@ -5,6 +5,7 @@ using System.Text;
 using System.IO;
 using System.Windows.Forms;
 using Charlotte.Tools;
+using Charlotte.Utils;
 
 namespace Charlotte
 {
@@ -58,8 +59,7 @@ namespace Charlotte
 			if (Directory.Exists(Ground.RootDir) == false)
 				throw new Exception("no RootDir");
 
-			Ground.ScriptDir = Path.Combine(Ground.RootDir, "Script");
-			Ground.ComponentDir = Path.Combine(Ground.RootDir, "Component");
+			Ground.ComponentAndScriptConfigFile = Path.Combine(Ground.RootDir, "ComponentAndScript.config.txt");
 			Ground.ResourceDir = Path.Combine(Ground.RootDir, "res");
 			Ground.DefineFile = Path.Combine(Ground.RootDir, "Define.config.txt");
 			Ground.MainHtmlFile = Path.Combine(Ground.RootDir, "MainHtml.html.txt");
@@ -67,8 +67,7 @@ namespace Charlotte
 			Ground.OutHtmlFile = Path.Combine(Ground.OutDir, "index.html");
 			Ground.OutTestMainHtmlFileBase = Path.Combine(Ground.OutDir, "index_");
 
-			Console.WriteLine("ScriptDir: " + Ground.ScriptDir);
-			Console.WriteLine("ComponentDir: " + Ground.ComponentDir);
+			Console.WriteLine("ComponentAndScriptConfigFile: " + Ground.ComponentAndScriptConfigFile);
 			Console.WriteLine("ResourceDir: " + Ground.ResourceDir);
 			Console.WriteLine("DefineFile: " + Ground.DefineFile);
 			Console.WriteLine("MainHtmlFile: " + Ground.MainHtmlFile);
@@ -78,11 +77,8 @@ namespace Charlotte
 
 			// ---- check ----
 
-			if (Directory.Exists(Ground.ScriptDir) == false)
-				throw new Exception("no ScriptDir");
-
-			if (Directory.Exists(Ground.ComponentDir) == false)
-				throw new Exception("no ComponentDir");
+			if (File.Exists(Ground.ComponentAndScriptConfigFile) == false)
+				throw new Exception("no ComponentAndScriptConfigFile");
 
 			if (Directory.Exists(Ground.ResourceDir) == false)
 				throw new Exception("no ResourceDir");
@@ -101,6 +97,35 @@ namespace Charlotte
 
 			// ----
 
+			{
+				TreeText src = new TreeText(Ground.ComponentAndScriptConfigFile);
+
+				if (src.Root.Children.Count != 1)
+					throw null;
+
+				if (src.Root.Children[0].Line != "Directories")
+					throw null;
+
+				string[] dirs = src.Root.Children[0].Children.Select(node => node.Line).ToArray();
+
+				if (dirs.Length < 1)
+					throw new Exception("[C&S]ディレクトリが定義されていません。");
+
+				dirs = dirs.Select(
+					dir =>
+					{
+						dir = Path.Combine(Ground.RootDir, dir);
+
+						if (Directory.Exists(dir) == false)
+							throw new Exception("[C&S]そんなディレクトリ在りません。" + dir);
+
+						return dir;
+					}
+					).ToArray();
+
+				Ground.ComponentAndScriptDirs = dirs;
+			}
+
 			Ground.DefineManager = new DefineManager(); // 先に！
 			Ground.ScriptManager = new ScriptManager();
 			Ground.ComponentManager = new ComponentManager();
@@ -110,7 +135,8 @@ namespace Charlotte
 			FileTools.CleanupDir(Ground.OutDir);
 			FileTools.CopyDir(Ground.ResourceDir, Ground.OutDir);
 
-			this.CopyResources(Ground.ComponentDir, Ground.OutDir);
+			foreach (string dir in Ground.ComponentAndScriptDirs)
+				this.CopyResources(dir, Ground.OutDir);
 
 			{
 				string TESTMAIN_PTN = Guid.NewGuid().ToString("B");

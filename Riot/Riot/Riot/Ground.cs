@@ -8,9 +8,8 @@ namespace Charlotte
 {
 	public class Ground
 	{
+		public static string ComponentAndScriptConfigFile;
 		public static string RootDir;
-		public static string ScriptDir;
-		public static string ComponentDir;
 		public static string ResourceDir;
 		public static string DefineFile;
 		public static string MainHtmlFile;
@@ -18,6 +17,7 @@ namespace Charlotte
 		public static string OutHtmlFile;
 		public static string OutTestMainHtmlFileBase;
 
+		public static string[] ComponentAndScriptDirs;
 		public static DefineManager DefineManager;
 		public static ScriptManager ScriptManager;
 		public static ComponentManager ComponentManager;

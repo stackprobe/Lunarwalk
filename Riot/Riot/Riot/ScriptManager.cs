@@ -13,8 +13,10 @@ namespace Charlotte
 
 		public ScriptManager()
 		{
-			this.Load(Ground.ComponentDir);
-			this.Load(Ground.ScriptDir);
+			foreach (string dir in Ground.ComponentAndScriptDirs)
+			{
+				this.Load(dir);
+			}
 		}
 
 		private void Load(string dir)

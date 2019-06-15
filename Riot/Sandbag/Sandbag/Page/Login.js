@@ -29,7 +29,7 @@ function @@_LoginPressed(coName) {
 	console.log(email + ":" + password);
 
 	if(email == "1111" && password == "9999") {
-		Riot_Set("BODY", Page_Root_CreateElement("riot_root"));
+		Riot_Set("BODY", @@^_Root_CreateElement("riot_root"));
 	}
 	else {
 		Component_Label_SetText(coName + "_ErrorMessage", "Email Ç‹ÇΩÇÕ Password Ç™à·Ç¢Ç‹Ç∑ÅB(Email 1111 , Password 9999 Ç≈Ç∑)");

@@ -17,8 +17,10 @@ namespace Charlotte
 		{
 			this.DefineFiles.Add(new DefineFile(Ground.DefineFile));
 
-			this.Load(Ground.ComponentDir);
-			//this.Load(Ground.ScriptDir);
+			foreach (string dir in Ground.ComponentAndScriptDirs)
+			{
+				this.Load(dir);
+			}
 		}
 
 		private void Load(string dir)
