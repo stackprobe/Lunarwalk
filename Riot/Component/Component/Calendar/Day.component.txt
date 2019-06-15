@@ -1,5 +1,0 @@
-div Cell
-	@innerText
-		-
-	!onclick
-		@@_Select(coName);

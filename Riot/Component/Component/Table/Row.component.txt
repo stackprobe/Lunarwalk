@@ -1,3 +1,0 @@
-div Row
-	/Component_FloatFrame Cells
-	/!Riot_WB();

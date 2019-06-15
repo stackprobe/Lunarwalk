@@ -1,5 +1,0 @@
-div Box
-	div Wall
-		!onclick
-			@@_Hide(coName);
-	div Balloon

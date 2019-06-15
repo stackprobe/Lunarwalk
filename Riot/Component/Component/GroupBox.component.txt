@@ -1,5 +1,0 @@
-div Box
-	div Header
-		@innerText
-			€”õ‚µ‚Ä‚¢‚Ü‚·B
-	div Body

@@ -1,9 +1,0 @@
-Title
-	color
-		#08a
-	width
-		100px
-
-Description
-	color
-		#08a

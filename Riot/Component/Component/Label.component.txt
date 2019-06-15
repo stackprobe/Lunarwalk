@@ -1,3 +1,0 @@
-div Label
-	@innerText
-		€”õ‚µ‚Ä‚¢‚Ü‚·B

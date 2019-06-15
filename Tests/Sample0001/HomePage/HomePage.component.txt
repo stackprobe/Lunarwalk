@@ -1,4 +1,0 @@
-div Root
-	div X
-		@innerText
-			Sample0001

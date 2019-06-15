@@ -1,2 +1,0 @@
-div List
-	div EndOfList

@@ -1,5 +1,0 @@
-button Button
-	!onclick
-		alert("エラー：コマンドが定義されていません。");
-	@innerText
-		読み込み中

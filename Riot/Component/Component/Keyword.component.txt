@@ -1,5 +1,0 @@
-div Keyword
-	@innerText
-		“Ç‚İ‚İ’†...
-	!onclick
-		@@_Select(coName);

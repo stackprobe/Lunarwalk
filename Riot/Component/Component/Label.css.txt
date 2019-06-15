@@ -1,5 +1,0 @@
-Label
-	color
-		#08f
-	font-size
-		16px

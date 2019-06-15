@@ -1,6 +1,0 @@
-div Box
-	input Input
-		.readonly
-			readonly
-
-	/@@^_Error Error

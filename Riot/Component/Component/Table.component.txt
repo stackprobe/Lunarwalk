@@ -1,8 +1,0 @@
-div Table
-	/@@^_FloatFrame X
-		div HeadBox
-			/@@^_FloatFrame Head
-
-	/!Riot_WBH(@(@@_ROW_MARGIN));
-
-	/@@^_DraggableList Rows

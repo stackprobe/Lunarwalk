@@ -1,7 +1,0 @@
-Frame
-	float
-		right
-
-EndOfElements
-	clear
-		both

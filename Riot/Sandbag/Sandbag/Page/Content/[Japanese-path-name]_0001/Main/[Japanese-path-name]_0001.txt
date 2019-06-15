@@ -1,8 +1,0 @@
-div Box
-	/!Riot_WBH(2);
-
-	/Component_FloatFrame X
-		/!Riot_WB();
-		div Title
-		/!Riot_WB();
-		div Description
