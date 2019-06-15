@@ -1,0 +1,5 @@
+COLOR_OFF
+	#888
+
+COLOR_ON
+	#08f

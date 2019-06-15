@@ -1,0 +1,33 @@
+Row
+	width
+		@(@@_WIDTH)px
+	border
+		1px solid #eee
+	margin-right
+		2px
+	margin-bottom
+		2px
+	padding-left
+		20px
+	padding-top
+		20px
+	cursor
+		grab
+	transition
+		0.2s
+
+RowFrom
+	@import
+		Row
+	background-color
+		#eef
+	border
+		1px solid #aaf
+
+RowTo
+	@import
+		Row
+	background-color
+		#ddf
+	border
+		1px solid #00f

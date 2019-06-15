@@ -1,0 +1,109 @@
+Root
+
+North
+	width
+		100%
+	height
+		@(NORTH_BAR_H)px
+	min-height
+		@(NORTH_BAR_H)px
+	max-height
+		@(NORTH_BAR_H)px
+	background-color
+		#ccc
+	font-size
+		20px
+
+South
+	display
+		table
+	width
+		100%
+	min-height
+		calc(100% - @(NORTH_BAR_H)px)
+
+West
+	display
+		table-cell
+	width
+		@(WEST_BAR_W)px
+	min-width
+		@(WEST_BAR_W)px
+	max-width
+		@(WEST_BAR_W)px
+	margin
+		0px
+	padding
+		0px
+	text-align
+		left
+	vertical-align
+		top
+	color
+		#fff
+	background-color
+		#777
+	font-size
+		12px
+
+WestTitle
+	width
+		@(WEST_BAR_W)px
+	min-width
+		@(WEST_BAR_W)px
+	max-width
+		@(WEST_BAR_W)px
+	height
+		55px
+	padding-top
+		25px
+	font-size
+		20px
+
+East
+	display
+		table-cell
+	width
+		100%
+;		calc(100% - @(WEST_BAR_W)px)
+	min-width
+		100%
+;		calc(100% - @(WEST_BAR_W)px)
+	max-width
+		100%
+;		calc(100% - @(WEST_BAR_W)px)
+	margin
+		0px
+	padding
+		0px
+	border
+		none
+	text-align
+		left
+	vertical-align
+		top
+	font-size
+		16px
+
+EastTitle
+	width
+		100%
+;		calc(100% - @(WEST_BAR_W)px)
+	min-width
+		100%
+;		calc(100% - @(WEST_BAR_W)px)
+	max-width
+		100%
+;		calc(100% - @(WEST_BAR_W)px)
+	height
+		35px
+	background-color
+		#ddd
+	padding-top
+		15px
+	font-size
+		12px
+
+EastContent
+	padding
+		20px

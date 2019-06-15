@@ -1,0 +1,6 @@
+div Root
+	div Wall
+		!onclick
+			@@_Hide(coName);
+
+	div Board

@@ -1,0 +1,97 @@
+div Main
+	/!Riot_WB();
+
+	div X
+		@innerText
+			「ショップからの記事」新規登録
+
+	/!Riot_WB();
+
+	/Component_Label X
+		/.SetText "本文"
+
+	/Component_RichTextBox 本文
+
+	/!Riot_WB();
+
+	/Component_Label X
+		/.SetText "サブカテゴリー"
+
+	/Component_KeywordGroup サブカテゴリ
+		/.AddKeyword "インテリア・雑貨"
+		/.AddKeyword "ガーデニング"
+		/.AddKeyword "不動産・住宅"
+		/.AddKeyword "リフォーム・住宅設備"
+
+	/!Riot_WB();
+
+	/Component_Label X
+		/.SetText "地域情報"
+
+	/Component_KeywordGroup 地域情報
+		/.AddKeyword "地ビール"
+		/.AddKeyword "ワイン"
+		/.AddKeyword "スイーツ"
+		/.AddKeyword "珈琲・紅茶"
+
+	/!Riot_WB();
+
+	/Component_FloatFrame X
+		div X
+			/Component_Label X
+				/.SetText "配信日時"
+
+			/Component_DateTime 配信日時
+
+		/!Riot_WB();
+
+		div X
+			/Component_Label X
+				/.SetText "終了日時"
+
+			/Component_DateTime 終了日時
+
+	/!Riot_WB();
+
+	/Component_Label X
+		/.SetText "画像"
+
+	/Component_ImageSelector 画像
+
+	/!Riot_WB();
+
+	/Component_FloatFrame X
+		/Component_Label X
+			/.SetText "自社作成の記事ですか？"
+
+		/!Riot_WB();
+
+		/Component_CheckBox Yes
+			/.SetText "Yes"
+
+		/!Riot_WB();
+
+		/Component_CheckBox No
+			/.SetText "No"
+
+	/!Riot_WBH(50);
+
+	/Component_FloatRightFrame X
+		/Component_Button 一時保存Btn
+			/.SetText "一時保存"
+
+		/!Riot_WBW(10);
+
+		/Component_Button 登録Btn
+			/.SetText "登録"
+
+		/!Riot_WBW(10);
+
+		/Component_Button 削除Btn
+			/.SetText "削除"
+
+	/Component_FloatFrame X
+		/Component_Button 戻るBtn
+			/.SetText "戻る"
+
+	/!Riot_WBH(50);

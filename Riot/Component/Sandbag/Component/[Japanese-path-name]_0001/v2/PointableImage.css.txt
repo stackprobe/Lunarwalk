@@ -1,0 +1,9 @@
+Box
+
+Canvas
+	background-color
+		orange
+
+Status
+	color
+		#00f

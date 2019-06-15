@@ -1,0 +1,3 @@
+div Box
+	textarea Input
+	/@@^_Error Error

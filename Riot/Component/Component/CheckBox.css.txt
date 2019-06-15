@@ -1,0 +1,41 @@
+Box
+	padding
+		18px 20px
+	border-radius
+		10px
+	border
+		1px solid @(@@_COLOR_OFF)
+	cursor
+		pointer
+	transition
+		0.5s
+
+CheckBox
+	width
+		20px
+	height
+		20px
+	padding
+		2px
+	margin-right
+		10px
+	background-color
+		@(@@_COLOR_OFF)
+	float
+		left
+	transition
+		0.5s ease-in
+
+CheckBoxImage
+
+Label
+	color
+		@(@@_COLOR_OFF)
+	float
+		left
+	transition
+		0.5s
+
+EndOfElements
+	clear
+		both

@@ -1,0 +1,31 @@
+Item
+	width
+		@(WEST_BAR_W)px
+	min-width
+		@(WEST_BAR_W)px
+	max-width
+		@(WEST_BAR_W)px
+	height
+		40px
+	text-align
+		left
+	padding-top
+		20px
+	cursor
+		pointer
+
+Item:hover
+	background-color
+		#3af
+
+ItemSelected
+	@import
+		Item
+	background-color
+		#9aa
+
+ItemSelected:hover
+	@import
+		Item:hover
+	background-color
+		#9ef

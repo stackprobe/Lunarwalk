@@ -1,0 +1,16 @@
+div Box
+	!onclick
+		Riot_Get(coName + "_Input").focus();
+
+	/Component_FloatFrame X
+		div InnerBox
+			/Component_FloatFrame X
+				div Title
+					@innerText
+						Email
+
+				/!Riot_WBW(5);
+
+				input Input
+					.type
+						text

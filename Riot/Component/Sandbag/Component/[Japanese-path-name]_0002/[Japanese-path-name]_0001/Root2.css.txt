@@ -1,0 +1,99 @@
+MainTable
+	width
+		100%
+	height
+		100%
+	margin
+		0px
+	padding
+		0px
+	border
+		0px
+	border-collapse
+		collapse
+
+MainTr_0
+
+MainTr_1
+
+MainTr_2
+
+NorthTd
+	height
+		@(NORTH_BAR_H)px
+	min-height
+		@(NORTH_BAR_H)px
+	max-height
+		@(NORTH_BAR_H)px
+	background-color
+		#ccc
+	font-size
+		20px
+
+WestTd
+	width
+		@(WEST_BAR_W)px
+	min-width
+		@(WEST_BAR_W)px
+	max-width
+		@(WEST_BAR_W)px
+	margin
+		0px
+	padding
+		0px
+	text-align
+		left
+	vertical-align
+		top
+	color
+		#fff
+	background-color
+		#777
+	font-size
+		12px
+
+WestTitle
+	width
+		@(WEST_BAR_W)px
+	min-width
+		@(WEST_BAR_W)px
+	max-width
+		@(WEST_BAR_W)px
+	height
+		55px
+	padding-top
+		25px
+	font-size
+		20px
+
+EastTd
+	width
+		calc(100vw - @(WEST_BAR_W)px)
+	margin
+		0px
+	padding
+		0px
+	border
+		none
+	text-align
+		left
+	vertical-align
+		top
+	font-size
+		16px
+
+EastTitle
+	height
+		35px
+	background-color
+		#ddd
+	padding-top
+		15px
+	font-size
+		12px
+
+EastContent
+	padding-left
+		20px
+	padding-top
+		20px

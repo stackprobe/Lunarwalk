@@ -1,0 +1,35 @@
+Box
+
+Combo
+	width
+		@(@@_WIDTH)
+	font-size
+		16px
+	background-color
+		#fff
+	border
+		1px solid #aaa
+	color
+		#000
+	height
+		32px
+
+Combo:focus
+	outline
+		0px
+
+ComboError
+	@import
+		Combo
+	background-color
+		#fdd
+	border
+		1px solid #800
+
+ComboError:focus
+	@import
+		Combo:focus
+	background-color
+		#fee
+
+Empty

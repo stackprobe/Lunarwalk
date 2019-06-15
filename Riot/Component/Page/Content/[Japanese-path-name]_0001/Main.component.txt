@@ -1,0 +1,96 @@
+div Main
+	/Component_FloatRightFrame X
+		/Component_Button 更新Btn
+			/.SetText "更新"
+
+	/!Riot_WB();
+
+	/Component_FloatFrame X
+		div X
+			@innerText
+				オンラインサロンに
+
+		/!Riot_WBW(3);
+
+		div オンラインサロン未読数
+			@innerText
+				0
+
+		/!Riot_WBW(3);
+
+		div X
+			@innerText
+				件の未読の返信があります。
+
+	/!Riot_WB();
+
+	/Component_FloatFrame X
+		div X
+			@innerText
+				ショップからのお知らせに
+
+		/!Riot_WBW(3);
+
+		div ショップからのお知らせ未読数
+			@innerText
+				0
+
+		/!Riot_WBW(3);
+
+		div X
+			@innerText
+				件の未読の問い合わせがあります。
+
+	/!Riot_WB();
+
+	div お知らせBox
+		/Component_Label X
+			/.SetText "運営からのお知らせ"
+
+		/!Riot_WB();
+
+		div お知らせList
+
+	/!Riot_WBH(50);
+
+	/Component_FloatFrame X
+		div アクセス数等Title
+			@innerText
+				店舗のお気に入り登録数
+
+		div 店舗のお気に入り登録数
+			@innerText
+				0
+
+		/!Riot_WBW(3);
+
+		div X
+			@innerText
+				人
+
+	/!Riot_WB();
+
+	/Component_FloatFrame X
+		div アクセス数等Title
+			@innerText
+				昨日のアクセス件数
+
+		div 昨日のアクセス件数
+			@innerText
+				0
+
+		/!Riot_WBW(3);
+
+		div X
+			@innerText
+				件
+
+	/!Riot_WBH(50);
+
+	/Component_FloatFrame X
+		/Component_LineGraph 仮グラフ1
+
+		/!Riot_WB();
+
+		div 仮グラフ2Box
+			canvas 仮グラフ2
