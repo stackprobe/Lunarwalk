@@ -18,7 +18,7 @@ Wall
 	opacity
 		0.5
 	z-index
-		@(Z_MODAL_WALL)
+		@(@@_Z_WALL)
 
 Board
 	display
@@ -42,6 +42,6 @@ Board
 	padding-top
 		20px
 	z-index
-		@(Z_MODAL_BOARD)
+		@(@@_Z_BOARD)
 	overflow
 		auto

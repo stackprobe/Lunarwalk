@@ -155,19 +155,7 @@ namespace Charlotte
 						string file = tokens[1];
 						Encoding fileEncoding = Encoding.GetEncoding(sFileEncoding);
 
-						{
-							string homeDir = Directory.GetCurrentDirectory();
-							try
-							{
-								Directory.SetCurrentDirectory(Ground.RootDir);
-
-								file = Path.Combine(Ground.RootDir, file);
-							}
-							finally
-							{
-								Directory.SetCurrentDirectory(homeDir);
-							}
-						}
+						file = Path.Combine(Ground.RiotRootDir, file);
 
 						dest.AddRange(File.ReadAllLines(file, fileEncoding));
 					}

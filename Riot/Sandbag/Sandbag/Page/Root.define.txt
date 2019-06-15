@@ -1,0 +1,5 @@
+NORTH_BAR_H
+	50
+
+WEST_BAR_W
+	220

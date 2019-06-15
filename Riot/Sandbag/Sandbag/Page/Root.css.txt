@@ -4,11 +4,11 @@ North
 	width
 		100%
 	height
-		@(NORTH_BAR_H)px
+		@(@@_NORTH_BAR_H)px
 	min-height
-		@(NORTH_BAR_H)px
+		@(@@_NORTH_BAR_H)px
 	max-height
-		@(NORTH_BAR_H)px
+		@(@@_NORTH_BAR_H)px
 	background-color
 		#ccc
 	font-size
@@ -20,17 +20,17 @@ South
 	width
 		100%
 	min-height
-		calc(100% - @(NORTH_BAR_H)px)
+		calc(100% - @(@@_NORTH_BAR_H)px)
 
 West
 	display
 		table-cell
 	width
-		@(WEST_BAR_W)px
+		@(@@_WEST_BAR_W)px
 	min-width
-		@(WEST_BAR_W)px
+		@(@@_WEST_BAR_W)px
 	max-width
-		@(WEST_BAR_W)px
+		@(@@_WEST_BAR_W)px
 	margin
 		0px
 	padding
@@ -48,11 +48,11 @@ West
 
 WestTitle
 	width
-		@(WEST_BAR_W)px
+		@(@@_WEST_BAR_W)px
 	min-width
-		@(WEST_BAR_W)px
+		@(@@_WEST_BAR_W)px
 	max-width
-		@(WEST_BAR_W)px
+		@(@@_WEST_BAR_W)px
 	height
 		55px
 	padding-top
@@ -65,13 +65,13 @@ East
 		table-cell
 	width
 		100%
-;		calc(100% - @(WEST_BAR_W)px)
+;		calc(100% - @(@@_WEST_BAR_W)px)
 	min-width
 		100%
-;		calc(100% - @(WEST_BAR_W)px)
+;		calc(100% - @(@@_WEST_BAR_W)px)
 	max-width
 		100%
-;		calc(100% - @(WEST_BAR_W)px)
+;		calc(100% - @(@@_WEST_BAR_W)px)
 	margin
 		0px
 	padding
@@ -88,13 +88,13 @@ East
 EastTitle
 	width
 		100%
-;		calc(100% - @(WEST_BAR_W)px)
+;		calc(100% - @(@@_WEST_BAR_W)px)
 	min-width
 		100%
-;		calc(100% - @(WEST_BAR_W)px)
+;		calc(100% - @(@@_WEST_BAR_W)px)
 	max-width
 		100%
-;		calc(100% - @(WEST_BAR_W)px)
+;		calc(100% - @(@@_WEST_BAR_W)px)
 	height
 		35px
 	background-color

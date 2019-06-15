@@ -89,8 +89,5 @@ div Main
 
 	/Component_FloatFrame X
 		/Component_LineGraph 仮グラフ1
-
 		/!Riot_WB();
-
-		div 仮グラフ2Box
-			canvas 仮グラフ2
+		/Component_LineGraph 仮グラフ2

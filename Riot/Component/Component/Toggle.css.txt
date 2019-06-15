@@ -28,7 +28,7 @@ Circle
 	border-radius
 		calc(@(@@_R)px - @(@@_CIRCLE_MARGIN)px)
 	z-index
-		@(Z_TOGGLE_CIRCLE)
+		@(@@_Z_CIRCLE)
 	background-color
 		#fff
 	transition

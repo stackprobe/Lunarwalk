@@ -18,7 +18,7 @@ Wall
 	opacity
 		0.2
 	z-index
-		@(Z_BALLOON_WALL)
+		@(@@_Z_WALL)
 
 Balloon
 	background-color
@@ -40,7 +40,7 @@ Balloon
 	box-shadow
 		0 0 6px 6px rgba(255, 255, 255, 0.2)
 	z-index
-		@(Z_BALLOON)
+		@(@@_Z_BALLOON)
 
 Balloon:before
 	content
@@ -60,7 +60,7 @@ Balloon:before
 	border-bottom
 		12px solid @(@@_BACKGROUND_COLOR)
 	z-index
-		@(Z_BALLOON_BEFORE)
+		@(@@_Z_BALLOON_BEFORE)
 
 balloon:after
 	content
@@ -78,4 +78,4 @@ balloon:after
 	border-bottom
 		14px solid @(@@_BORDER_COLOR)
 	z-index
-		@(Z_BALLOON_AFTER)
+		@(@@_Z_BALLOON_AFTER)

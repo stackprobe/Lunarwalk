@@ -15,8 +15,10 @@ namespace Charlotte
 
 		public DefineManager()
 		{
-			this.DefineFiles.Add(new DefineFile(Ground.DefineFile));
-
+			foreach (string file in Ground.DefineFiles)
+			{
+				this.DefineFiles.Add(new DefineFile(file));
+			}
 			foreach (string dir in Ground.ComponentAndScriptDirs)
 			{
 				this.Load(dir);

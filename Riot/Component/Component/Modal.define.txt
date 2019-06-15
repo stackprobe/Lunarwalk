@@ -3,3 +3,9 @@ WIDTH
 
 HEIGHT
 	600
+
+Z_BOARD
+	2
+
+Z_WALL
+	1

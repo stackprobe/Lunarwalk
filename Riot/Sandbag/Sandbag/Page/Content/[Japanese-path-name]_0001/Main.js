@@ -64,27 +64,44 @@ function @@_Shown(coName) {
 
 	// test
 	{
-		// コピペ
-		var myChart = new Chart(Riot_Get(coName + "_仮グラフ2").getContext("2d"), {
-			type: 'line',
-			data:
-			{
-				labels: ['M', 'T', 'W', 'T', 'F', 'S', 'S'],
-				datasets:
+		var info = Component_LineGraph_GetInfo(coName + "_仮グラフ2");
+
+		info.W = 300;
+		info.H = 200;
+
+		var cs =
+		[
+			"#03f",
+			"#05d",
+			"#07b",
+			"#099",
+			"#0b7",
+			"#0d5",
+			"#0f3",
+		];
+
+		for(var i = 1; i < cs.length; i++) {
+			Component_LineGraph_AddLine(
+				coName + "_仮グラフ2",
 				[
-					{
-						label: 'apples',
-						data: [12, 19, 3, 17, 6, 3, 7],
-						backgroundColor: "rgba(153,255,51,0.4)"
-					},
-					{
-						label: 'oranges',
-						data: [2, 29, 5, 5, 2, 3, 10],
-						backgroundColor: "rgba(255,153,0,0.4)"
-					}
-				]
-			}
-			});
+					Math.random() * 100.0, // 1月
+					Math.random() * 100.0, // 2月
+					Math.random() * 100.0, // 3月
+					Math.random() * 100.0, // 4月
+					Math.random() * 100.0, // 5月
+					Math.random() * 100.0, // 6月
+					Math.random() * 100.0, // 7月
+					Math.random() * 100.0, // 8月
+					Math.random() * 100.0, // 9月
+					Math.random() * 100.0, // 10月
+					Math.random() * 100.0, // 11月
+					Math.random() * 100.0, // 12月
+				],
+				cs[i]
+				);
+		}
+
+		Component_LineGraph_Draw(coName + "_仮グラフ2");
 	}
 }
 
