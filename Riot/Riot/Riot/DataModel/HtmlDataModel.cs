@@ -265,14 +265,17 @@ namespace Charlotte.DataModel
 		{
 			List<Tag> tags = this.GetAllTag();
 
-			for (int index = tags.Count - 2; 0 <= index; index--)
+			for (int index = 1; index < tags.Count; index++)
 			{
-				for (int ndx = tags.Count - 1; index < ndx; ndx--)
+				for (int ndx = 0; ndx < index; ndx++)
 				{
-					if (tags[index].ID == tags[ndx].ID)
+					Tag a = tags[ndx];
+					Tag b = tags[index];
+
+					if (a.ID == b.ID)
 					{
-						tags[index].IDCollision = true;
-						tags[ndx].IDCollision = true;
+						a.IDCollision = true;
+						b.IDCollision = true;
 					}
 				}
 			}
@@ -282,7 +285,7 @@ namespace Charlotte.DataModel
 		{
 			List<Tag> tags = this.GetAllTag();
 
-			for (int index = 0; index < tags.Count; index++)
+			for (int index = 1; index < tags.Count; index++)
 			{
 				for (int ndx = 0; ndx < index; ndx++)
 				{
