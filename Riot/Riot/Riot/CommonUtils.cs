@@ -68,9 +68,6 @@ namespace Charlotte
 		{
 			for (int c = 1; ; c++)
 			{
-				if (3 <= c)
-					Console.WriteLine("ResolveAlias " + c + " 周目");
-
 				if (30 < c)
 					throw new Exception("ResolveAlias 周回数 多くね？");
 

@@ -23,6 +23,7 @@ namespace Charlotte
 			{
 				this.Load(dir);
 			}
+			this.PostLoad();
 		}
 
 		private void Load(string dir)
@@ -37,6 +38,61 @@ namespace Charlotte
 
 				this.DefineFiles.Add(new DefineFile(file, coName));
 			}
+		}
+
+		private void PostLoad()
+		{
+			// 後から定義された方を優先する。
+
+			foreach (DefineFile defineFile in this.DefineFiles)
+			{
+				int end = defineFile.DefineData.Properties.Count;
+
+				for (int left = 0; left < end - 1; left++)
+					for (int right = left + 1; right < end; right++)
+						if (CheckCollision(defineFile, left, defineFile, right))
+							break;
+
+				defineFile.DefineData.Properties.RemoveAll(prop => prop == null);
+			}
+
+			{
+				int end = this.DefineFiles.Count;
+
+				for (int left = 0; left < end - 1; left++)
+				{
+					for (int right = left + 1; right < end; right++)
+					{
+						DefineFile l = this.DefineFiles[left];
+						DefineFile r = this.DefineFiles[right];
+
+						for (int ll = 0; ll < l.DefineData.Properties.Count; ll++)
+							for (int rr = 0; rr < r.DefineData.Properties.Count; rr++)
+								if (CheckCollision(l, ll, r, rr))
+									break;
+
+						l.DefineData.Properties.RemoveAll(prop => prop == null);
+					}
+				}
+			}
+		}
+
+		private static bool CheckCollision(DefineFile l, int ll, DefineFile r, int rr)
+		{
+			if (
+				l.NameToTrueName(l.DefineData.Properties[ll].Name) ==
+				r.NameToTrueName(r.DefineData.Properties[rr].Name)
+				)
+			{
+				Console.WriteLine("定義が重複しています。" + l.NameToTrueName(l.DefineData.Properties[ll].Name));
+				Console.WriteLine("- " + l.DefineData.Properties[ll].Value);
+				Console.WriteLine("+ " + r.DefineData.Properties[rr].Value);
+
+				l.DefineData.Properties[ll] = null;
+
+				return true;
+			}
+			return false;
 		}
 
 		public void CollectProperty(Func<string, string, bool> routine)

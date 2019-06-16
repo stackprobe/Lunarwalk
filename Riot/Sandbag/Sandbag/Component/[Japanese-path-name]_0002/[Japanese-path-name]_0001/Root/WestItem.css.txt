@@ -1,10 +1,10 @@
 Item
 	width
-		@(WEST_BAR_W)px
+		@(@@^_WEST_BAR_W)px
 	min-width
-		@(WEST_BAR_W)px
+		@(@@^_WEST_BAR_W)px
 	max-width
-		@(WEST_BAR_W)px
+		@(@@^_WEST_BAR_W)px
 	height
 		40px
 	text-align
