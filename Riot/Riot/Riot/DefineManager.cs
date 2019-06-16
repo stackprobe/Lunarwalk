@@ -53,7 +53,7 @@ namespace Charlotte
 						if (CheckCollision(defineFile, left, defineFile, right))
 							break;
 
-				defineFile.DefineData.Properties.RemoveAll(prop => prop == null);
+				defineFile.DefineData.Properties.RemoveAll(v => v == null);
 			}
 
 			{
@@ -71,7 +71,7 @@ namespace Charlotte
 								if (CheckCollision(l, ll, r, rr))
 									break;
 
-						l.DefineData.Properties.RemoveAll(prop => prop == null);
+						l.DefineData.Properties.RemoveAll(v => v == null);
 					}
 				}
 			}
