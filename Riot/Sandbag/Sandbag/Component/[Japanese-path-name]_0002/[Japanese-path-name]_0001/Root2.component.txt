@@ -1,0 +1,72 @@
+;
+;	別コンポーネント参照のメソッド呼び出しを使ってみただけ。
+;
+
+table MainTable
+	.cellspacing
+		0
+
+	tr MainTr_0
+		td NorthTd
+			.colspan
+				2
+			@innerText
+				\u3000Dashboard
+
+	tr MainTr_1
+		td WestTd
+			div WestTitle
+				@innerText
+					\u3000テナントABC
+
+			/@@^_Root_WestItem DashboardMenuItem
+
+				/.SetText "Dashboard"
+				/.SetAction function() { @@^_Root_SetContent(coName, @@^_Content_Dashboard_Main_CreateElement(coName + "_Content")); }
+
+			/@@^_Root_WestItem 記事管理MenuItem
+
+				/.SetText "記事管理"
+				/.SetAction function() { @@^_Root_SetContent(coName, @@^_Content_記事管理_Main_CreateElement(coName + "_Content")); }
+
+			/@@^_Root_WestItem 問い合わせ管理MenuItem
+
+				/.SetText "問い合わせ管理"
+				/.SetAction function() { @@^_Root_SetContent(coName, @@^_Content_問い合わせ管理_Main_CreateElement(coName + "_Content")); }
+
+			/@@^_Root_WestItem オンラインサロンMenuItem
+
+				/.SetText "オンラインサロン"
+				/.SetAction function() { @@^_Root_SetContent(coName, @@^_Content_オンラインサロン_Main_CreateElement(coName + "_Content")); }
+
+			/@@^_Root_WestItem 陳列アイテム管理MenuItem
+
+				/.SetText "陳列アイテム管理"
+				/.SetAction function() { Riot_Get(coName + "_EastContent").innerText = "4"; }
+
+			/@@^_Root_WestItem Roomアイテム管理MenuItem
+
+				/.SetText "Roomアイテム管理"
+				/.SetAction function() { Riot_Get(coName + "_EastContent").innerText = "5"; }
+
+			/@@^_Root_WestItem 利用者管理MenuItem
+
+				/.SetText "利用者管理(管理者用)"
+				/.SetAction function() { Riot_Get(coName + "_EastContent").innerText = "6"; }
+
+			/@@^_Root_WestItem 店舗情報MenuItem
+
+				/.SetText "店舗情報(管理者用)"
+				/.SetAction function() { Riot_Get(coName + "_EastContent").innerText = "7"; }
+
+			/@@^_Root_WestItem 運営への問い合わせMenuItem
+
+				/.SetText "運営への問い合わせ(管理者用)"
+				/.SetAction function() { Riot_Get(coName + "_EastContent").innerText = "8"; }
+
+		td EastTd
+			div EastTitle
+				@innerText
+					\u3000● / Dashboard
+
+			div EastContent

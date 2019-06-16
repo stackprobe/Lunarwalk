@@ -1,0 +1,14 @@
+div Box
+	canvas Canvas
+		.width
+			@(@@_WIDTH)
+		.height
+			@(@@_HEIGHT)
+		!onmousemove
+			@@_MouseMove(coName, event, this);
+		!onclick
+			@@_MouseClick(coName, event, this);
+		!onmouseleave
+			@@_MouseLeave(coName, event, this);
+
+	div Status

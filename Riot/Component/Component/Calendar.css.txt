@@ -1,0 +1,54 @@
+Table
+	padding-left
+		@(@@_BORDER_WIDTH)px
+	padding-top
+		@(@@_BORDER_WIDTH)px
+
+	width
+		calc((@(@@_CELL_WIDTH)px + @(@@_BORDER_WIDTH)px) * @(@@_COLUMN_COUNT))
+	height
+		calc((@(@@_CELL_HEIGHT)px + @(@@_BORDER_WIDTH)px) * (@(@@_ROW_COUNT) + 2))
+
+	background-color
+		#aaa
+
+Cell
+	width
+		@(@@_CELL_WIDTH)px
+	height
+		@(@@_CELL_HEIGHT)px
+
+	margin-right
+		@(@@_BORDER_WIDTH)px
+	margin-bottom
+		@(@@_BORDER_WIDTH)px
+
+	float
+		left
+	font-size
+		12px
+	background-color
+		#aaa
+
+	display
+		flex
+	justify-content
+		center
+	align-items
+		center
+
+Header
+	@import
+		Cell
+	cursor
+		pointer
+
+HeaderYM
+	@import
+		Cell
+	width
+		calc((@(@@_CELL_WIDTH)px + @(@@_BORDER_WIDTH)px) * 5 - @(@@_BORDER_WIDTH)px)
+
+EndOfDays
+	clear
+		both

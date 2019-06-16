@@ -1,0 +1,39 @@
+Box
+	display
+		none
+
+Balloon
+	background-color
+		#fcc
+	border-radius
+		10px
+	margin-top
+		15px
+	padding
+		@(@@_BALLOON_PADDING)px
+	position
+		relative
+	width
+		calc(@(@@_WIDTH)px - @(@@_BALLOON_PADDING)px * 2)
+
+Balloon:before
+	content
+		''
+	display
+		block
+	position
+		absolute
+	left
+		20px
+	top
+		-15px
+	width
+		0
+	height
+		0
+	border-bottom
+		16px solid #fcc
+	border-left
+		16px solid transparent
+	border-right
+		16px solid transparent

@@ -1,0 +1,29 @@
+Keyword
+	background-color
+		#fff
+	color
+		#888
+	margin-right
+		10px
+	margin-bottom
+		10px
+	padding
+		10px 15px
+	border-radius
+		20px
+	box-shadow
+		0px 1px 5px 1px rgba(20, 20, 20, 0.2)
+	cursor
+		pointer
+	float
+		left
+	transition-duration
+		0.2s
+
+KeywordSelected
+	@import
+		Keyword
+	background-color
+		#468
+	color
+		#fff

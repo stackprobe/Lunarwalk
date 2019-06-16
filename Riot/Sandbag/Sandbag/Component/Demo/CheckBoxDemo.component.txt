@@ -1,0 +1,79 @@
+div Box
+	/Component_WhiteFrame Main
+		/!Riot_WB();
+		/!Riot_Label("ラジオボタン");
+		/!Riot_WB();
+		/Component_CheckBox A
+		/!Riot_WB();
+		/Component_CheckBox B
+		/!Riot_WB();
+		/Component_CheckBox C
+		/!Riot_WB();
+		/Component_CheckBox D
+		/!Riot_WB();
+		/Component_CheckBox E
+		/!Riot_WB();
+		/Component_CheckBox F
+		/!Riot_WB();
+		/!Riot_WB();
+
+		/Component_GroupBox Main2
+			/Component_CheckBox M2A
+			/!Riot_WB();
+			/Component_CheckBox M2B
+			/!Riot_WB();
+			/Component_CheckBox M2C
+			/!Riot_WB();
+
+		/!Riot_WB();
+		/!Riot_Label("３つまで選択可能");
+		/!Riot_WB();
+		/Component_CheckBox M3A
+		/!Riot_WB();
+		/Component_CheckBox M3B
+		/!Riot_WB();
+		/Component_CheckBox M3C
+		/!Riot_WB();
+		/Component_CheckBox M3D
+		/!Riot_WB();
+		/Component_CheckBox M3E
+		/!Riot_WB();
+		/Component_CheckBox M3F
+		/!Riot_WB();
+
+		/!Riot_WB();
+		/!Riot_Label("ラジオボタン２");
+		/!Riot_WB();
+		/Component_FloatFrame Main4
+			/Component_CheckBox M4A
+			/!Riot_WB();
+			/Component_CheckBox M4B
+			/!Riot_WB();
+			/Component_CheckBox M4C
+
+		/!Riot_WB();
+		/!Riot_Label("ラジオボタン３");
+		/!Riot_WB();
+		/Component_FloatFrame Main5
+			/Component_CheckBox M5A
+			/!Riot_WB();
+			/Component_CheckBox M5B
+			/!Riot_WB();
+			/Component_CheckBox M5C
+
+		/!Riot_WB();
+		/!Riot_Label("ラジオボタン４");
+		/!Riot_WB();
+		/Component_CheckBox M6A
+		/!Riot_WB();
+		/Component_CheckBox M6B
+		/!Riot_WB();
+		/Component_CheckBox M6C
+		/!Riot_WB();
+		/Component_CheckBox M6D
+		/!Riot_WB();
+		/Component_CheckBox M6E
+		/!Riot_WB();
+		/Component_CheckBox M6F
+		/!Riot_WB();
+		/!Riot_WB();

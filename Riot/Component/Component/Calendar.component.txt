@@ -1,0 +1,22 @@
+div Table
+	div Header
+		!onclick
+			@@_PrevMonth(coName);
+
+		img X
+			.src
+				@(GLOBAL)_@@_ArrowPrevMonth.png
+
+	div HeaderYM
+		@innerText
+			----”N--ŒŽ
+
+	div Header
+		!onclick
+			@@_NextMonth(coName);
+
+		img X
+			.src
+				@(GLOBAL)_@@_ArrowNextMonth.png
+
+	div EndOfDays

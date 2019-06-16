@@ -1,0 +1,47 @@
+Root
+
+Wall
+	display
+		none
+	position
+		fixed
+	top
+		0px
+	left
+		0px
+	width
+		100%
+	height
+		100%
+	background-color
+		#000
+	opacity
+		0.5
+	z-index
+		@(@@_Z_WALL)
+
+Board
+	display
+		none
+	position
+		fixed
+	left
+		calc((100% - @(@@_WIDTH)px) / 2)
+	top
+		calc((100% - @(@@_HEIGHT)px) / 2)
+	width
+		@(@@_WIDTH)px
+	height
+		@(@@_HEIGHT)px
+	background-color
+		#fff
+	border-radius
+		20px
+	padding-left
+		20px
+	padding-top
+		20px
+	z-index
+		@(@@_Z_BOARD)
+	overflow
+		auto

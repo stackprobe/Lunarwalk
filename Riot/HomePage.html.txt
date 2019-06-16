@@ -1,0 +1,21 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script>
+
+riot_component
+riot_script
+riot_testmain
+</script>
+<style>
+
+body {
+	margin: 0px;
+	font: normal 16px "Meiryo";
+}
+
+riot_css
+</style>
+</head>
+<body></body>
+</html>

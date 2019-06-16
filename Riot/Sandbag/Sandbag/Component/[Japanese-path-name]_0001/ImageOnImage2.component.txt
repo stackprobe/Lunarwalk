@@ -1,0 +1,9 @@
+div Box
+	canvas Canvas
+		.width
+			@(@@_WIDTH)
+		.height
+			@(@@_HEIGHT)
+
+	/!Riot_WB();
+	/Component_KeywordGroup Images

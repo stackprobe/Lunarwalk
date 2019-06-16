@@ -1,0 +1,14 @@
+div Box
+	canvas Canvas
+		.width
+			@(@@_WIDTH)
+		.height
+			@(@@_HEIGHT)
+
+	/!Riot_WB();
+	/Component_Button Guitar
+	/!Riot_WB();
+	/Component_Button ˆÖŽq
+	/!Riot_WB();
+	/Component_Button ŠG‰æ
+	/!Riot_WB();

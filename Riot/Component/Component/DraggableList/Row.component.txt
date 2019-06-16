@@ -1,0 +1,13 @@
+div Row
+	.draggable
+		true
+	!ondragstart
+		@@_OnDragStart(coName, event, this);
+	!ondragend
+		@@_OnDragEnd(coName, event, this);
+	!ondrop
+		@@_OnDrop(coName, event, this);
+	!ondragover
+		@@_OnEnter(coName, event, this);
+	!ondragleave
+		@@_OnLeave(coName, event, this);

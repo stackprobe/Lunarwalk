@@ -1,0 +1,42 @@
+コンポーネント
+	ファイル構成
+		<Name>.component.txt
+			必須 // Riot.exe はこれを検索する。
+
+		<Name>.css.txt
+			必須
+
+		<Name>.define.txt
+			無くても良い
+
+		<Name>.js
+			必須 // 無くても良いけど必須メソッドを記述する場所として、
+
+		<Name>.test.js
+			無くても良い
+
+	必須メソッド
+		function @@_Loaded(coName) {}
+			コンポーネント生成時に呼ばれる。先に
+
+		function @@_Shown(coName) {}
+			コンポーネント生成時に呼ばれる。後に
+
+		function @@_Refresh(coName) {}
+			Riot_Refresh_Fire から呼ばれる。
+
+		function @@_Destroy(coName) {}
+			コンポーネントがDOMから削除された後
+
+		function @@_GetRoot(coName) {}
+			コンポーネントのルートタグを返す。
+
+		function @@_Append(coName, tag) {}
+			このコンポーネントに子コンポーネントを追加する。// 追加出来ない場合は Riot_Never(); など実装しておく。
+
+	自動生成メソッド
+		function @@_CreateElement(coName) {}
+			コンポーネントを生成する。
+
+		function @@_GetElements(coName) {}
+			このコンポーネント配下のコンポーネントの coName について、実際の coName のリストを返す。

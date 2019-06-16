@@ -1,0 +1,17 @@
+Main
+
+お知らせBox
+	background-color
+		#eee
+	padding
+		20px
+
+アクセス数等Title
+	width
+		300px
+
+仮グラフ2Box
+	width
+		300px
+	height
+		200px

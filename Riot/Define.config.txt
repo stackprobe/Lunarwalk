@@ -1,0 +1,17 @@
+GLOBAL
+	u
+;	unei
+;	uneikanri
+;	uneikanri_@[PW9]
+
+NONE
+	@[PW9]
+
+ERROR_NO_MESSAGE
+	@[PW9]
+
+LOGPOS
+	console.log("@@ @(_LINE)");
+
+IMAX
+	1000000000

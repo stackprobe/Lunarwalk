@@ -1,0 +1,38 @@
+div Box
+	/@@^_FloatFrame FloatFrame
+		/@@^_ClickableTextBox Date
+			/.SetWidth 160
+			/.AddClicked function() { @@_DateClicked(coName); }
+
+		/!Riot_WBW(5);
+
+		/@@^_ComboBox Hour
+			/.SetWidth 80
+
+		/!Riot_WBW(5);
+
+		/@@^_ComboBox Minute
+			/.SetWidth 80
+
+	/@@^_Balloon DateBalloon
+		/.SetWidth 260
+		/.SetHeight 290
+
+		/@@^_Calendar Calendar
+			/.AddChanged function() { @@_DateSelected(coName); }
+
+		/!Riot_WBH(5);
+
+		/@@^_FloatFrame FloatFrame
+			/@@^_Button CalendarOk
+				/.SetText "‚n‚j"
+				/.SetAction function() { @@_CalendarOkClicked(coName); }
+
+			/!Riot_WBW(5);
+
+			/@@^_Button CalendarCancel
+				/.SetText "ƒNƒŠƒA"
+				/.SetAction function() { @@_CalendarCancelClicked(coName); }
+
+	/@@^_Error Error
+		/.SetWidth 330

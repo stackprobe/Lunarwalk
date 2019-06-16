@@ -1,0 +1,8 @@
+WIDTH
+	640
+
+BORDER_COLOR
+	#def
+
+HEADER_COLOR
+	#eef
