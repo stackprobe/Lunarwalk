@@ -6,7 +6,6 @@ ComponentAndScript
 
 Define
 	..\..\Riot\Define.config.txt
-	Define.config.txt
 
 HomePage
 	..\..\Riot\HomePage.html.txt

@@ -101,22 +101,19 @@ namespace Charlotte.DataModel
 
 		private void ResolveSameProperty(Selector selector)
 		{
-			// 後から定義された方を優先する。
+			selector.Properties.Reverse();
 
-			int end = selector.Properties.Count;
-
-			for (int left = 0; left < end - 1; left++)
+			for (int index = selector.Properties.Count - 2; 0 <= index; index--)
 			{
-				for (int right = left + 1; right < end; right++)
+				for (int ndx = selector.Properties.Count - 1; index < ndx; ndx--)
 				{
-					if (selector.Properties[left].Name == selector.Properties[right].Name)
+					if (selector.Properties[index].Name == selector.Properties[ndx].Name)
 					{
-						selector.Properties[left] = null;
-						break;
+						selector.Properties.RemoveAt(ndx);
 					}
 				}
 			}
-			selector.Properties.RemoveAll(v => v == null);
+			selector.Properties.Reverse(); // 復元
 		}
 	}
 }

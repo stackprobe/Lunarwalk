@@ -20,11 +20,11 @@ MainTr_2
 
 NorthTd
 	height
-		@(@@^_Root_NORTH_BAR_H)px
+		@(NORTH_BAR_H)px
 	min-height
-		@(@@^_Root_NORTH_BAR_H)px
+		@(NORTH_BAR_H)px
 	max-height
-		@(@@^_Root_NORTH_BAR_H)px
+		@(NORTH_BAR_H)px
 	background-color
 		#ccc
 	font-size
@@ -32,11 +32,11 @@ NorthTd
 
 WestTd
 	width
-		@(@@^_Root_WEST_BAR_W)px
+		@(WEST_BAR_W)px
 	min-width
-		@(@@^_Root_WEST_BAR_W)px
+		@(WEST_BAR_W)px
 	max-width
-		@(@@^_Root_WEST_BAR_W)px
+		@(WEST_BAR_W)px
 	margin
 		0px
 	padding
@@ -54,11 +54,11 @@ WestTd
 
 WestTitle
 	width
-		@(@@^_Root_WEST_BAR_W)px
+		@(WEST_BAR_W)px
 	min-width
-		@(@@^_Root_WEST_BAR_W)px
+		@(WEST_BAR_W)px
 	max-width
-		@(@@^_Root_WEST_BAR_W)px
+		@(WEST_BAR_W)px
 	height
 		55px
 	padding-top
@@ -68,7 +68,7 @@ WestTitle
 
 EastTd
 	width
-		calc(100vw - @(@@^_Root_WEST_BAR_W)px)
+		calc(100vw - @(WEST_BAR_W)px)
 	margin
 		0px
 	padding
