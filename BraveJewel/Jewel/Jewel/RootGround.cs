@@ -5,16 +5,16 @@ using System.Text;
 
 namespace Charlotte
 {
-	public class Ground
+	public class RootGround
 	{
-		private static Ground _i = null;
+		private static RootGround _i = null;
 
-		public static Ground I
+		public static RootGround I
 		{
 			get
 			{
 				if (_i == null)
-					_i = new Ground();
+					_i = new RootGround();
 
 				return _i;
 			}

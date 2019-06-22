@@ -194,6 +194,13 @@ namespace Charlotte
 			this.NBTokens = this.Tokens.Where(token => token.Kind != Token.Kind_e.BLANK).ToArray();
 		}
 
+		public IEnumerable<Token> GetNBTokens(int index = 0)
+		{
+			for (; index < this.Tokens.Count; index++)
+				if (this.Tokens[index].Kind != Token.Kind_e.BLANK)
+					yield return this.Tokens[index];
+		}
+
 		public string GetString()
 		{
 			return string.Join("", this.Tokens.Select(token => token.Pattern));

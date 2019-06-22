@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Charlotte.Tools;
-using Charlotte.Services.Uploader;
 
 namespace Charlotte
 {
@@ -13,7 +12,7 @@ namespace Charlotte
 
 		public ServiceDistributor()
 		{
-			this.Add("/uploader", new UploaderService());
+			this.Add("/uploader", new Services.Uploader.UploaderService());
 
 			// ここへ追加...
 		}

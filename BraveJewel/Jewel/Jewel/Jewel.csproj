@@ -50,12 +50,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Ground.cs" />
+    <Compile Include="RootConsts.cs" />
+    <Compile Include="RootGround.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="IService.cs" />
     <Compile Include="ServiceDistributor.cs" />
-    <Compile Include="Services\Uploader\UploaderService.cs" />
+    <Compile Include="Services\Uploader\Consts.cs" />
+    <Compile Include="Services\Uploader\Ground.cs" />
+    <Compile Include="Services\Uploader\Service.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

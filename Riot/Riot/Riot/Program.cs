@@ -6,6 +6,7 @@ using System.IO;
 using System.Windows.Forms;
 using Charlotte.Tools;
 using Charlotte.Utils;
+using Charlotte.Optimizer;
 
 namespace Charlotte
 {
@@ -139,9 +140,11 @@ namespace Charlotte
 						""
 						);
 
-					outHtml = CommonUtils.ToHTMLNewLine(outHtml);
+					//outHtml = CommonUtils.ToHTMLNewLine(outHtml); // moved
 
 					File.WriteAllText(Ground.OutHtmlFile, outHtml, Encoding.UTF8);
+
+					HtmlFileOptimizer.Perform(Ground.OutHtmlFile);
 				}
 
 				foreach (ScriptFile scriptFile in Ground.ScriptManager.GetTestMainScriptFiles())

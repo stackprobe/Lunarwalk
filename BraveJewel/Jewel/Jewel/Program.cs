@@ -108,7 +108,7 @@ namespace Charlotte
 
 						ProcMain.WriteLog("path: " + path);
 
-						IService service = Ground.I.ServiceDistributor.GetService(path);
+						IService service = RootGround.I.ServiceDistributor.GetService(path);
 
 						service.Perform(channel);
 					},
@@ -124,7 +124,7 @@ namespace Charlotte
 
 		private void DiskYellow()
 		{
-			foreach (IService service in Ground.I.ServiceDistributor.GetAllService())
+			foreach (IService service in RootGround.I.ServiceDistributor.GetAllService())
 			{
 				service.DiskYellow();
 			}
