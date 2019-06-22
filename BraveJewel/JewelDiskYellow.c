@@ -6,21 +6,22 @@
 
 int main(int argc, char **argv)
 {
-	uint mtx = mutexOpen(MTX_SERVER);
-	uint ev  = eventOpen(EV_DISK_YELLOW_ENDED);
+	uint mtxServer = mutexOpen(MTX_SERVER);
+	uint evStart = eventOpen(EV_DISK_YELLOW);
+	uint evEnded = eventOpen(EV_DISK_YELLOW_ENDED);
 
 	LOGPOS();
-	eventWakeup(EV_DISK_YELLOW);
+	eventSet(evStart);
 	LOGPOS();
 
-	while(!handleWaitForMillis(ev, 2000))
+	while(!handleWaitForMillis(evEnded, 2000))
 	{
 		LOGPOS();
 
-		if(handleWaitForMillis(mtx, 0))
+		if(handleWaitForMillis(mtxServer, 0))
 		{
 			cout("★★★サーバーが動いていない様なので中止します。\n");
-			mutexRelease(mtx);
+			mutexRelease(mtxServer);
 			break;
 		}
 		while(hasKey())
@@ -40,7 +41,8 @@ int main(int argc, char **argv)
 	}
 endLoop:
 	LOGPOS();
-	handleClose(mtx);
-	handleClose(ev);
+	handleClose(mtxServer);
+	handleClose(evStart);
+	handleClose(evEnded);
 	LOGPOS();
 }

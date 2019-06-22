@@ -59,6 +59,10 @@ namespace Charlotte
 
 			portNo = IntTools.Range(portNo, 1, 65535);
 
+			HTTPServerChannel.RequestTimeoutMillis = 30000; // 30 sec
+			HTTPServerChannel.ResponseTimeoutMillis = 30000; // 30 sec
+			//HTTPServerChannel.FirstLineTimeoutMillis = 2000; // 2 sec
+			HTTPServerChannel.IdleTimeoutMillis = 10000; // 10 sec
 			HTTPServerChannel.BodySizeMax = 2000000; // 2 MB
 			HTTPServerChannel.BuffSize = 200000; // 200 KB
 
@@ -69,7 +73,8 @@ namespace Charlotte
 				HTTPServer hs = new HTTPServer()
 				{
 					PortNo = portNo,
-					ConnectMax = 100,
+					//Backlog = 100,
+					//ConnectMax = 30,
 
 					Interlude = () =>
 					{
