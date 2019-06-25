@@ -30,6 +30,10 @@ function @@_SetUI(routine) {
 	@@_SetLater("UI", routine);
 }
 
+/*
+	FreezeCount や Chain により例えば画面遷移を含むイベント処理中に @@_SetUI() されると、画面遷移後に無効な "UI" イベントが処理されてしまうかもしれない。
+	適宜、当関数を呼ぶこと。この辺、考慮不足。
+*/
 function @@_ClearUI() {
 	@@_SetUI(function() { });
 }
@@ -45,8 +49,11 @@ var @@_MainTimer;
 window.onload = function() {
 	@@_MainTimer = setInterval(function() {
 		try {
-			for(var c = 0; c < 1000; c++) {
-if(c == 900) @(LOGPOS) // test
+			for(var c = 1; ; c++) {
+				if(c % 1000 == 0) {
+					@(LOGPOS) // 処理量が多すぎる？
+				}
+
 				if(1 <= @@_FreezeCount) {
 					@@_FreezeCount--;
 					break;

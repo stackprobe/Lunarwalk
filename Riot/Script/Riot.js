@@ -122,7 +122,7 @@ function @@_GetMapKeys(map) { // map: new Map()
 		keys.push(key);
 	});
 
-	Riot_Sort(keys);
+	@@_Sort(keys);
 
 	return keys;
 }

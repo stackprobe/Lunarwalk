@@ -52,7 +52,7 @@ namespace Charlotte.Optimizer.Utils
 					this.Sa.GetNBTokens(index).Skip(0).First().Pattern == "function" &&
 					this.Sa.GetNBTokens(index).Skip(1).First().Kind == ScriptAnalyser.Token.Kind_e.TOKEN && // ? Name
 					this.Sa.GetNBTokens(index).Skip(2).First().Kind == ScriptAnalyser.Token.Kind_e.SYMBOL &&
-					this.Sa.GetNBTokens(index).Skip(2).First().Pattern == "("
+					this.Sa.GetNBTokens(index).Skip(2).First().Pattern.StartsWith("(")
 					)
 				{
 					FunctionInfo function = new FunctionInfo()
@@ -61,6 +61,8 @@ namespace Charlotte.Optimizer.Utils
 						Start = index,
 						End = -1, // dummy
 					};
+
+					//Console.WriteLine("function.Name: " + function.Name); // test
 
 					int nest = -1;
 
