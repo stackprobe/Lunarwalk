@@ -140,7 +140,7 @@ namespace Charlotte
 						""
 						);
 
-					//outHtml = CommonUtils.ToHTMLNewLine(outHtml); // moved
+					outHtml = CommonUtils.ToHTMLNewLine(outHtml);
 
 					File.WriteAllText(Ground.OutHtmlFile, outHtml, Encoding.UTF8);
 

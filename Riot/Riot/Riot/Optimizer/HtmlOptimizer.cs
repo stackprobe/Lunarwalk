@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Charlotte.Tools;
 
 namespace Charlotte.Optimizer
 {
@@ -13,7 +14,7 @@ namespace Charlotte.Optimizer
 
 			scriptPart.ScriptLines = new List<string>(ScriptOptimizer.Perform(scriptPart.ScriptLines.ToArray()));
 
-			string outHtml = scriptPart.GetHtmlText();
+			string outHtml = scriptPart.GetString();
 			outHtml = CommonUtils.ToHTMLNewLine(outHtml);
 			return outHtml;
 		}
@@ -40,7 +41,7 @@ namespace Charlotte.Optimizer
 				}
 			}
 
-			public string GetHtmlText()
+			public string GetString()
 			{
 				List<string> dest = new List<string>();
 
@@ -48,7 +49,7 @@ namespace Charlotte.Optimizer
 				dest.AddRange(this.ScriptLines);
 				dest.AddRange(this.After);
 
-				return string.Join("\n", dest);
+				return FileTools.LinesToText(dest.ToArray());
 			}
 		}
 

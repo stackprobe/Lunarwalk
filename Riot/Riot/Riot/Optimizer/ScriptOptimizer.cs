@@ -13,6 +13,7 @@ namespace Charlotte.Optimizer
 			string code = FileTools.LinesToText(lines);
 
 			code = UnusedFunctionDeleterHelper.Delete(code);
+			code = UnusedVariableDeleterHelper.Delete(code);
 
 			return FileTools.TextToLines(code);
 		}

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Charlotte.Optimizer
 {
-	public class UnusedFunctionDeleter
+	public class UnusedVariableDeleter
 	{
 		public string Code;
 
@@ -20,49 +20,47 @@ namespace Charlotte.Optimizer
 		public void Delete()
 		{
 			this.Sa = new ScriptAnalyser(this.Code);
-			this.CollectFunction();
+			this.CollectVariable();
 
-			foreach (FunctionInfo function in this.Functions)
+			foreach (VariableInfo variable in this.Variables)
 			{
-				if (this.IsUsingFunction(function) == false)
+				if (this.IsUsingVariable(variable) == false)
 				{
-					this.DeleteFunction(function);
+					this.DeleteFunction(variable);
 					this.DeleteCount++;
 				}
 			}
 			this.Code = this.Sa.GetString();
 		}
 
-		private class FunctionInfo
+		private class VariableInfo
 		{
 			public string Name;
 			public int Start;
 			public int End;
 		};
 
-		private List<FunctionInfo> Functions = new List<FunctionInfo>();
+		private List<VariableInfo> Variables = new List<VariableInfo>();
 
-		public void CollectFunction()
+		public void CollectVariable()
 		{
 			for (int index = 0; index < this.Sa.Tokens.Count; index++)
 			{
 				if (
-					this.Is行頭(index) && // 行頭から function ～ と始まっている。-> グローバル関数と見なす。
+					this.Is行頭(index) && // 行頭から var ～ と始まっている。-> グローバル変数と見なす。
 					this.Sa.GetNBTokens(index).Skip(0).First().Kind == ScriptAnalyser.Token.Kind_e.TOKEN &&
-					this.Sa.GetNBTokens(index).Skip(0).First().Pattern == "function" &&
-					this.Sa.GetNBTokens(index).Skip(1).First().Kind == ScriptAnalyser.Token.Kind_e.TOKEN && // ? Name
-					this.Sa.GetNBTokens(index).Skip(2).First().Kind == ScriptAnalyser.Token.Kind_e.SYMBOL &&
-					this.Sa.GetNBTokens(index).Skip(2).First().Pattern == "("
+					this.Sa.GetNBTokens(index).Skip(0).First().Pattern == "var" &&
+					this.Sa.GetNBTokens(index).Skip(1).First().Kind == ScriptAnalyser.Token.Kind_e.TOKEN // ? Name
 					)
 				{
-					FunctionInfo function = new FunctionInfo()
+					VariableInfo variable = new VariableInfo()
 					{
 						Name = this.Sa.GetNBTokens(index).Skip(1).First().Pattern,
 						Start = index,
 						End = -1, // dummy
 					};
 
-					int nest = -1;
+					int nest = 0;
 
 					for (; ; index++)
 					{
@@ -70,29 +68,27 @@ namespace Charlotte.Optimizer
 						{
 							foreach (char chr in this.Sa.Tokens[index].Pattern)
 							{
+								if (chr == ';')
+								{
+									goto reachedVariableEnd;
+								}
 								if (chr == '{')
 								{
-									if (nest == -1)
-										nest = 1;
-									else
-										nest++;
+									nest++;
 								}
 								else if (chr == '}')
 								{
-									if (nest == -1)
-										throw new Exception("関数の '{' の前に '}' を読み込みました。");
-
 									nest--;
 
-									if (nest == 0)
-										goto reachedFunctionEnd;
+									if (nest < 0)
+										throw new Exception("関数又は連想配列の '{' の前に '}' を読み込みました。");
 								}
 							}
 						}
 					}
-				reachedFunctionEnd:
-					function.End = index;
-					this.Functions.Add(function);
+				reachedVariableEnd:
+					variable.End = index;
+					this.Variables.Add(variable);
 				}
 			}
 		}
@@ -107,28 +103,28 @@ namespace Charlotte.Optimizer
 				this.Sa.Tokens[index - 1].Pattern.EndsWith("\n");
 		}
 
-		private bool IsUsingFunction(FunctionInfo function)
+		private bool IsUsingVariable(VariableInfo variable)
 		{
 			for (int index = 0; index < this.Sa.Tokens.Count; index++)
 			{
-				if (index == function.Start)
+				if (index == variable.Start)
 				{
-					index = function.End;
+					index = variable.End;
 					continue;
 				}
 
 				if (
 					this.Sa.Tokens[index].Kind == ScriptAnalyser.Token.Kind_e.TOKEN &&
-					this.Sa.Tokens[index].Pattern == function.Name
+					this.Sa.Tokens[index].Pattern == variable.Name
 					)
 					return true;
 			}
 			return false;
 		}
 
-		private void DeleteFunction(FunctionInfo function)
+		private void DeleteFunction(VariableInfo variable)
 		{
-			for (int index = function.Start; index <= function.End; index++)
+			for (int index = variable.Start; index <= variable.End; index++)
 			{
 				this.Sa.Tokens[index].Kind = ScriptAnalyser.Token.Kind_e.BLANK;
 				this.Sa.Tokens[index].Pattern = "";
