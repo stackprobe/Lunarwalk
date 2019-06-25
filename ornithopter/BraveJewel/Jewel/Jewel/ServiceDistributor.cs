@@ -12,7 +12,8 @@ namespace Charlotte
 
 		public ServiceDistributor()
 		{
-			this.Add("/uploader", new Services.Uploader.UploaderService());
+			this.Add("/sample/echo", new Services.Sample.Echo.Service());
+			this.Add("/sample/uploader", new Services.Sample.Uploader.Service());
 
 			// ここへ追加...
 		}

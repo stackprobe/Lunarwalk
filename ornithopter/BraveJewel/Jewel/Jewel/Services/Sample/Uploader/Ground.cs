@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Charlotte.Services.Uploader
+namespace Charlotte.Services.Sample.Uploader
 {
 	public class Ground
 	{

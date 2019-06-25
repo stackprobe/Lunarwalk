@@ -53,14 +53,21 @@ namespace Charlotte
 		private void Main3(ArgsReader ar)
 		{
 			int portNo = 80;
+			string docRootDir = @"..\..\..\..\..\home";
 
 			if (ar.HasArgs())
 				portNo = int.Parse(ar.NextArg());
 
+			if (ar.HasArgs())
+				docRootDir = ar.NextArg();
+
 			portNo = IntTools.Range(portNo, 1, 65535);
 
+			DocRoot docRoot = new DocRoot(docRootDir);
+			MIMEType mimeType = new MIMEType();
+
 			HTTPServerChannel.RequestTimeoutMillis = 30000; // 30 sec
-			HTTPServerChannel.ResponseTimeoutMillis = 30000; // 30 sec
+			HTTPServerChannel.ResponseTimeoutMillis = 30000; // 30 sec // 巨大なファイルは応答しない前提
 			//HTTPServerChannel.FirstLineTimeoutMillis = 2000; // 2 sec
 			HTTPServerChannel.IdleTimeoutMillis = 10000; // 10 sec
 			HTTPServerChannel.BodySizeMax = 2000000; // 2 MB
@@ -100,17 +107,43 @@ namespace Charlotte
 
 					HTTPConnected = channel =>
 					{
+						string method = channel.Method;
 						string path = channel.Path;
 						int queryIndex = path.IndexOf('?');
 
 						if (queryIndex != -1)
 							path = path.Substring(0, queryIndex);
 
+						ProcMain.WriteLog("method: " + method);
 						ProcMain.WriteLog("path: " + path);
 
-						IService service = RootGround.I.ServiceDistributor.GetService(path);
+						if (method == "GET")
+						{
+							path = DocRootUtils.URLPathToRelPath(path);
 
-						service.Perform(channel);
+							if (docRoot.IsPublishedFile(path))
+							{
+								string file = Path.Combine(docRootDir, path);
+
+								channel.ResBody_B = File.ReadAllBytes(file); // 巨大なファイルは存在しない前提
+								channel.ResContentType = mimeType.FileToContentType(file);
+							}
+							else
+							{
+								channel.ResBody_B = Encoding.ASCII.GetBytes("404");
+								channel.ResContentType = "text/plain; charset=US-ASCII";
+							}
+						}
+						else if (method == "POST")
+						{
+							IService service = RootGround.I.ServiceDistributor.GetService(path);
+
+							service.Perform(channel);
+						}
+						else
+						{
+							throw new Exception("不明なメソッド");
+						}
 					},
 				};
 

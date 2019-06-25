@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using Charlotte.Tools;
 
-namespace Charlotte.Services.Uploader
+namespace Charlotte.Services.Sample.Uploader
 {
-	public class UploaderService : IService
+	public class Service : IService
 	{
 		public void Perform(HTTPServerChannel channel)
 		{
