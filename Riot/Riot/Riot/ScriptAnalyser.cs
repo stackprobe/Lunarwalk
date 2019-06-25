@@ -63,6 +63,8 @@ namespace Charlotte
 					if (ndx == -1)
 						throw new Exception("/* ～ */ 型のコメントが閉じられていません。");
 
+					ndx += 2; // */の分
+
 					this.Tokens.Add(new Token()
 					{
 						Kind = Token.Kind_e.COMMENT,

@@ -13,6 +13,8 @@ namespace Charlotte
 		public static string ResourceDir;
 		public static string OutDir;
 		public static string OutHtmlFile;
+		public static string OutHtmlFile2;
+		public static string OutHtmlFile3;
 		public static string OutTestMainHtmlFileBase;
 
 		public static string[] ComponentAndScriptDirs;

@@ -3,25 +3,25 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Charlotte.Optimizer
+namespace Charlotte.Optimizer.Utils
 {
-	public class UnusedVariableDeleterHelper
+	public class UnusedFunctionDeleterUtils
 	{
 		public static string Delete(string code)
 		{
 			for (; ; )
 			{
-				UnusedVariableDeleter uvd = new UnusedVariableDeleter()
+				UnusedFunctionDeleter ufd = new UnusedFunctionDeleter()
 				{
 					Code = code,
 				};
 
-				uvd.Delete();
+				ufd.Delete();
 
-				if (uvd.DeleteCount == 0)
+				if (ufd.DeleteCount == 0)
 					break;
 
-				code = uvd.Code;
+				code = ufd.Code;
 			}
 			return code;
 		}

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Charlotte.Services.Sample.Echo
+namespace Charlotte.Services.TestService.Echo
 {
 	public class Consts
 	{

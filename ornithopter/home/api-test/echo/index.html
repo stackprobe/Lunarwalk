@@ -10,7 +10,7 @@ window.onload = function() {
 			if(xhr.status == 200) {
 				var ret = JSON.parse(xhr.responseText);
 
-				GetRoot().innerText = ret[0];
+				GetRoot().innerText = ret.join(", ");
 			}
 			else {
 				GetRoot().innerText = xhr.status;
@@ -18,10 +18,12 @@ window.onload = function() {
 		}
 	};
 
-	xhr.open("POST", "/sample/echo");
+	xhr.open("POST", "/api-test/echo");
 	xhr.setRequestHeader("Content-Type", "application/json");
 	xhr.send(JSON.stringify([
-		"User-Agent=" + navigator.userAgent,
+		"test test test",
+		"Date ->  -> " + new Date(),
+		"User-Agent -> " + navigator.userAgent,
 	]));
 }
 

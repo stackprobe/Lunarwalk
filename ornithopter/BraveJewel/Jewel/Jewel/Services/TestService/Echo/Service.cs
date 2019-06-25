@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using Charlotte.Tools;
 
-namespace Charlotte.Services.Sample.Echo
+namespace Charlotte.Services.TestService.Echo
 {
 	public class Service : IService
 	{

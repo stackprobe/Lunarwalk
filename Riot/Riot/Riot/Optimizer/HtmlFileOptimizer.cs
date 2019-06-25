@@ -8,13 +8,13 @@ namespace Charlotte.Optimizer
 {
 	public class HtmlFileOptimizer
 	{
-		public static void Perform(string file)
+		public static void Perform(string rFile, string wFile)
 		{
-			string[] lines = File.ReadAllLines(file, Encoding.UTF8);
+			string[] lines = File.ReadAllLines(rFile, Encoding.UTF8);
 
 			string outHtml = HtmlOptimizer.Perform(lines);
 
-			File.WriteAllText(file, outHtml, Encoding.UTF8);
+			File.WriteAllText(wFile, outHtml, Encoding.UTF8);
 		}
 	}
 }
