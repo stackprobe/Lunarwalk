@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Charlotte.Tools;
 
 namespace Charlotte.Optimizer.Utils
 {
@@ -50,6 +51,11 @@ namespace Charlotte.Optimizer.Utils
 						if (mltLf)
 							ptn = "\n" + ptn;
 
+						sa.Tokens[index].Pattern = ptn;
+					}
+					else if (StringTools.LiteValidate(ptn, " ", 2))
+					{
+						ptn = " ";
 						sa.Tokens[index].Pattern = ptn;
 					}
 				}

@@ -52,7 +52,7 @@ if(c == 900) @(LOGPOS) // test
 					break;
 				}
 
-				if(1 <= @@_Chain_Queue.length) {
+				if(@@_Chain_IsBusy()) {
 					break;
 				}
 

@@ -1,5 +1,9 @@
 var @@_Queue = [];
 
+function @@_IsBusy() {
+	return 1 <= @@_Queue.length;
+}
+
 function @@_Next() {
 	if(1 <= @@_Queue.length) {
 		@@_Queue.shift()(@@_Next);
