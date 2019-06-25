@@ -9,6 +9,14 @@ namespace Charlotte.Optimizer.Utils
 	{
 		public static string Slim(string code)
 		{
+			code = DeleteComment(code);
+			code = DeleteBlank(code);
+
+			return code;
+		}
+
+		private static string DeleteComment(string code)
+		{
 			ScriptAnalyser sa = new ScriptAnalyser(code);
 
 			for (int index = 0; index < sa.Tokens.Count; index++)
@@ -19,7 +27,12 @@ namespace Charlotte.Optimizer.Utils
 					sa.Tokens[index].Pattern = "";
 				}
 			}
-			sa = new ScriptAnalyser(sa.GetString());
+			return sa.GetString();
+		}
+
+		private static string DeleteBlank(string code)
+		{
+			ScriptAnalyser sa = new ScriptAnalyser(code);
 
 			for (int index = 0; index < sa.Tokens.Count; index++)
 			{

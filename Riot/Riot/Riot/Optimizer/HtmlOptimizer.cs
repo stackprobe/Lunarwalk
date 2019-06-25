@@ -12,7 +12,7 @@ namespace Charlotte.Optimizer
 		{
 			ScriptPart scriptPart = new ScriptPart(lines);
 
-			scriptPart.ScriptLines = new List<string>(ScriptOptimizer.Perform(scriptPart.ScriptLines.ToArray()));
+			scriptPart.ScriptLines = new List<string>(ScriptOptimizer.Routine(scriptPart.ScriptLines.ToArray()));
 
 			string outHtml = scriptPart.GetString();
 			outHtml = CommonUtils.ToHTMLNewLine(outHtml);

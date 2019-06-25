@@ -9,7 +9,9 @@ namespace Charlotte.Optimizer
 {
 	public class ScriptOptimizer
 	{
-		public static Func<string[], string[]> Perform = null;
+		public delegate string[] Routine_d(string[] lines);
+
+		public static Routine_d Routine = null;
 
 		public static string[] Slim(string[] lines)
 		{
@@ -20,15 +22,6 @@ namespace Charlotte.Optimizer
 			code = SlimCode.Slim(code);
 
 			return FileTools.TextToLines(code);
-		}
-
-		public static string[] Mask(string[] lines)
-		{
-			string code = FileTools.LinesToText(lines);
-
-			code = MaskCode.Mask(code);
-
-			return new string[] { "", code, "" };
 		}
 	}
 }

@@ -63,7 +63,6 @@
     <Compile Include="Ground.cs" />
     <Compile Include="Optimizer\HtmlOptimizer.cs" />
     <Compile Include="Optimizer\ScriptOptimizer.cs" />
-    <Compile Include="Optimizer\Utils\MaskCode.cs" />
     <Compile Include="Optimizer\Utils\SlimCode.cs" />
     <Compile Include="Optimizer\Utils\UnusedVariableDeleter.cs" />
     <Compile Include="Optimizer\Utils\UnusedVariableDeleterUtils.cs" />

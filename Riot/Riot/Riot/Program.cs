@@ -64,16 +64,14 @@ namespace Charlotte
 			Ground.ResourceDir = Path.Combine(Ground.RootDir, "res");
 			Ground.OutDir = Path.Combine(Ground.RootDir, "out");
 			Ground.OutHtmlFile = Path.Combine(Ground.OutDir, "index.html");
-			Ground.OutHtmlFile2 = Path.Combine(Ground.OutDir, "index.html.02.html");
-			Ground.OutHtmlFile3 = Path.Combine(Ground.OutDir, "index.html.03.html");
+			Ground.OutHtmlFile_Slimmed = Path.Combine(Ground.OutDir, "index.html.slimmed.html");
 			Ground.OutTestMainHtmlFileBase = Path.Combine(Ground.OutDir, "index_");
 
 			Console.WriteLine("ComponentAndScriptConfigFile: " + Ground.FileAndDirectoryConfigFile);
 			Console.WriteLine("ResourceDir: " + Ground.ResourceDir);
 			Console.WriteLine("OutDir: " + Ground.OutDir);
 			Console.WriteLine("OutHtmlFile: " + Ground.OutHtmlFile);
-			Console.WriteLine("OutHtmlFile2: " + Ground.OutHtmlFile2);
-			Console.WriteLine("OutHtmlFile3: " + Ground.OutHtmlFile3);
+			Console.WriteLine("OutHtmlFile_Slimmed: " + Ground.OutHtmlFile_Slimmed);
 			Console.WriteLine("OutTestMainHtmlFileBase: " + Ground.OutTestMainHtmlFileBase);
 
 			// ---- check ----
@@ -147,15 +145,9 @@ namespace Charlotte
 					outHtml = CommonUtils.ToHTMLNewLine(outHtml);
 
 					File.WriteAllText(Ground.OutHtmlFile, outHtml, Encoding.UTF8);
-
-					ScriptOptimizer.Perform = ScriptOptimizer.Slim;
-					HtmlFileOptimizer.Perform(Ground.OutHtmlFile, Ground.OutHtmlFile2);
-					ScriptOptimizer.Perform = null;
-
-					ScriptOptimizer.Perform = ScriptOptimizer.Mask;
-					HtmlFileOptimizer.Perform(Ground.OutHtmlFile2, Ground.OutHtmlFile3);
-					ScriptOptimizer.Perform = null;
 				}
+
+				HtmlFileOptimizer.Perform(Ground.OutHtmlFile, Ground.OutHtmlFile_Slimmed, ScriptOptimizer.Slim);
 
 				foreach (ScriptFile scriptFile in Ground.ScriptManager.GetTestMainScriptFiles())
 				{
