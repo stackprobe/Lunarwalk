@@ -171,7 +171,7 @@ namespace Charlotte
 
 		public static string Unq()
 		{
-			return "CoUnq" + ++UnqCount;
+			return "CoUnq" + ++UnqCount + "D";
 		}
 
 		private static string ResolveMacro(string code)

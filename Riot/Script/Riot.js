@@ -1,4 +1,6 @@
 function @@_PostCreateElement(coName, tag, loaded, shown, refresh, destroy) {
+	Riot_Refresh_RunSlim();
+
 	var tagId = tag.id;
 
 	Riot_Event_Add(function() {
@@ -49,12 +51,15 @@ function @@_Get(id) { // id: "BODY" == Body —v‘f
 
 function @@_Remove(t) {
 	t.parentNode.removeChild(t);
+
+	Riot_Refresh_Slim();
 }
 
 function @@_Cleanup(t) {
 	while(t.firstChild) {
 		t.removeChild(t.firstChild);
 	}
+	Riot_Refresh_Slim();
 }
 
 function @@_Set(id, t) {
@@ -77,6 +82,8 @@ function @@_FloatEnd() {
 }
 
 function @@_Append(id, t) {
+	Riot_Refresh_RunSlim();
+
 	@@_Get(id).appendChild(t);
 
 	if(@@_FloatMode == 0) {
@@ -112,7 +119,7 @@ function @@_SetFloatEnd(tag) {
 var @@_UnqCount = 0;
 
 function @@_Unq() {
-	return "DyUnq" + ++@@_UnqCount;
+	return "DyUnq" + ++@@_UnqCount + "D";
 }
 
 function @@_GetMapKeys(map) { // map: new Map()

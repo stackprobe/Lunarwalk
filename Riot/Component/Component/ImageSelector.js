@@ -1,6 +1,8 @@
 function @@_Loaded(coName) {
 	Riot_Store.set(coName, {
 		Image: "",
+		ImageMemory: null,
+		EvLeave: Riot_Unq(),
 	});
 }
 
@@ -14,6 +16,10 @@ function @@_Refresh(coName) {
 }
 
 function @@_Destroy(coName) {
+	var store = Riot_Store.get(coName);
+
+	Riot_Event_Set(store.EvLeave, function() {});
+
 	Riot_Store.delete(coName);
 }
 
@@ -27,6 +33,8 @@ function @@_Append(coName, tag) {
 
 function @@_Changed(coName) {
 	var store = Riot_Store.get(coName);
+
+	store.ImageMemory = null;
 
 	if(store.Image == "") {
 		var tag = Riot_Get(coName + "_SelectedImage");
@@ -49,6 +57,7 @@ function @@_Changed(coName) {
 			};
 
 			img.onerror = function(e) {
+				@(LOGPOS)
 				erred = true;
 				next();
 			}
@@ -121,6 +130,7 @@ function @@_PutFiles(coName, files) {
 			};
 
 			reader.onerror = function(e) {
+				@(LOGPOS)
 				ev = null;
 				next();
 			}
@@ -148,12 +158,53 @@ function @@_ImageOnDrop(coName, event) {
 }
 
 function @@_ImageOnEnter(coName, event) {
+	var store = Riot_Store.get(coName);
+
 	event.stopPropagation();
 	event.preventDefault();
+
+	if(store.ImageMemory == null) {
+		var tag = Riot_Get(coName + "_SelectedImage");
+
+		store.ImageMemory = {
+			src:    tag.src,
+			left:   tag.style.left,
+			top:    tag.style.top,
+			width:  tag.style.width,
+			height: tag.style.height,
+		};
+
+		tag.src          = "@(GLOBAL)_@@_DragItHere.png";
+		tag.style.left   = "0px";
+		tag.style.top    = "0px";
+		tag.style.width  = @(@@_IMAGE_AREA_W) + "px";
+		tag.style.height = @(@@_IMAGE_AREA_H) + "px";
+	}
+
+	Riot_Event_Set(store.EvLeave, function() {});
 }
 
 function @@_ImageOnLeave(coName, event) {
-	// noop
+	var store = Riot_Store.get(coName);
+
+	Riot_Event_Freeze(1);
+	Riot_Event_Set(store.EvLeave, function() { @@_DragLeaveDelay(coName); });
+}
+
+function @@_DragLeaveDelay(coName) {
+	var store = Riot_Store.get(coName);
+
+	if(store.ImageMemory != null) {
+		var tag = Riot_Get(coName + "_SelectedImage");
+
+		tag.src          = store.ImageMemory.src;
+		tag.style.left   = store.ImageMemory.left;
+		tag.style.top    = store.ImageMemory.top;
+		tag.style.width  = store.ImageMemory.width;
+		tag.style.height = store.ImageMemory.height;
+
+		store.ImageMemory = null;
+	}
 }
 
 function @@_FileSelected(coName) {

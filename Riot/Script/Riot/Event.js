@@ -30,6 +30,28 @@ function @@_SetUI(routine) {
 	@@_SetLater("UI", routine);
 }
 
+function @@_Run(hash) {
+	@@_RunByHashed(hash, @@_Hashed);
+}
+
+function @@_RunLater(hash) {
+	@@_RunByHashed(hash, @@_HashedLater);
+}
+
+function @@_RunUI(hash) {
+	@@_RunLater("UI");
+}
+
+function @@_RunByHashed(hash, m) {
+	if(m.has(hash)) {
+		var routine = m.get(hash);
+
+		m.delete(hash);
+
+		routine();
+	}
+}
+
 /*
 	FreezeCount や Chain により例えば画面遷移を含むイベント処理中に @@_SetUI() されると、画面遷移後に無効な "UI" イベントが処理されてしまうかもしれない。
 	適宜、当関数を呼ぶこと。この辺、考慮不足。
