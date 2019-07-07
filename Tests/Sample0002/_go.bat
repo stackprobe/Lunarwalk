@@ -1,1 +1,1 @@
-..\..\Riot\Riot\Riot\bin\Release\Riot.exe .
+..\..\Riot\Riot\Riot\bin\Release\Riot.exe /-D .

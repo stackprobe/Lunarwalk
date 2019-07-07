@@ -1,0 +1,24 @@
+div Root
+	/Component_TextBox V1
+
+	/!Riot_WB();
+
+	/Component_ComboBox Operation
+		/.AddItem "ADD", "Å{"
+		/.AddItem "SUB", "Å|"
+		/.AddItem "MUL", "Å~"
+		/.AddItem "DIV", "ÅÄ"
+
+	/!Riot_WB();
+
+	/Component_TextBox V2
+
+	/!Riot_WB();
+
+	/Component_Button X
+		/.SetText "ÅÅ"
+		/.SetAction function() { @@_DoCalc(coName); }
+
+	/!Riot_WB();
+
+	/Component_TextBox Answer

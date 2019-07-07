@@ -49,6 +49,11 @@ namespace Charlotte
 
 		private void Main3(ArgsReader ar)
 		{
+			bool noOpenOutput = ar.ArgIs("/-D");
+
+			if (ar.HasArgs(2))
+				throw new Exception("不明なコマンド引数");
+
 			if (ar.HasArgs())
 			{
 				Ground.RootDir = FileTools.MakeFullPath(ar.NextArg());
@@ -172,7 +177,8 @@ namespace Charlotte
 					File.WriteAllText(Ground.OutTestMainHtmlFileBase + scriptFile.CoName + Consts.OUT_TEST_MAIN_HTML_SUFFIX, outHtml, Encoding.UTF8);
 				}
 
-				OpenOutput();
+				if (noOpenOutput == false)
+					OpenOutput();
 
 				HtmlFileOptimizer.Perform(
 					Ground.OutHtmlFile,

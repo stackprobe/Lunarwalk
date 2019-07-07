@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Charlotte.Tools;
+using Charlotte.StarBeat;
 
 namespace Charlotte.Tests.StarBeat
 {
@@ -9,7 +11,12 @@ namespace Charlotte.Tests.StarBeat
 	{
 		public void Test01()
 		{
-			// TODO
+			new Server().Main(new ArgsReader(new string[]
+			{
+				"" + 80,
+				@"..\..\..\..\Test01\DocRoot",
+			}
+			));
 		}
 	}
 }

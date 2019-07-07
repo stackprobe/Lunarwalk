@@ -7,6 +7,6 @@ namespace Charlotte.StarBeat
 {
 	public interface IService
 	{
-		object Perform(HTTPRequest request, ref string targetFile);
+		object Perform(HTTPRequest hr, ref string targetFile);
 	}
 }

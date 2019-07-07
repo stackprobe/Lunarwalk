@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using Charlotte.Tools;
 using System.IO;
+using Charlotte.StarBeat.Utils;
+using System.Reflection;
 
 namespace Charlotte.StarBeat
 {
@@ -52,8 +54,22 @@ namespace Charlotte.StarBeat
 					hr.Method = JString.ToJString(channel.Method, false, false, false, false); // 正規化
 					hr.URLPath = JString.ToJString(channel.Path, true, false, false, true); // 正規化
 
+					// todo ??? ParsePathQuery より前に DecodeURL しているのでクエリに '?', '&', '=' を使えない？？？
+
 					ParsePathQuery(hr);
 
+					// 特別な処理：アスタリスクの直前までをパスと見なす。
+					{
+						int i = hr.Path.IndexOf('*');
+
+						if (i != -1)
+							hr.Path = hr.Path.Substring(0, i);
+					}
+
+					if (hr.Path[hr.Path.Length - 1] == '/')
+						hr.Path += "index.html";
+
+					hr.Path = CommonUtils.GetFairRelPath(hr.Path);
 					hr.HTTP_Version = JString.ToJString(channel.HTTPVersion, false, false, false, false); // 正規化
 
 					foreach (string[] headerPair in channel.HeaderPairs)
@@ -80,7 +96,7 @@ namespace Charlotte.StarBeat
 						throw new Exception("不明なメソッド");
 					}
 
-					// TODO 301 対応 ???
+					// todo ??? フォルダの場合の 301 対応
 
 					string targetFile = docRoot.GetRootDirs().Select(v => Path.Combine(v, hr.Path)).FirstOrDefault(v => File.Exists(v));
 
@@ -93,7 +109,7 @@ namespace Charlotte.StarBeat
 						if (StringTools.EndsWithIgnoreCase(targetFile, ".alt.txt"))
 						{
 							string intervateClassName = File.ReadAllLines(targetFile, Encoding.ASCII)[0];
-							Type intervateClass = Type.GetType(intervateClassName);
+							Type intervateClass = Type.GetType(intervateClassName + "," + Assembly.GetEntryAssembly().GetName().Name);
 							ReflectTools.MethodUnit intervateCtor = ReflectTools.GetConstructor(intervateClass);
 							IService service = (IService)intervateCtor.Construct(new object[0]);
 

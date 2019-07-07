@@ -1,3 +1,3 @@
 function @@() {
-	Riot_Append("BODY", Login_Login_CreateElement("@(GLOBAL)_root"));
+	Riot_Append("BODY", Calc_Calc_CreateElement("@(GLOBAL)_root"));
 }

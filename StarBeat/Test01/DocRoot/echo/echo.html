@@ -1,0 +1,24 @@
+<script>
+
+{
+	var xhr = new XMLHttpRequest();
+
+	xhr.onreadystatechange = function() {
+		if(xhr.readyState == 4) {
+			if(xhr.status == 200) {
+				document.body.innerText = JSON.stringify(
+					JSON.parse(xhr.responseText)
+					);
+			}
+		}
+	};
+
+	xhr.open("POST", "echo.alt.txt");
+	xhr.send(JSON.stringify([
+		"aaaa1111",
+		"bbbb2222",
+		"cccc3333",
+	]));
+}
+
+</script>

@@ -1,5 +1,0 @@
-Box
-	width
-		@(@@_WIDTH)px
-
-Content
