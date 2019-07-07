@@ -64,18 +64,17 @@ namespace Charlotte
 			MIMEType mimeType = new MIMEType();
 
 			HTTPServerChannel.RequestTimeoutMillis = 30000; // 30 sec
-			HTTPServerChannel.ResponseTimeoutMillis = 7 * 86400000; // 7 day
-			HTTPServerChannel.ResponseChunkTimeoutMillis = 30000; // 30 sec
-			//HTTPServerChannel.FirstLineTimeoutMillis = 2000; // 2 sec
-			HTTPServerChannel.IdleTimeoutMillis = 10000; // 10 sec
+			HTTPServerChannel.ResponseTimeoutMillis = 2 * 86400000; // 2 day
+			//HTTPServerChannel.FirstLineTimeoutMillis = 2000; // 2 sec == def
+			HTTPServerChannel.IdleTimeoutMillis = 20000; // 10 sec
 			HTTPServerChannel.BodySizeMax = 2000000; // 2 MB
-			HTTPServerChannel.BuffSize = 200000; // 200 KB
+			HTTPServerChannel.BuffSize = 500000; // 500 KB
 
 			HTTPServer hs = new HTTPServer()
 			{
 				PortNo = portNo,
-				//Backlog = 100,
-				//ConnectMax = 30,
+				//Backlog = 100, // == def
+				//ConnectMax = 30, // == def
 
 				Interlude = () =>
 				{
