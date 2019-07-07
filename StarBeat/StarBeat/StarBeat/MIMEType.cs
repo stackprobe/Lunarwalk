@@ -5,7 +5,7 @@ using System.Text;
 using System.IO;
 using Charlotte.Tools;
 
-namespace Charlotte
+namespace Charlotte.StarBeat
 {
 	public class MIMEType
 	{
