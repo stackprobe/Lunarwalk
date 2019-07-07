@@ -65,7 +65,7 @@ namespace Charlotte
 
 			HTTPServerChannel.RequestTimeoutMillis = 30000; // 30 sec
 			HTTPServerChannel.ResponseTimeoutMillis = 7 * 86400000; // 7 day
-			HTTPServerChannel.ChunkTimeoutMillis = 30000; // 30 sec
+			HTTPServerChannel.ResponseChunkTimeoutMillis = 30000; // 30 sec
 			//HTTPServerChannel.FirstLineTimeoutMillis = 2000; // 2 sec
 			HTTPServerChannel.IdleTimeoutMillis = 10000; // 10 sec
 			HTTPServerChannel.BodySizeMax = 2000000; // 2 MB
@@ -102,7 +102,11 @@ namespace Charlotte
 						{
 							string file = Path.Combine(docRootDir, path);
 
-							channel.ResBody_B = File.ReadAllBytes(file); // 巨大なファイルは存在しない前提
+							if (new FileInfo(file).Length <= 2000000)
+								channel.ResBody_B = File.ReadAllBytes(file);
+							else
+								channel.ResBody = ResponseFileReader(file);
+
 							channel.ResContentType = mimeType.FileToContentType(file);
 						}
 						else
@@ -127,6 +131,33 @@ namespace Charlotte
 			hs.Perform();
 
 			ProcMain.WriteLog("Server Ended");
+		}
+
+		private static IEnumerable<byte[]> ResponseFileReader(string file)
+		{
+			long fileSize = new FileInfo(file).Length;
+			long offset = 0L;
+			byte[] buff = new byte[2000000];
+
+			while (offset < fileSize)
+			{
+				int readSize = (int)Math.Min((long)buff.Length, fileSize - offset);
+
+				if (buff.Length != readSize)
+					buff = new byte[readSize];
+
+				using (FileStream reader = new FileStream(file, FileMode.Open, FileAccess.Read))
+				{
+					if (reader.Seek(offset, SeekOrigin.Begin) != offset)
+						throw new Exception("応答ファイルのシークに失敗しました。");
+
+					if (reader.Read(buff, 0, readSize) != readSize)
+						throw new Exception("応答ファイルの読み込みに失敗しました。");
+				}
+				yield return buff;
+
+				offset += readSize;
+			}
 		}
 	}
 }
