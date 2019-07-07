@@ -31,10 +31,7 @@ namespace Charlotte
 			{
 				Main3(ar);
 
-				// 出力先を開く。
-				{
-					ProcessTools.Batch(new string[] { "start ." }, Ground.OutDir, ProcessTools.WindowStyle_e.INVISIBLE);
-				}
+				//OpenOutput(); // moved
 			}
 			catch (Exception e)
 			{
@@ -43,6 +40,11 @@ namespace Charlotte
 				Console.WriteLine("Press ENTER.");
 				Console.ReadLine();
 			}
+		}
+
+		private void OpenOutput()
+		{
+			ProcessTools.Batch(new string[] { "start ." }, Ground.OutDir, ProcessTools.WindowStyle_e.INVISIBLE);
 		}
 
 		private void Main3(ArgsReader ar)
@@ -64,7 +66,8 @@ namespace Charlotte
 			Ground.ResourceDir = Path.Combine(Ground.RootDir, "res");
 			Ground.OutDir = Path.Combine(Ground.RootDir, "out");
 			Ground.OutHtmlFile = Path.Combine(Ground.OutDir, "index.html");
-			Ground.OutHtmlFile_Slimmed = Path.Combine(Ground.OutDir, "index.html.slimmed.html");
+			Ground.OutHtmlFile_Slimmed = Path.Combine(Ground.OutDir, "slimmed_index.html");
+			Ground.OutHtmlFile_Slimmed_Wrapped = Path.Combine(Ground.OutDir, "slimmed_wrapped_index.html");
 			Ground.OutTestMainHtmlFileBase = Path.Combine(Ground.OutDir, "index_");
 
 			Console.WriteLine("ComponentAndScriptConfigFile: " + Ground.FileAndDirectoryConfigFile);
@@ -147,8 +150,6 @@ namespace Charlotte
 					File.WriteAllText(Ground.OutHtmlFile, outHtml, Encoding.UTF8);
 				}
 
-				HtmlFileOptimizer.Perform(Ground.OutHtmlFile, Ground.OutHtmlFile_Slimmed, ScriptOptimizer.Slim);
-
 				foreach (ScriptFile scriptFile in Ground.ScriptManager.GetTestMainScriptFiles())
 				{
 					string outHtml = outHtmlFormat;
@@ -170,6 +171,20 @@ namespace Charlotte
 
 					File.WriteAllText(Ground.OutTestMainHtmlFileBase + scriptFile.CoName + Consts.OUT_TEST_MAIN_HTML_SUFFIX, outHtml, Encoding.UTF8);
 				}
+
+				OpenOutput();
+
+				HtmlFileOptimizer.Perform(
+					Ground.OutHtmlFile,
+					Ground.OutHtmlFile_Slimmed,
+					ScriptOptimizer.Slim
+					);
+
+				HtmlFileOptimizer.Perform(
+					Ground.OutHtmlFile_Slimmed,
+					Ground.OutHtmlFile_Slimmed_Wrapped,
+					ScriptOptimizer.Wrap
+					);
 			}
 		}
 

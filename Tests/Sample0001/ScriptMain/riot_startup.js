@@ -1,3 +1,3 @@
 function @@() {
-	Riot_Append("BODY", HomePage_CreateElement("@(GLOBAL)_root"));
+	Riot_Append("BODY", RootComponent_CreateElement("@(GLOBAL)_root"));
 }

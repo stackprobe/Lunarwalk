@@ -14,6 +14,7 @@ namespace Charlotte
 		public static string OutDir;
 		public static string OutHtmlFile;
 		public static string OutHtmlFile_Slimmed;
+		public static string OutHtmlFile_Slimmed_Wrapped;
 		public static string OutTestMainHtmlFileBase;
 
 		public static string[] ComponentAndScriptDirs;

@@ -66,6 +66,7 @@
     <Compile Include="Optimizer\Utils\SlimCode.cs" />
     <Compile Include="Optimizer\Utils\UnusedVariableDeleter.cs" />
     <Compile Include="Optimizer\Utils\UnusedVariableDeleterUtils.cs" />
+    <Compile Include="Optimizer\Utils\WrapCode.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ScriptAnalyser.cs" />

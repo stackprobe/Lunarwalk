@@ -23,5 +23,14 @@ namespace Charlotte.Optimizer
 
 			return FileTools.TextToLines(code);
 		}
+
+		public static string[] Wrap(string[] lines)
+		{
+			string code = FileTools.LinesToText(lines);
+
+			code = new WrapCode().Wrap(code);
+
+			return new string[] { "", code, "" };
+		}
 	}
 }
