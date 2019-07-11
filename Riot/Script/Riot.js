@@ -435,6 +435,32 @@ function @@_SortIgnoreCase(lines, comp) {
 	});
 }
 
+function @@_Request(url, prm, reaction) {
+	var xhr = new XMLHttpRequest();
+	var ret;
+
+	Riot_Event_Chain_Add(function(next) {
+		xhr.onreadystatechange = function() {
+			if(xhr.readyState == 4) {
+				if(xhr.status == 200) {
+					ret = JSON.parse(xhr.responseText);
+				}
+				else {
+					ret = null;
+				}
+				next();
+			}
+		};
+	});
+
+	Riot_Event_Chain_Post(function() {
+		reaction(ret);
+	});
+
+	xhr.open("POST", url);
+	xhr.send(JSON.stringify(prm));
+}
+
 function @@_GetAll(tag) {
 	var dest = [ tag ];
 

@@ -27,26 +27,16 @@ function @@_DoCalc(coName) {
 	var operation = Component_ComboBox_GetValue(coName + "_Operation");
 	var v2 = Component_TextBox_GetText(coName + "_V2");
 
-	var xhr = new XMLHttpRequest();
-
-	xhr.onreadystatechange = function() {
-		if(xhr.readyState == 4) {
-			var ans;
-
-			if(xhr.status == 200) {
-				ans = JSON.parse(xhr.responseText);
-			}
-			else {
-				ans = "Error: " + xhr.status;
-			}
-			Component_TextBox_SetText(coName + "_Answer", ans);
-		}
-	};
-
-	xhr.open("POST", "/calc.alt.txt");
-	xhr.send(JSON.stringify([
+	var prm = [
 		v1,
 		operation,
 		v2,
-	]));
+	];
+
+	Riot_Request("/calc.alt.txt", prm, function(ret) {
+		if(ret == null) {
+			ret = "Error";
+		}
+		Component_TextBox_SetText(coName + "_Answer", ret);
+	});
 }
