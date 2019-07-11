@@ -7,56 +7,56 @@ div Root
 		div West
 			div WestTitle
 				@innerText
-					\u3000ƒeƒiƒ“ƒgABC
+					\u3000ãƒ†ãƒŠãƒ³ãƒˆABC
 
-			/@@_WestItem ƒ_ƒbƒVƒ…ƒ{[ƒhMenuItem
+			/@@_WestItem ãƒ€ãƒƒã‚·ãƒ¥ãƒœãƒ¼ãƒ‰MenuItem
 
-				/.SetText "ƒ_ƒbƒVƒ…ƒ{[ƒh"
-				/.SetAction function() { @@_SetContent(coName, @@^_Content_ƒ_ƒbƒVƒ…ƒ{[ƒh_Main_CreateElement(coName + "_" + Riot_Unq())); }
+				/.SetText "ãƒ€ãƒƒã‚·ãƒ¥ãƒœãƒ¼ãƒ‰"
+				/.SetAction function() { @@_SetContent(coName, @@^_Content_ãƒ€ãƒƒã‚·ãƒ¥ãƒœãƒ¼ãƒ‰_Main_CreateElement(coName + "_" + Riot_Unq())); }
 
-			/@@_WestItem ‹L–ŠÇ—MenuItem
+			/@@_WestItem è¨˜äº‹ç®¡ç†MenuItem
 
-				/.SetText "‹L–ŠÇ—"
-				/.SetAction function() { @@_SetContent(coName, @@^_Content_‹L–ŠÇ—_Main_CreateElement(coName + "_" + Riot_Unq())); }
+				/.SetText "è¨˜äº‹ç®¡ç†"
+				/.SetAction function() { @@_SetContent(coName, @@^_Content_è¨˜äº‹ç®¡ç†_Main_CreateElement(coName + "_" + Riot_Unq())); }
 
-			/@@_WestItem –â‚¢‡‚í‚¹ŠÇ—MenuItem
+			/@@_WestItem å•ã„åˆã‚ã›ç®¡ç†MenuItem
 
-				/.SetText "–â‚¢‡‚í‚¹ŠÇ—"
-;				/.SetAction function() { @@_SetContent(coName, @@^_Content_–â‚¢‡‚í‚¹ŠÇ—_Main_CreateElement(coName + "_" + Riot_Unq())); }
+				/.SetText "å•ã„åˆã‚ã›ç®¡ç†"
+;				/.SetAction function() { @@_SetContent(coName, @@^_Content_å•ã„åˆã‚ã›ç®¡ç†_Main_CreateElement(coName + "_" + Riot_Unq())); }
 
-			/@@_WestItem ƒIƒ“ƒ‰ƒCƒ“ƒTƒƒ“MenuItem
+			/@@_WestItem ã‚ªãƒ³ãƒ©ã‚¤ãƒ³ã‚µãƒ­ãƒ³MenuItem
 
-				/.SetText "ƒIƒ“ƒ‰ƒCƒ“ƒTƒƒ“"
-;				/.SetAction function() { @@_SetContent(coName, @@^_Content_ƒIƒ“ƒ‰ƒCƒ“ƒTƒƒ“_Main_CreateElement(coName + "_" + Riot_Unq())); }
+				/.SetText "ã‚ªãƒ³ãƒ©ã‚¤ãƒ³ã‚µãƒ­ãƒ³"
+;				/.SetAction function() { @@_SetContent(coName, @@^_Content_ã‚ªãƒ³ãƒ©ã‚¤ãƒ³ã‚µãƒ­ãƒ³_Main_CreateElement(coName + "_" + Riot_Unq())); }
 
-			/@@_WestItem ’Â—ñƒAƒCƒeƒ€ŠÇ—MenuItem
+			/@@_WestItem é™³åˆ—ã‚¢ã‚¤ãƒ†ãƒ ç®¡ç†MenuItem
 
-				/.SetText "’Â—ñƒAƒCƒeƒ€ŠÇ—"
-;				/.SetAction function() { @@_SetContent(coName, @@^_Content_’Â—ñƒAƒCƒeƒ€ŠÇ—_Main_CreateElement(coName + "_" + Riot_Unq())); }
+				/.SetText "é™³åˆ—ã‚¢ã‚¤ãƒ†ãƒ ç®¡ç†"
+;				/.SetAction function() { @@_SetContent(coName, @@^_Content_é™³åˆ—ã‚¢ã‚¤ãƒ†ãƒ ç®¡ç†_Main_CreateElement(coName + "_" + Riot_Unq())); }
 
-			/@@_WestItem RoomƒAƒCƒeƒ€ŠÇ—MenuItem
+			/@@_WestItem Roomã‚¢ã‚¤ãƒ†ãƒ ç®¡ç†MenuItem
 
-				/.SetText "RoomƒAƒCƒeƒ€ŠÇ—"
-;				/.SetAction function() { @@_SetContent(coName, @@^_Content_RoomƒAƒCƒeƒ€ŠÇ—_Main_CreateElement(coName + "_" + Riot_Unq())); }
+				/.SetText "Roomã‚¢ã‚¤ãƒ†ãƒ ç®¡ç†"
+;				/.SetAction function() { @@_SetContent(coName, @@^_Content_Roomã‚¢ã‚¤ãƒ†ãƒ ç®¡ç†_Main_CreateElement(coName + "_" + Riot_Unq())); }
 
-			/@@_WestItem —˜—pÒŠÇ—MenuItem
+			/@@_WestItem åˆ©ç”¨è€…ç®¡ç†MenuItem
 
-				/.SetText "—˜—pÒŠÇ—(ŠÇ—Ò—p)"
-;				/.SetAction function() { @@_SetContent(coName, @@^_Content_—˜—pÒŠÇ—_Main_CreateElement(coName + "_" + Riot_Unq())); }
+				/.SetText "åˆ©ç”¨è€…ç®¡ç†(ç®¡ç†è€…ç”¨)"
+;				/.SetAction function() { @@_SetContent(coName, @@^_Content_åˆ©ç”¨è€…ç®¡ç†_Main_CreateElement(coName + "_" + Riot_Unq())); }
 
-			/@@_WestItem “X•Üî•ñMenuItem
+			/@@_WestItem åº—èˆ—æƒ…å ±MenuItem
 
-				/.SetText "“X•Üî•ñ(ŠÇ—Ò—p)"
-;				/.SetAction function() { @@_SetContent(coName, @@^_Content_“X•Üî•ñ_Main_CreateElement(coName + "_" + Riot_Unq())); }
+				/.SetText "åº—èˆ—æƒ…å ±(ç®¡ç†è€…ç”¨)"
+;				/.SetAction function() { @@_SetContent(coName, @@^_Content_åº—èˆ—æƒ…å ±_Main_CreateElement(coName + "_" + Riot_Unq())); }
 
-			/@@_WestItem ‰^‰c‚Ö‚Ì–â‡‚¹MenuItem
+			/@@_WestItem é‹å–¶ã¸ã®å•åˆã›MenuItem
 
-				/.SetText "‰^‰c‚Ö‚Ì–â‡‚¹(ŠÇ—Ò—p)"
-;				/.SetAction function() { @@_SetContent(coName, @@^_Content_‰^‰c‚Ö‚Ì–â‡‚¹_Main_CreateElement(coName + "_" + Riot_Unq())); }
+				/.SetText "é‹å–¶ã¸ã®å•åˆã›(ç®¡ç†è€…ç”¨)"
+;				/.SetAction function() { @@_SetContent(coName, @@^_Content_é‹å–¶ã¸ã®å•åˆã›_Main_CreateElement(coName + "_" + Riot_Unq())); }
 
 		div East
 			div EastTitle
 				@innerText
-					\u3000œ / ƒ_ƒbƒVƒ…ƒ{[ƒh (‰¼)
+					\u3000â— / ãƒ€ãƒƒã‚·ãƒ¥ãƒœãƒ¼ãƒ‰ (ä»®)
 
 			div EastContent

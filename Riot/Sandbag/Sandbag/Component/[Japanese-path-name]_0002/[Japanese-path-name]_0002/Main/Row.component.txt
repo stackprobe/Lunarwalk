@@ -5,7 +5,7 @@ div Box
 			/.SetHeight @(@@_ROW_H)
 			/.StickLeft
 
-			/Component_Label ó‹µ
+			/Component_Label çŠ¶æ³
 				/.SetText "----"
 
 		/!Riot_WBW(@(@@_COLUMN_MARGIN));
@@ -15,7 +15,7 @@ div Box
 			/.SetHeight @(@@_ROW_H)
 			/.StickLeft
 
-			/Component_Label –{•¶
+			/Component_Label æœ¬æ–‡
 				/.SetText "----"
 
 		/!Riot_WBW(@(@@_COLUMN_MARGIN));
@@ -25,7 +25,7 @@ div Box
 			/.SetHeight @(@@_ROW_H)
 			/.StickLeft
 
-			/Component_Label ”zM“ú
+			/Component_Label é…ä¿¡æ—¥æ™‚
 				/.SetText "----/--/-- (--) --:--"
 
 		/!Riot_WBW(@(@@_COLUMN_MARGIN));
@@ -35,7 +35,7 @@ div Box
 			/.SetHeight @(@@_ROW_H)
 			/.StickLeft
 
-			/Component_Label I—¹“ú
+			/Component_Label çµ‚äº†æ—¥æ™‚
 				/.SetText "----/--/-- (--) --:--"
 
 		/!Riot_WBW(@(@@_COLUMN_MARGIN));
@@ -44,9 +44,9 @@ div Box
 			/.SetWidth @(@@_COLUMN_04_W)
 			/.SetHeight @(@@_ROW_H)
 
-			/Component_Button •ÒWBtnBox
-				/.SetText "•ÒW"
-				/.SetAction function() { @@_•ÒWPressed(coName); }
+			/Component_Button ç·¨é›†BtnBox
+				/.SetText "ç·¨é›†"
+				/.SetAction function() { @@_ç·¨é›†Pressed(coName); }
 				/.SetHeight 30
 
 	/!Riot_WB();

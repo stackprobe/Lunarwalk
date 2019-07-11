@@ -1,42 +1,42 @@
-ƒRƒ“ƒ|[ƒlƒ“ƒg
-	ƒtƒ@ƒCƒ‹\¬
+ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆ
+	ãƒ•ã‚¡ã‚¤ãƒ«æ§‹æˆ
 		<Name>.component.txt
-			•K{ // Riot.exe ‚Í‚±‚ê‚ðŒŸõ‚·‚éB
+			å¿…é ˆ // Riot.exe ã¯ã“ã‚Œã‚’æ¤œç´¢ã™ã‚‹ã€‚
 
 		<Name>.css.txt
-			•K{
+			å¿…é ˆ
 
 		<Name>.define.txt
-			–³‚­‚Ä‚à—Ç‚¢
+			ç„¡ãã¦ã‚‚è‰¯ã„
 
 		<Name>.js
-			•K{ // –³‚­‚Ä‚à—Ç‚¢‚¯‚Ç•K{ƒƒ\ƒbƒh‚ð‹Lq‚·‚éêŠ‚Æ‚µ‚ÄA
+			å¿…é ˆ // ç„¡ãã¦ã‚‚è‰¯ã„ã‘ã©å¿…é ˆãƒ¡ã‚½ãƒƒãƒ‰ã‚’è¨˜è¿°ã™ã‚‹å ´æ‰€ã¨ã—ã¦ã€
 
 		<Name>.test.js
-			–³‚­‚Ä‚à—Ç‚¢
+			ç„¡ãã¦ã‚‚è‰¯ã„
 
-	•K{ƒƒ\ƒbƒh
+	å¿…é ˆãƒ¡ã‚½ãƒƒãƒ‰
 		function @@_Loaded(coName) {}
-			ƒRƒ“ƒ|[ƒlƒ“ƒg¶¬Žž‚ÉŒÄ‚Î‚ê‚éBæ‚É
+			ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆç”Ÿæˆæ™‚ã«å‘¼ã°ã‚Œã‚‹ã€‚å…ˆã«
 
 		function @@_Shown(coName) {}
-			ƒRƒ“ƒ|[ƒlƒ“ƒg¶¬Žž‚ÉŒÄ‚Î‚ê‚éBŒã‚É
+			ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆç”Ÿæˆæ™‚ã«å‘¼ã°ã‚Œã‚‹ã€‚å¾Œã«
 
 		function @@_Refresh(coName) {}
-			Riot_Refresh_Fire ‚©‚çŒÄ‚Î‚ê‚éB
+			Riot_Refresh_Fire ã‹ã‚‰å‘¼ã°ã‚Œã‚‹ã€‚
 
 		function @@_Destroy(coName) {}
-			ƒRƒ“ƒ|[ƒlƒ“ƒg‚ªDOM‚©‚çíœ‚³‚ê‚½Œã
+			ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆãŒDOMã‹ã‚‰å‰Šé™¤ã•ã‚ŒãŸå¾Œ
 
 		function @@_GetRoot(coName) {}
-			ƒRƒ“ƒ|[ƒlƒ“ƒg‚Ìƒ‹[ƒgƒ^ƒO‚ð•Ô‚·B
+			ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆã®ãƒ«ãƒ¼ãƒˆã‚¿ã‚°ã‚’è¿”ã™ã€‚
 
 		function @@_Append(coName, tag) {}
-			‚±‚ÌƒRƒ“ƒ|[ƒlƒ“ƒg‚ÉŽqƒRƒ“ƒ|[ƒlƒ“ƒg‚ð’Ç‰Á‚·‚éB// ’Ç‰Áo—ˆ‚È‚¢ê‡‚Í Riot_Never(); ‚È‚ÇŽÀ‘•‚µ‚Ä‚¨‚­B
+			ã“ã®ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆã«å­ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆã‚’è¿½åŠ ã™ã‚‹ã€‚// è¿½åŠ å‡ºæ¥ãªã„å ´åˆã¯ Riot_Never(); ãªã©å®Ÿè£…ã—ã¦ãŠãã€‚
 
-	Ž©“®¶¬ƒƒ\ƒbƒh
+	è‡ªå‹•ç”Ÿæˆãƒ¡ã‚½ãƒƒãƒ‰
 		function @@_CreateElement(coName) {}
-			ƒRƒ“ƒ|[ƒlƒ“ƒg‚ð¶¬‚·‚éB
+			ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆã‚’ç”Ÿæˆã™ã‚‹ã€‚
 
 		function @@_GetElements(coName) {}
-			‚±‚ÌƒRƒ“ƒ|[ƒlƒ“ƒg”z‰º‚ÌƒRƒ“ƒ|[ƒlƒ“ƒg‚Ì coName ‚É‚Â‚¢‚ÄAŽÀÛ‚Ì coName ‚ÌƒŠƒXƒg‚ð•Ô‚·B
+			ã“ã®ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆé…ä¸‹ã®ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆã® coName ã«ã¤ã„ã¦ã€å®Ÿéš›ã® coName ã®ãƒªã‚¹ãƒˆã‚’è¿”ã™ã€‚

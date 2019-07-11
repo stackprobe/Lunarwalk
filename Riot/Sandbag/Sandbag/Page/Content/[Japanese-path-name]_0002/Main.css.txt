@@ -1,16 +1,16 @@
 Main
 
-‚¨’m‚ç‚¹Box
+ãŠçŸ¥ã‚‰ã›Box
 	background-color
 		#eee
 	padding
 		20px
 
-ƒAƒNƒZƒX”“™Title
+ã‚¢ã‚¯ã‚»ã‚¹æ•°ç­‰Title
 	width
 		300px
 
-‰¼ƒOƒ‰ƒt2Box
+ä»®ã‚°ãƒ©ãƒ•2Box
 	width
 		300px
 	height

@@ -80,7 +80,7 @@ EditArea
 	overflow
 		scroll
 	font
-		normal 16px "ü‡ÉSÉVÉbÉN"
+		normal 16px "Ê∏∏„Ç¥„Ç∑„ÉÉ„ÇØ"
 
 EditArea:focus
 	outline

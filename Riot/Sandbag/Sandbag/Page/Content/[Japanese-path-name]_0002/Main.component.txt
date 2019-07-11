@@ -3,16 +3,16 @@ div Main
 
 	div X
 		@innerText
-			uƒVƒ‡ƒbƒv‚©‚ç‚Ì‹L–vŠÇ—
+			ã€Œã‚·ãƒ§ãƒƒãƒ—ã‹ã‚‰ã®è¨˜äº‹ã€ç®¡ç†
 
 	/Component_Table List
 
 	/!Riot_WB();
 
 	/Component_Button X
-		/.SetText "V‹K“o˜^"
+		/.SetText "æ–°è¦ç™»éŒ²"
 
 		;
-		; TODO b’è
+		; TODO æš«å®š
 		;
-		/.SetAction function() { @@^^^_Root_SetContent(Riot_CoNameToParent(coName), @@^_V‹K“o˜^_Main_CreateElement(Riot_Unq())); }
+		/.SetAction function() { @@^^^_Root_SetContent(Riot_CoNameToParent(coName), @@^_æ–°è¦ç™»éŒ²_Main_CreateElement(Riot_Unq())); }

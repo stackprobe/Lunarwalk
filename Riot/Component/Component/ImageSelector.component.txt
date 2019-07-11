@@ -23,14 +23,14 @@ div Box
 					; coName + "_InputFile"
 					Dummy
 				@innerText
-					選　択
+					驕ｸ縲謚�
 
 			label ClearButtonLabel
 				.for
 					; coName + "_ClearButton"
 					Dummy
 				@innerText
-					クリア
+					繧ｯ繝ｪ繧｢
 
 	input InputFile
 		.type

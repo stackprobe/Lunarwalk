@@ -9,7 +9,7 @@ div Table
 
 	div HeaderYM
 		@innerText
-			----”N--ŒŽ
+			----å¹´--æœˆ
 
 	div Header
 		!onclick

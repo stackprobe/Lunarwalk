@@ -5,26 +5,26 @@ div Box
 				.colspan
 					2
 				@innerText
-					¿–âƒŠƒXƒg1`3
+					è³ªå•ãƒªã‚¹ãƒˆ1ï½3
 
 		tr Tr
 			td QuestionTd
 				@innerText
-					¿–â1
+					è³ªå•1
 			td AnswerTd
 				/Component_Toggle Answer
 
 		tr Tr
 			td QuestionTd
 				@innerText
-					¿–â2
+					è³ªå•2
 			td AnswerTd
 				/Component_Toggle Answer
 
 		tr Tr
 			td QuestionTd
 				@innerText
-					¿–â3
+					è³ªå•3
 			td AnswerTd
 				/Component_Toggle Answer
 
@@ -33,25 +33,25 @@ div Box
 				.colspan
 					2
 				@innerText
-					¿–âƒŠƒXƒg4`6
+					è³ªå•ãƒªã‚¹ãƒˆ4ï½6
 
 		tr Tr
 			td QuestionTd
 				@innerText
-					¿–â4
+					è³ªå•4
 			td AnswerTd
 				/Component_Toggle Answer
 
 		tr Tr
 			td QuestionTd
 				@innerText
-					¿–â5
+					è³ªå•5
 			td AnswerTd
 				/Component_Toggle Answer
 
 		tr Tr
 			td QuestionTd
 				@innerText
-					¿–â6
+					è³ªå•6
 			td AnswerTd
 				/Component_Toggle Answer

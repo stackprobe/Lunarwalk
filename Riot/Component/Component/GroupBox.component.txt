@@ -1,5 +1,5 @@
 div Box
 	div Header
 		@innerText
-			€”õ‚µ‚Ä‚¢‚Ü‚·B
+			æº–å‚™ã—ã¦ã„ã¾ã™ã€‚
 	div Body

@@ -11,7 +11,7 @@ table MainTable
 			.colspan
 				5
 			@innerText
-				----”N--ŒŽ
+				----å¹´--æœˆ
 
 		td TitleCell
 			!onclick

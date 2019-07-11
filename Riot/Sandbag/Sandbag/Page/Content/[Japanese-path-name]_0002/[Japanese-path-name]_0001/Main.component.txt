@@ -3,66 +3,66 @@ div Main
 
 	div X
 		@innerText
-			uƒVƒ‡ƒbƒv‚©‚ç‚Ì‹L–vV‹K“o˜^
+			ã€Œã‚·ãƒ§ãƒƒãƒ—ã‹ã‚‰ã®è¨˜äº‹ã€æ–°è¦ç™»éŒ²
 
 	/!Riot_WB();
 
 	/Component_Label X
-		/.SetText "–{•¶"
+		/.SetText "æœ¬æ–‡"
 
-	/Component_RichTextBox –{•¶
-
-	/!Riot_WB();
-
-	/Component_Label X
-		/.SetText "ƒTƒuƒJƒeƒSƒŠ["
-
-	/Component_KeywordGroup ƒTƒuƒJƒeƒSƒŠ
-		/.AddKeyword "ƒCƒ“ƒeƒŠƒAEG‰İ"
-		/.AddKeyword "ƒK[ƒfƒjƒ“ƒO"
-		/.AddKeyword "•s“®YEZ‘î"
-		/.AddKeyword "ƒŠƒtƒH[ƒ€EZ‘îİ”õ"
+	/Component_RichTextBox æœ¬æ–‡
 
 	/!Riot_WB();
 
 	/Component_Label X
-		/.SetText "’nˆæî•ñ"
+		/.SetText "ã‚µãƒ–ã‚«ãƒ†ã‚´ãƒªãƒ¼"
 
-	/Component_KeywordGroup ’nˆæî•ñ
-		/.AddKeyword "’nƒr[ƒ‹"
-		/.AddKeyword "ƒƒCƒ“"
-		/.AddKeyword "ƒXƒC[ƒc"
-		/.AddKeyword "àÛàèEg’ƒ"
+	/Component_KeywordGroup ã‚µãƒ–ã‚«ãƒ†ã‚´ãƒª
+		/.AddKeyword "ã‚¤ãƒ³ãƒ†ãƒªã‚¢ãƒ»é›‘è²¨"
+		/.AddKeyword "ã‚¬ãƒ¼ãƒ‡ãƒ‹ãƒ³ã‚°"
+		/.AddKeyword "ä¸å‹•ç”£ãƒ»ä½å®…"
+		/.AddKeyword "ãƒªãƒ•ã‚©ãƒ¼ãƒ ãƒ»ä½å®…è¨­å‚™"
+
+	/!Riot_WB();
+
+	/Component_Label X
+		/.SetText "åœ°åŸŸæƒ…å ±"
+
+	/Component_KeywordGroup åœ°åŸŸæƒ…å ±
+		/.AddKeyword "åœ°ãƒ“ãƒ¼ãƒ«"
+		/.AddKeyword "ãƒ¯ã‚¤ãƒ³"
+		/.AddKeyword "ã‚¹ã‚¤ãƒ¼ãƒ„"
+		/.AddKeyword "çˆç²ãƒ»ç´…èŒ¶"
 
 	/!Riot_WB();
 
 	/Component_FloatFrame X
 		div X
 			/Component_Label X
-				/.SetText "”zM“ú"
+				/.SetText "é…ä¿¡æ—¥æ™‚"
 
-			/Component_DateTime ”zM“ú
+			/Component_DateTime é…ä¿¡æ—¥æ™‚
 
 		/!Riot_WB();
 
 		div X
 			/Component_Label X
-				/.SetText "I—¹“ú"
+				/.SetText "çµ‚äº†æ—¥æ™‚"
 
-			/Component_DateTime I—¹“ú
+			/Component_DateTime çµ‚äº†æ—¥æ™‚
 
 	/!Riot_WB();
 
 	/Component_Label X
-		/.SetText "‰æ‘œ"
+		/.SetText "ç”»åƒ"
 
-	/Component_ImageSelector ‰æ‘œ
+	/Component_ImageSelector ç”»åƒ
 
 	/!Riot_WB();
 
 	/Component_FloatFrame X
 		/Component_Label X
-			/.SetText "©Ğì¬‚Ì‹L–‚Å‚·‚©H"
+			/.SetText "è‡ªç¤¾ä½œæˆã®è¨˜äº‹ã§ã™ã‹ï¼Ÿ"
 
 		/!Riot_WB();
 
@@ -77,21 +77,21 @@ div Main
 	/!Riot_WBH(50);
 
 	/Component_FloatRightFrame X
-		/Component_Button ˆê•Û‘¶Btn
-			/.SetText "ˆê•Û‘¶"
+		/Component_Button ä¸€æ™‚ä¿å­˜Btn
+			/.SetText "ä¸€æ™‚ä¿å­˜"
 
 		/!Riot_WBW(10);
 
-		/Component_Button “o˜^Btn
-			/.SetText "“o˜^"
+		/Component_Button ç™»éŒ²Btn
+			/.SetText "ç™»éŒ²"
 
 		/!Riot_WBW(10);
 
-		/Component_Button íœBtn
-			/.SetText "íœ"
+		/Component_Button å‰Šé™¤Btn
+			/.SetText "å‰Šé™¤"
 
 	/Component_FloatFrame X
-		/Component_Button –ß‚éBtn
-			/.SetText "–ß‚é"
+		/Component_Button æˆ»ã‚‹Btn
+			/.SetText "æˆ»ã‚‹"
 
 	/!Riot_WBH(50);

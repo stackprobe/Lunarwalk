@@ -13,21 +13,21 @@ table MainTable
 		td WestTd
 			div WestTitle
 				@innerText
-					\u3000ƒeƒiƒ“ƒgABC
+					\u3000ãƒ†ãƒŠãƒ³ãƒˆABC
 
 			/@@_WestItem DashboardMenuItem
-			/@@_WestItem ‹L–ŠÇ—MenuItem
-			/@@_WestItem –â‚¢‡‚í‚¹ŠÇ—MenuItem
-			/@@_WestItem ƒIƒ“ƒ‰ƒCƒ“ƒTƒƒ“MenuItem
-			/@@_WestItem ’Â—ñƒAƒCƒeƒ€ŠÇ—MenuItem
-			/@@_WestItem RoomƒAƒCƒeƒ€ŠÇ—MenuItem
-			/@@_WestItem —˜—pÒŠÇ—MenuItem
-			/@@_WestItem “X•Üî•ñMenuItem
-			/@@_WestItem ‰^‰c‚Ö‚Ì–â‚¢‡‚í‚¹MenuItem
+			/@@_WestItem è¨˜äº‹ç®¡ç†MenuItem
+			/@@_WestItem å•ã„åˆã‚ã›ç®¡ç†MenuItem
+			/@@_WestItem ã‚ªãƒ³ãƒ©ã‚¤ãƒ³ã‚µãƒ­ãƒ³MenuItem
+			/@@_WestItem é™³åˆ—ã‚¢ã‚¤ãƒ†ãƒ ç®¡ç†MenuItem
+			/@@_WestItem Roomã‚¢ã‚¤ãƒ†ãƒ ç®¡ç†MenuItem
+			/@@_WestItem åˆ©ç”¨è€…ç®¡ç†MenuItem
+			/@@_WestItem åº—èˆ—æƒ…å ±MenuItem
+			/@@_WestItem é‹å–¶ã¸ã®å•ã„åˆã‚ã›MenuItem
 
 		td EastTd
 			div EastTitle
 				@innerText
-					\u3000œ / Dashboard
+					\u3000â— / Dashboard
 
 			div EastContent

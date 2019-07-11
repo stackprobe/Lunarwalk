@@ -1,5 +1,5 @@
 div Keyword
 	@innerText
-		�ǂݍ��ݒ�...
+		読み込み中...
 	!onclick
 		@@_Select(coName);

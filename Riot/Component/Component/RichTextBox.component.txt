@@ -8,42 +8,42 @@ div Box
 				.value
 					@(NONE)
 				@innerText
-					ƒTƒCƒY
+					ã‚µã‚¤ã‚º
 			option ComboItem
 				.value
 					1
 				@innerText
-					|‚Q
+					ï¼ï¼’
 			option ComboItem
 				.value
 					2
 				@innerText
-					|‚P
+					ï¼ï¼‘
 			option ComboItem
 				.value
 					3
 				@innerText
-					•W€
+					æ¨™æº–
 			option ComboItem
 				.value
 					4
 				@innerText
-					{‚P
+					ï¼‹ï¼‘
 			option ComboItem
 				.value
 					5
 				@innerText
-					{‚Q
+					ï¼‹ï¼’
 			option ComboItem
 				.value
 					6
 				@innerText
-					{‚R
+					ï¼‹ï¼“
 			option ComboItem
 				.value
 					7
 				@innerText
-					{‚S
+					ï¼‹ï¼”
 
 		select FontName
 			!onchange
@@ -53,42 +53,42 @@ div Box
 				.value
 					@(NONE)
 				@innerText
-					ƒtƒHƒ“ƒg
+					ãƒ•ã‚©ãƒ³ãƒˆ
 			option ComboItem
 				.value
-					‚l‚rƒSƒVƒbƒN
+					ï¼­ï¼³ã‚´ã‚·ãƒƒã‚¯
 				@innerText
-					‚l‚rƒSƒVƒbƒN
+					ï¼­ï¼³ã‚´ã‚·ãƒƒã‚¯
 			option ComboItem
 				.value
-					‚l‚r–¾’©
+					ï¼­ï¼³æ˜æœ
 				@innerText
-					‚l‚r–¾’©
+					ï¼­ï¼³æ˜æœ
 			option ComboItem
 				.value
-					ƒƒCƒŠƒI
+					ãƒ¡ã‚¤ãƒªã‚ª
 				@innerText
-					ƒƒCƒŠƒI
+					ãƒ¡ã‚¤ãƒªã‚ª
 			option ComboItem
 				.value
-					ŸàƒSƒVƒbƒN
+					æ¸¸ã‚´ã‚·ãƒƒã‚¯
 				@innerText
-					ŸàƒSƒVƒbƒN
+					æ¸¸ã‚´ã‚·ãƒƒã‚¯
 			option ComboItem
 				.value
-					Ÿà–¾’©
+					æ¸¸æ˜æœ
 				@innerText
-					Ÿà–¾’©
+					æ¸¸æ˜æœ
 			option ComboItem
 				.value
-					‚l‚r ‚oƒSƒVƒbƒN
+					ï¼­ï¼³ ï¼°ã‚´ã‚·ãƒƒã‚¯
 				@innerText
-					‚l‚r ‚oƒSƒVƒbƒN
+					ï¼­ï¼³ ï¼°ã‚´ã‚·ãƒƒã‚¯
 			option ComboItem
 				.value
-					‚l‚r ‚o–¾’©
+					ï¼­ï¼³ ï¼°æ˜æœ
 				@innerText
-					‚l‚r ‚o–¾’©
+					ï¼­ï¼³ ï¼°æ˜æœ
 
 		select ForeColor
 			!onchange
@@ -98,47 +98,47 @@ div Box
 				.value
 					@(NONE)
 				@innerText
-					F
+					è‰²
 			option ComboItem
 				.value
 					000000
 				@innerText
-					•i•W€j
+					é»’ï¼ˆæ¨™æº–ï¼‰
 			option ComboItem
 				.value
 					0000ff
 				@innerText
-					Â
+					é’
 			option ComboItem
 				.value
 					00ff00
 				@innerText
-					—Î
+					ç·‘
 			option ComboItem
 				.value
 					00ffff
 				@innerText
-					ƒVƒAƒ“
+					ã‚·ã‚¢ãƒ³
 			option ComboItem
 				.value
 					ff0000
 				@innerText
-					Ô
+					èµ¤
 			option ComboItem
 				.value
 					ff00ff
 				@innerText
-					ƒ}ƒ[ƒ“ƒ^
+					ãƒã‚¼ãƒ³ã‚¿
 			option ComboItem
 				.value
 					ffff00
 				@innerText
-					‰©
+					é»„
 			option ComboItem
 				.value
 					ffffff
 				@innerText
-					”’
+					ç™½
 
 		select BackColor
 			!onchange
@@ -148,65 +148,65 @@ div Box
 				.value
 					@(NONE)
 				@innerText
-					”wŒiF
+					èƒŒæ™¯è‰²
 			option ComboItem
 				.value
 					000000
 				@innerText
-					•
+					é»’
 			option ComboItem
 				.value
 					0000ff
 				@innerText
-					Â
+					é’
 			option ComboItem
 				.value
 					00ff00
 				@innerText
-					—Î
+					ç·‘
 			option ComboItem
 				.value
 					00ffff
 				@innerText
-					ƒVƒAƒ“
+					ã‚·ã‚¢ãƒ³
 			option ComboItem
 				.value
 					ff0000
 				@innerText
-					Ô
+					èµ¤
 			option ComboItem
 				.value
 					ff00ff
 				@innerText
-					ƒ}ƒ[ƒ“ƒ^
+					ãƒã‚¼ãƒ³ã‚¿
 			option ComboItem
 				.value
 					ffff00
 				@innerText
-					‰©
+					é»„
 			option ComboItem
 				.value
 					ffffff
 				@innerText
-					”’i•W€j
+					ç™½ï¼ˆæ¨™æº–ï¼‰
 
 		button BoldButton
 			!onclick
 				@@_BoldPressed(coName);
 			@innerText
-				‘¾š
+				å¤ªå­—
 
 		button UnderButton
 			!onclick
 				@@_UnderPressed(coName);
 			@innerText
-				‰ºü
+				ä¸‹ç·š
 
 		button ItaricButton
 			!onclick
 				@@_ItaricPressed(coName);
 			@innerText
-				Î‘Ì
+				æ–œä½“
 
 		div EditArea
 			.contentEditable

@@ -1,5 +1,5 @@
 button Button
 	!onclick
-		alert("�G���[�F�R�}���h����`����Ă��܂���B");
+		alert("エラー：コマンドが定義されていません。");
 	@innerText
-		�ǂݍ��ݒ�
+		読み込み中

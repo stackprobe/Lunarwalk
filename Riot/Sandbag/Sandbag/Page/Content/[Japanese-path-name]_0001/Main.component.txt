@@ -1,18 +1,18 @@
 div Main
 	/Component_FloatRightFrame X
-		/Component_Button XVBtn
-			/.SetText "XV"
+		/Component_Button æ›´æ–°Btn
+			/.SetText "æ›´æ–°"
 
 	/!Riot_WB();
 
 	/Component_FloatFrame X
 		div X
 			@innerText
-				ƒIƒ“ƒ‰ƒCƒ“ƒTƒƒ“‚É
+				ã‚ªãƒ³ãƒ©ã‚¤ãƒ³ã‚µãƒ­ãƒ³ã«
 
 		/!Riot_WBW(3);
 
-		div ƒIƒ“ƒ‰ƒCƒ“ƒTƒƒ“–¢“Ç”
+		div ã‚ªãƒ³ãƒ©ã‚¤ãƒ³ã‚µãƒ­ãƒ³æœªèª­æ•°
 			@innerText
 				0
 
@@ -20,18 +20,18 @@ div Main
 
 		div X
 			@innerText
-				Œ‚Ì–¢“Ç‚Ì•ÔM‚ª‚ ‚è‚Ü‚·B
+				ä»¶ã®æœªèª­ã®è¿”ä¿¡ãŒã‚ã‚Šã¾ã™ã€‚
 
 	/!Riot_WB();
 
 	/Component_FloatFrame X
 		div X
 			@innerText
-				ƒVƒ‡ƒbƒv‚©‚ç‚Ì‚¨’m‚ç‚¹‚É
+				ã‚·ãƒ§ãƒƒãƒ—ã‹ã‚‰ã®ãŠçŸ¥ã‚‰ã›ã«
 
 		/!Riot_WBW(3);
 
-		div ƒVƒ‡ƒbƒv‚©‚ç‚Ì‚¨’m‚ç‚¹–¢“Ç”
+		div ã‚·ãƒ§ãƒƒãƒ—ã‹ã‚‰ã®ãŠçŸ¥ã‚‰ã›æœªèª­æ•°
 			@innerText
 				0
 
@@ -39,26 +39,26 @@ div Main
 
 		div X
 			@innerText
-				Œ‚Ì–¢“Ç‚Ì–â‚¢‡‚í‚¹‚ª‚ ‚è‚Ü‚·B
+				ä»¶ã®æœªèª­ã®å•ã„åˆã‚ã›ãŒã‚ã‚Šã¾ã™ã€‚
 
 	/!Riot_WB();
 
-	div ‚¨’m‚ç‚¹Box
+	div ãŠçŸ¥ã‚‰ã›Box
 		/Component_Label X
-			/.SetText "‰^‰c‚©‚ç‚Ì‚¨’m‚ç‚¹"
+			/.SetText "é‹å–¶ã‹ã‚‰ã®ãŠçŸ¥ã‚‰ã›"
 
 		/!Riot_WB();
 
-		div ‚¨’m‚ç‚¹List
+		div ãŠçŸ¥ã‚‰ã›List
 
 	/!Riot_WBH(50);
 
 	/Component_FloatFrame X
-		div ƒAƒNƒZƒX”“™Title
+		div ã‚¢ã‚¯ã‚»ã‚¹æ•°ç­‰Title
 			@innerText
-				“X•Ü‚Ì‚¨‹C‚É“ü‚è“o˜^”
+				åº—èˆ—ã®ãŠæ°—ã«å…¥ã‚Šç™»éŒ²æ•°
 
-		div “X•Ü‚Ì‚¨‹C‚É“ü‚è“o˜^”
+		div åº—èˆ—ã®ãŠæ°—ã«å…¥ã‚Šç™»éŒ²æ•°
 			@innerText
 				0
 
@@ -66,16 +66,16 @@ div Main
 
 		div X
 			@innerText
-				l
+				äºº
 
 	/!Riot_WB();
 
 	/Component_FloatFrame X
-		div ƒAƒNƒZƒX”“™Title
+		div ã‚¢ã‚¯ã‚»ã‚¹æ•°ç­‰Title
 			@innerText
-				ğ“ú‚ÌƒAƒNƒZƒXŒ”
+				æ˜¨æ—¥ã®ã‚¢ã‚¯ã‚»ã‚¹ä»¶æ•°
 
-		div ğ“ú‚ÌƒAƒNƒZƒXŒ”
+		div æ˜¨æ—¥ã®ã‚¢ã‚¯ã‚»ã‚¹ä»¶æ•°
 			@innerText
 				0
 
@@ -83,11 +83,11 @@ div Main
 
 		div X
 			@innerText
-				Œ
+				ä»¶
 
 	/!Riot_WBH(50);
 
 	/Component_FloatFrame X
-		/Component_LineGraph ‰¼ƒOƒ‰ƒt1
+		/Component_LineGraph ä»®ã‚°ãƒ©ãƒ•1
 		/!Riot_WB();
-		/Component_LineGraph ‰¼ƒOƒ‰ƒt2
+		/Component_LineGraph ä»®ã‚°ãƒ©ãƒ•2

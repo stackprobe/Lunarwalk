@@ -9,6 +9,6 @@ div Box
 
 	div Label
 		@innerText
-			�ǂݍ��ݒ�
+			読み込み中
 
 	div EndOfElements

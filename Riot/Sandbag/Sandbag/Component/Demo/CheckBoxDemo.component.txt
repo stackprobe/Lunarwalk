@@ -1,7 +1,7 @@
 div Box
 	/Component_WhiteFrame Main
 		/!Riot_WB();
-		/!Riot_Label("ƒ‰ƒWƒIƒ{ƒ^ƒ“");
+		/!Riot_Label("ãƒ©ã‚¸ã‚ªãƒœã‚¿ãƒ³");
 		/!Riot_WB();
 		/Component_CheckBox A
 		/!Riot_WB();
@@ -26,7 +26,7 @@ div Box
 			/!Riot_WB();
 
 		/!Riot_WB();
-		/!Riot_Label("‚R‚Â‚Ü‚Å‘I‘ğ‰Â”\");
+		/!Riot_Label("ï¼“ã¤ã¾ã§é¸æŠå¯èƒ½");
 		/!Riot_WB();
 		/Component_CheckBox M3A
 		/!Riot_WB();
@@ -42,7 +42,7 @@ div Box
 		/!Riot_WB();
 
 		/!Riot_WB();
-		/!Riot_Label("ƒ‰ƒWƒIƒ{ƒ^ƒ“‚Q");
+		/!Riot_Label("ãƒ©ã‚¸ã‚ªãƒœã‚¿ãƒ³ï¼’");
 		/!Riot_WB();
 		/Component_FloatFrame Main4
 			/Component_CheckBox M4A
@@ -52,7 +52,7 @@ div Box
 			/Component_CheckBox M4C
 
 		/!Riot_WB();
-		/!Riot_Label("ƒ‰ƒWƒIƒ{ƒ^ƒ“‚R");
+		/!Riot_Label("ãƒ©ã‚¸ã‚ªãƒœã‚¿ãƒ³ï¼“");
 		/!Riot_WB();
 		/Component_FloatFrame Main5
 			/Component_CheckBox M5A
@@ -62,7 +62,7 @@ div Box
 			/Component_CheckBox M5C
 
 		/!Riot_WB();
-		/!Riot_Label("ƒ‰ƒWƒIƒ{ƒ^ƒ“‚S");
+		/!Riot_Label("ãƒ©ã‚¸ã‚ªãƒœã‚¿ãƒ³ï¼”");
 		/!Riot_WB();
 		/Component_CheckBox M6A
 		/!Riot_WB();

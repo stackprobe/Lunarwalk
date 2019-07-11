@@ -8,7 +8,7 @@ div Box
 	/!Riot_WB();
 	/Component_Button Guitar
 	/!Riot_WB();
-	/Component_Button à÷éq
+	/Component_Button Ê§ÖÂ≠ê
 	/!Riot_WB();
-	/Component_Button äGâÊ
+	/Component_Button ÁµµÁîª
 	/!Riot_WB();

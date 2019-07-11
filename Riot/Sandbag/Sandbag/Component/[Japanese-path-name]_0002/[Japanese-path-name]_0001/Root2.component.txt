@@ -1,5 +1,5 @@
 ;
-;	•ÊƒRƒ“ƒ|[ƒlƒ“ƒgQÆ‚Ìƒƒ\ƒbƒhŒÄ‚Ño‚µ‚ğg‚Á‚Ä‚İ‚½‚¾‚¯B
+;	åˆ¥ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆå‚ç…§ã®ãƒ¡ã‚½ãƒƒãƒ‰å‘¼ã³å‡ºã—ã‚’ä½¿ã£ã¦ã¿ãŸã ã‘ã€‚
 ;
 
 table MainTable
@@ -17,56 +17,56 @@ table MainTable
 		td WestTd
 			div WestTitle
 				@innerText
-					\u3000ƒeƒiƒ“ƒgABC
+					\u3000ãƒ†ãƒŠãƒ³ãƒˆABC
 
 			/@@^_Root_WestItem DashboardMenuItem
 
 				/.SetText "Dashboard"
 				/.SetAction function() { @@^_Root_SetContent(coName, @@^_Content_Dashboard_Main_CreateElement(coName + "_Content")); }
 
-			/@@^_Root_WestItem ‹L–ŠÇ—MenuItem
+			/@@^_Root_WestItem è¨˜äº‹ç®¡ç†MenuItem
 
-				/.SetText "‹L–ŠÇ—"
-				/.SetAction function() { @@^_Root_SetContent(coName, @@^_Content_‹L–ŠÇ—_Main_CreateElement(coName + "_Content")); }
+				/.SetText "è¨˜äº‹ç®¡ç†"
+				/.SetAction function() { @@^_Root_SetContent(coName, @@^_Content_è¨˜äº‹ç®¡ç†_Main_CreateElement(coName + "_Content")); }
 
-			/@@^_Root_WestItem –â‚¢‡‚í‚¹ŠÇ—MenuItem
+			/@@^_Root_WestItem å•ã„åˆã‚ã›ç®¡ç†MenuItem
 
-				/.SetText "–â‚¢‡‚í‚¹ŠÇ—"
-				/.SetAction function() { @@^_Root_SetContent(coName, @@^_Content_–â‚¢‡‚í‚¹ŠÇ—_Main_CreateElement(coName + "_Content")); }
+				/.SetText "å•ã„åˆã‚ã›ç®¡ç†"
+				/.SetAction function() { @@^_Root_SetContent(coName, @@^_Content_å•ã„åˆã‚ã›ç®¡ç†_Main_CreateElement(coName + "_Content")); }
 
-			/@@^_Root_WestItem ƒIƒ“ƒ‰ƒCƒ“ƒTƒƒ“MenuItem
+			/@@^_Root_WestItem ã‚ªãƒ³ãƒ©ã‚¤ãƒ³ã‚µãƒ­ãƒ³MenuItem
 
-				/.SetText "ƒIƒ“ƒ‰ƒCƒ“ƒTƒƒ“"
-				/.SetAction function() { @@^_Root_SetContent(coName, @@^_Content_ƒIƒ“ƒ‰ƒCƒ“ƒTƒƒ“_Main_CreateElement(coName + "_Content")); }
+				/.SetText "ã‚ªãƒ³ãƒ©ã‚¤ãƒ³ã‚µãƒ­ãƒ³"
+				/.SetAction function() { @@^_Root_SetContent(coName, @@^_Content_ã‚ªãƒ³ãƒ©ã‚¤ãƒ³ã‚µãƒ­ãƒ³_Main_CreateElement(coName + "_Content")); }
 
-			/@@^_Root_WestItem ’Â—ñƒAƒCƒeƒ€ŠÇ—MenuItem
+			/@@^_Root_WestItem é™³åˆ—ã‚¢ã‚¤ãƒ†ãƒ ç®¡ç†MenuItem
 
-				/.SetText "’Â—ñƒAƒCƒeƒ€ŠÇ—"
+				/.SetText "é™³åˆ—ã‚¢ã‚¤ãƒ†ãƒ ç®¡ç†"
 				/.SetAction function() { Riot_Get(coName + "_EastContent").innerText = "4"; }
 
-			/@@^_Root_WestItem RoomƒAƒCƒeƒ€ŠÇ—MenuItem
+			/@@^_Root_WestItem Roomã‚¢ã‚¤ãƒ†ãƒ ç®¡ç†MenuItem
 
-				/.SetText "RoomƒAƒCƒeƒ€ŠÇ—"
+				/.SetText "Roomã‚¢ã‚¤ãƒ†ãƒ ç®¡ç†"
 				/.SetAction function() { Riot_Get(coName + "_EastContent").innerText = "5"; }
 
-			/@@^_Root_WestItem —˜—pÒŠÇ—MenuItem
+			/@@^_Root_WestItem åˆ©ç”¨è€…ç®¡ç†MenuItem
 
-				/.SetText "—˜—pÒŠÇ—(ŠÇ—Ò—p)"
+				/.SetText "åˆ©ç”¨è€…ç®¡ç†(ç®¡ç†è€…ç”¨)"
 				/.SetAction function() { Riot_Get(coName + "_EastContent").innerText = "6"; }
 
-			/@@^_Root_WestItem “X•Üî•ñMenuItem
+			/@@^_Root_WestItem åº—èˆ—æƒ…å ±MenuItem
 
-				/.SetText "“X•Üî•ñ(ŠÇ—Ò—p)"
+				/.SetText "åº—èˆ—æƒ…å ±(ç®¡ç†è€…ç”¨)"
 				/.SetAction function() { Riot_Get(coName + "_EastContent").innerText = "7"; }
 
-			/@@^_Root_WestItem ‰^‰c‚Ö‚Ì–â‚¢‡‚í‚¹MenuItem
+			/@@^_Root_WestItem é‹å–¶ã¸ã®å•ã„åˆã‚ã›MenuItem
 
-				/.SetText "‰^‰c‚Ö‚Ì–â‚¢‡‚í‚¹(ŠÇ—Ò—p)"
+				/.SetText "é‹å–¶ã¸ã®å•ã„åˆã‚ã›(ç®¡ç†è€…ç”¨)"
 				/.SetAction function() { Riot_Get(coName + "_EastContent").innerText = "8"; }
 
 		td EastTd
 			div EastTitle
 				@innerText
-					\u3000œ / Dashboard
+					\u3000â— / Dashboard
 
 			div EastContent

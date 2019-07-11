@@ -25,13 +25,13 @@ div Box
 
 		/@@^_FloatFrame FloatFrame
 			/@@^_Button CalendarOk
-				/.SetText "‚n‚j"
+				/.SetText "ï¼¯ï¼«"
 				/.SetAction function() { @@_CalendarOkClicked(coName); }
 
 			/!Riot_WBW(5);
 
 			/@@^_Button CalendarCancel
-				/.SetText "ƒNƒŠƒA"
+				/.SetText "ã‚¯ãƒªã‚¢"
 				/.SetAction function() { @@_CalendarCancelClicked(coName); }
 
 	/@@^_Error Error

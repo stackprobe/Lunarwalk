@@ -25,13 +25,13 @@ Cell
 	align-items
 		center
 
-Cell“ú
+Cellæ—¥
 	@import
 		Cell
 	color
 		#f00
 
-Cell“y
+CellåœŸ
 	@import
 		Cell
 	color
@@ -47,6 +47,6 @@ CellSelected
 	background-color
 		#ff0
 
-Cell•Ê‚ÌŒ
+Cellåˆ¥ã®æœˆ
 	background-color
 		#eef

@@ -3,31 +3,31 @@ div Main
 
 	div X
 		@innerText
-			uƒVƒ‡ƒbƒv‚©‚ç‚Ì‹L–vŠÇ—
+			ã€Œã‚·ãƒ§ãƒƒãƒ—ã‹ã‚‰ã®è¨˜äº‹ã€ç®¡ç†
 
 	/Component_FloatFrame X
 		div ListHeader
 			/Component_FloatFrame X
 				/Component_Label X
-					/.SetText "ó‹µ"
+					/.SetText "çŠ¶æ³"
 					/.SetWidth @(@@_Row_COLUMN_00_W)
 
 				/!Riot_WBW(@(@@_Row_COLUMN_MARGIN));
 
 				/Component_Label X
-					/.SetText "–{•¶"
+					/.SetText "æœ¬æ–‡"
 					/.SetWidth @(@@_Row_COLUMN_01_W)
 
 				/!Riot_WBW(@(@@_Row_COLUMN_MARGIN));
 
 				/Component_Label X
-					/.SetText "”zM“ú"
+					/.SetText "é…ä¿¡æ—¥æ™‚"
 					/.SetWidth @(@@_Row_COLUMN_02_W)
 
 				/!Riot_WBW(@(@@_Row_COLUMN_MARGIN));
 
 				/Component_Label X
-					/.SetText "I—¹“ú"
+					/.SetText "çµ‚äº†æ—¥æ™‚"
 					/.SetWidth @(@@_Row_COLUMN_03_W)
 
 				/!Riot_WBW(@(@@_Row_COLUMN_MARGIN));
@@ -43,5 +43,5 @@ div Main
 	/!Riot_WB();
 
 	/Component_Button X
-		/.SetText "V‹K“o˜^"
+		/.SetText "æ–°è¦ç™»éŒ²"
 		/.SetAction function() { @@_AddRow(coName); }

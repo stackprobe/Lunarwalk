@@ -4,10 +4,10 @@ div Root
 	/!Riot_WB();
 
 	/Component_ComboBox Operation
-		/.AddItem "ADD", "Å{"
-		/.AddItem "SUB", "Å|"
-		/.AddItem "MUL", "Å~"
-		/.AddItem "DIV", "ÅÄ"
+		/.AddItem "ADD", "Ôºã"
+		/.AddItem "SUB", "Ôºç"
+		/.AddItem "MUL", "√ó"
+		/.AddItem "DIV", "√∑"
 
 	/!Riot_WB();
 
@@ -16,7 +16,7 @@ div Root
 	/!Riot_WB();
 
 	/Component_Button X
-		/.SetText "ÅÅ"
+		/.SetText "Ôºù"
 		/.SetAction function() { @@_DoCalc(coName); }
 
 	/!Riot_WB();

@@ -17,4 +17,4 @@ Root
 		#fff
 	font
 		normal 100px "Century Gothic"
-;		normal 100px "ü‡ÉSÉVÉbÉN"
+;		normal 100px "Ê∏∏„Ç¥„Ç∑„ÉÉ„ÇØ"
