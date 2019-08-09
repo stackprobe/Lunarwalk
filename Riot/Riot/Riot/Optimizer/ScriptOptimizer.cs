@@ -7,7 +7,7 @@ using Charlotte.Optimizer.Utils;
 
 namespace Charlotte.Optimizer
 {
-	public class ScriptOptimizer
+	public static class ScriptOptimizer
 	{
 		public delegate string[] Routine_d(string[] lines);
 

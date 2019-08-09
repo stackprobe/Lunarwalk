@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Charlotte.Optimizer.Utils
 {
-	public class UnusedVariableDeleterUtils
+	public static class UnusedVariableDeleterUtils
 	{
 		public static string Delete(string code)
 		{

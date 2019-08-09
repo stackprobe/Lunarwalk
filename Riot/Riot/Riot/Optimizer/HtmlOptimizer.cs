@@ -6,7 +6,7 @@ using Charlotte.Tools;
 
 namespace Charlotte.Optimizer
 {
-	public class HtmlOptimizer
+	public static class HtmlOptimizer
 	{
 		public static string Perform(string[] lines)
 		{

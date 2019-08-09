@@ -6,7 +6,7 @@ using System.IO;
 
 namespace Charlotte.Optimizer
 {
-	public class HtmlFileOptimizer
+	public static class HtmlFileOptimizer
 	{
 		public static void Perform(string rFile, string wFile, ScriptOptimizer.Routine_d routine)
 		{

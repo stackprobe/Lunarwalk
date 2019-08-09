@@ -11,7 +11,7 @@ namespace Charlotte.StarBeat.Utils
 {
 	// sync > @ DenebolaToolkit
 
-	public class DenebolaToolkit
+	public static class DenebolaToolkit
 	{
 		public static string GetFairLocalPath(string localPath, string dir)
 		{

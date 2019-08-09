@@ -9,7 +9,7 @@ using Charlotte.Utils;
 
 namespace Charlotte
 {
-	public class CommonUtils
+	public static class CommonUtils
 	{
 		public static string GetRiotDir()
 		{

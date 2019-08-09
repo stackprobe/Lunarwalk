@@ -7,7 +7,7 @@ using System.IO;
 
 namespace Charlotte.StarBeat.Utils
 {
-	public class CommonUtils
+	public static class CommonUtils
 	{
 		public static string GetFairRelPath(string path)
 		{

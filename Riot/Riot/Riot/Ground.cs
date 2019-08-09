@@ -6,7 +6,7 @@ using Charlotte.Utils;
 
 namespace Charlotte
 {
-	public class Ground
+	public static class Ground
 	{
 		public static string FileAndDirectoryConfigFile;
 		public static string RootDir;
