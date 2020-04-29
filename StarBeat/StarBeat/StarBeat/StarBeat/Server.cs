@@ -20,7 +20,7 @@ namespace Charlotte.StarBeat
 			if (ar.HasArgs())
 				portNo = int.Parse(ar.NextArg());
 
-			portNo = IntTools.Range(portNo, 1, 65535);
+			portNo = IntTools.ToRange(portNo, 1, 65535);
 
 			while (ar.HasArgs())
 				docRoot.AddRootDir(ar.NextArg());
