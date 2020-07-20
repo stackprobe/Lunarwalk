@@ -1,0 +1,463 @@
+<html>
+<head>
+<style>
+
+body {
+	margin: 0px;
+	overflow-x: hidden;
+	overflow-y: hidden;
+	touch-action: none;
+	touch-callout: none;
+	user-select: none;
+}
+
+#MainCanvasBox {
+	width: 100%;
+	height: 100%;
+}
+
+#MainCanvas {
+	width: 100%;
+	height: 100%;
+}
+
+</style>
+<script>
+
+var SW = 800;
+var SH = 800;
+
+function DrawImage(img, l, t, w, h) {
+	Context.drawImage(img, l, t, w, h);
+}
+
+function DrawImage_Rate(img, l, t, w, h, l2, t2, w2, h2, rate) {
+	l += (l2 - l) * rate;
+	t += (t2 - t) * rate;
+	w += (w2 - w) * rate;
+	h += (h2 - h) * rate;
+
+	DrawImage(img, l, t, w, h);
+}
+
+var LoadingCount = 0;
+
+function LoadImage(src) {
+	var img = new Image();
+
+	img.onload = function() {
+		LoadingCount--;
+	}
+	img.onerror = function(e) {
+		console.log(e);
+	}
+	img.src = src;
+
+	LoadingCount++;
+
+	return img;
+}
+
+// ---- BgImages ----
+
+var BgImages;
+
+function InitBgImages() {
+	BgImages = [
+		LoadImage("../imgs/bg0001.png"),
+		LoadImage("../imgs/bg0002.png"),
+		LoadImage("../imgs/bg0003.png"),
+	];
+}
+
+// ---- MenuItems ----
+
+var MenuItems;
+var MenuItemBox;
+var MenuItemBox_Hx2;
+var MenuItemBox_Wx2;
+
+function InitMenuItems() {
+	MenuItems = [
+		[
+			[[ 1, 1, LoadImage("../imgs/mi0001.png") ], [ 1, 1, LoadImage("../imgs/mi0001.png") ]],
+			[[ 1, 1, LoadImage("../imgs/mi0001.png") ], [ 1, 1, LoadImage("../imgs/mi0001.png") ]],
+			[[ 1, 1, LoadImage("../imgs/mi0001.png") ], [ 1, 1, LoadImage("../imgs/mi0001.png") ]],
+			[[ 1, 1, LoadImage("../imgs/mi0001.png") ], [ 1, 1, LoadImage("../imgs/mi0001.png") ]],
+			[[ 1, 1, LoadImage("../imgs/mi0001.png") ], [ 1, 1, LoadImage("../imgs/mi0001.png") ]],
+			[[ 1, 1, LoadImage("../imgs/mi0001.png") ], [ 1, 1, LoadImage("../imgs/mi0001.png") ]],
+			[[ 1, 1, LoadImage("../imgs/mi0001.png") ], [ 1, 1, LoadImage("../imgs/mi0001.png") ]],
+			[[ 1, 1, LoadImage("../imgs/mi0001.png") ], [ 1, 1, LoadImage("../imgs/mi0001.png") ]],
+		],
+		[
+			[[ 1, 1, LoadImage("../imgs/mi0001.png") ], [ 1, 1, LoadImage("../imgs/mi0001.png") ]],
+			[[ 1, 2, LoadImage("../imgs/mi0001.png") ], [ 1, 1, LoadImage("../imgs/mi0001.png") ]],
+			[[                                       ], [ 1, 1, LoadImage("../imgs/mi0001.png") ]],
+			[[ 1, 1, LoadImage("../imgs/mi0001.png") ], [ 1, 1, LoadImage("../imgs/mi0001.png") ]],
+			[[ 1, 1, LoadImage("../imgs/mi0001.png") ], [ 1, 2, LoadImage("../imgs/mi0001.png") ]],
+			[[ 1, 1, LoadImage("../imgs/mi0001.png") ], [                                       ]],
+			[[ 1, 1, LoadImage("../imgs/mi0001.png") ], [ 1, 1, LoadImage("../imgs/mi0001.png") ]],
+			[[ 1, 2, LoadImage("../imgs/mi0001.png") ], [ 1, 2, LoadImage("../imgs/mi0001.png") ]],
+			[[                                       ], [                                       ]],
+			[[ 1, 1, LoadImage("../imgs/mi0001.png") ], [ 1, 1, LoadImage("../imgs/mi0001.png") ]],
+			[[ 1, 2, LoadImage("../imgs/mi0001.png") ], [ 1, 1, LoadImage("../imgs/mi0001.png") ]],
+			[[                                       ], [ 1, 2, LoadImage("../imgs/mi0001.png") ]],
+			[[ 1, 1, LoadImage("../imgs/mi0001.png") ], [                                       ]],
+			[[ 1, 1, LoadImage("../imgs/mi0001.png") ], [ 1, 1, LoadImage("../imgs/mi0001.png") ]],
+			[[ 1, 2, LoadImage("../imgs/mi0001.png") ], [ 1, 2, LoadImage("../imgs/mi0001.png") ]],
+			[[                                       ], [                                       ]],
+			[[ 1, 2, LoadImage("../imgs/mi0001.png") ], [ 1, 1, LoadImage("../imgs/mi0001.png") ]],
+			[[                                       ], [ 1, 1, LoadImage("../imgs/mi0001.png") ]],
+		],
+		[
+			[[ 1, 1, LoadImage("../imgs/mi0001.png") ], [ 1, 1, LoadImage("../imgs/mi0001.png") ]],
+			[[ 2, 1, LoadImage("../imgs/mi0001.png") ], [                                       ]],
+			[[ 1, 1, LoadImage("../imgs/mi0001.png") ], [ 1, 1, LoadImage("../imgs/mi0001.png") ]],
+			[[ 2, 1, LoadImage("../imgs/mi0001.png") ], [                                       ]],
+			[[ 2, 1, LoadImage("../imgs/mi0001.png") ], [                                       ]],
+			[[ 1, 1, LoadImage("../imgs/mi0001.png") ], [ 1, 1, LoadImage("../imgs/mi0001.png") ]],
+			[[ 1, 1, LoadImage("../imgs/mi0001.png") ], [ 1, 1, LoadImage("../imgs/mi0001.png") ]],
+			[[ 2, 1, LoadImage("../imgs/mi0001.png") ], [                                       ]],
+			[[ 2, 1, LoadImage("../imgs/mi0001.png") ], [                                       ]],
+			[[ 2, 1, LoadImage("../imgs/mi0001.png") ], [                                       ]],
+			[[ 1, 1, LoadImage("../imgs/mi0001.png") ], [ 1, 1, LoadImage("../imgs/mi0001.png") ]],
+			[[ 1, 1, LoadImage("../imgs/mi0001.png") ], [ 1, 1, LoadImage("../imgs/mi0001.png") ]],
+			[[ 1, 1, LoadImage("../imgs/mi0001.png") ], [ 1, 1, LoadImage("../imgs/mi0001.png") ]],
+			[[ 2, 1, LoadImage("../imgs/mi0001.png") ], [                                       ]],
+			[[ 1, 2, LoadImage("../imgs/mi0001.png") ], [ 1, 2, LoadImage("../imgs/mi0001.png") ]],
+			[[                                       ], [                                       ]],
+			[[ 2, 1, LoadImage("../imgs/mi0001.png") ], [                                       ]],
+			[[ 1, 1, LoadImage("../imgs/mi0001.png") ], [ 1, 1, LoadImage("../imgs/mi0001.png") ]],
+			[[ 2, 1, LoadImage("../imgs/mi0001.png") ], [                                       ]],
+			[[ 1, 2, LoadImage("../imgs/mi0001.png") ], [ 1, 1, LoadImage("../imgs/mi0001.png") ]],
+			[[                                       ], [ 1, 2, LoadImage("../imgs/mi0001.png") ]],
+			[[                                       ], [                                       ]],
+			[[ 2, 1, LoadImage("../imgs/mi0001.png") ], [                                       ]],
+		],
+	];
+
+	MenuItemBox     = LoadImage("../imgs/mi-box.png");
+	MenuItemBox_Hx2 = LoadImage("../imgs/mi-box-hx2.png");
+	MenuItemBox_Wx2 = LoadImage("../imgs/mi-box-wx2.png");
+}
+
+// ----
+
+function InitContents() {
+	InitBgImages();
+	InitMenuItems();
+}
+
+// ---- BgImages ----
+
+var CurrBgImageIndex = 0;
+var LastBgImageIndex = -1;
+var BgImageChanging = false;
+var BgImageChangeRate = -1.0;
+var BgImageChangeReverse = false;
+
+function BgImageEachFrame() {
+	if(BgImageChanging) {
+		var dmw = SW / 1.5;
+		var dmh = SH / 5;
+
+		DrawImage_Rate(
+			BgImages[LastBgImageIndex],
+			-dmw / 2 + (BgImageChangeReverse ? SW : 0),
+			-dmh / 2,
+			dmw,
+			dmh + SH,
+			0,
+			0,
+			SW,
+			SH,
+			BgImageChangeRate
+			);
+
+		Context.globalAlpha = 1.0 - BgImageChangeRate;
+
+		DrawImage_Rate(
+			BgImages[CurrBgImageIndex],
+			0,
+			0,
+			SW,
+			SH,
+			-dmw / 2 + (BgImageChangeReverse ? 0 : SW),
+			-dmh / 2,
+			dmw,
+			dmh + SH,
+			BgImageChangeRate
+			);
+
+		Context.globalAlpha = 1.0; // •œŒ³
+
+		BgImageChangeRate *= 0.9;
+		BgImageChanging = 0.001 < BgImageChangeRate;
+	}
+	else {
+		DrawImage(BgImages[CurrBgImageIndex], 0, 0, SW, SH);
+	}
+}
+
+// ---- MenuItems ----
+
+var MENU_L = 150;
+var MENU_T = 150;
+var MENU_ITEM_W = 240;
+var MENU_ITEM_H = 240;
+var MENU_ITEM_MARGIN_X = 20;
+var MENU_ITEM_MARGIN_Y = 20;
+var MENU_R = MENU_L + MENU_ITEM_W + MENU_ITEM_MARGIN_X + MENU_ITEM_W;
+var MENU_B = MENU_T + MENU_ITEM_H + MENU_ITEM_MARGIN_Y + MENU_ITEM_H;
+
+var MenuColumnIndex = 0;
+var MenuScrollY = 0;
+var MenuSlippingY = 0.0;
+var MenuNavigatingYRate = 1.0;
+
+function MenuItemEachFrame() {
+	for(var x = 0; x < 2; x++) {
+		for(var y = 0; y < MenuItems[MenuColumnIndex].length; y++) {
+			if(MenuItems[MenuColumnIndex][y][x].length === 3) {
+				var nx  = MenuItems[MenuColumnIndex][y][x][0];
+				var ny  = MenuItems[MenuColumnIndex][y][x][1];
+				var img = MenuItems[MenuColumnIndex][y][x][2];
+
+				var l = MENU_L + x * (MENU_ITEM_W + MENU_ITEM_MARGIN_X);
+				var t = MENU_T + y * (MENU_ITEM_H + MENU_ITEM_MARGIN_Y) - MenuScrollY;
+				var w = nx * (MENU_ITEM_W + MENU_ITEM_MARGIN_X) - MENU_ITEM_MARGIN_X;
+				var h = ny * (MENU_ITEM_H + MENU_ITEM_MARGIN_Y) - MENU_ITEM_MARGIN_Y;
+				var r = l + w;
+				var b = t + h;
+
+				var menu_tt = MENU_T - 100;
+				var menu_bb = MENU_B + 100;
+
+				var rate = Math.max(menu_tt - t, b - menu_bb);
+
+				rate /= 300.0;
+				rate = 1.0 - rate;
+//				rate = Math.max(rate, 0.0);
+				rate = Math.min(rate, 1.0);
+
+				if(0.01 < rate) {
+					Context.globalAlpha = rate;
+
+					Context.save();
+//					Context.translate(0, 0);
+					Context.shadowColor = "rgba(0, 0, 0, 0.4)";
+					Context.shadowBlur = 20;
+//					Context.shadowOffsetX = 0;
+//					Context.shadowOffsetY = 0;
+
+					var miBox = MenuItemBox;
+
+					if(nx === 2) miBox = MenuItemBox_Wx2;
+					if(ny === 2) miBox = MenuItemBox_Hx2;
+
+					DrawImage(miBox, l, t, w, h);
+
+					Context.restore();
+
+					DrawImage(img, l + (w - img.width) / 2, t + (h - img.height) / 2, img.width, img.height);
+
+					Context.globalAlpha = 1.0; // •œŒ³
+				}
+			}
+		}
+	}
+}
+
+// ----
+
+var LastMouseDown = false;
+var LastMouseX = 0;
+var LastMouseY = 0;
+var HomingX = 0;
+var HomingY = 0;
+var Context;
+
+function AnimeLoopMain() {
+	if(1 <= LoadingCount) {
+		return;
+	}
+
+	if(!LastMouseDown && MouseDown) {
+		LastMouseX = MouseX;
+		LastMouseY = MouseY;
+
+		HomingX = MouseX;
+		HomingY = MouseY;
+	}
+	else {
+		HomingX -= MouseX;
+		HomingX *= 0.7;
+		HomingX += MouseX;
+
+		HomingY -= MouseY;
+		HomingY *= 0.7;
+		HomingY += MouseY;
+	}
+
+	Context = MainCanvas.getContext("2d");
+
+	// ---- <--- common ----
+
+	if(MouseDown) {
+		MenuScrollY -= MouseY - LastMouseY;
+		MenuSlippingY = 0.0;
+		MenuNavigatingYRate = 1.0;
+	}
+	else if(LastMouseDown) {
+		var my = MouseY - HomingY;
+
+		MenuSlippingY = -my
+	}
+	else {
+		if(MenuSlippingY < 5.0) {
+			MenuNavigatingYRate -= 0.8;
+			MenuNavigatingYRate *= 0.99;
+			MenuNavigatingYRate += 0.8;
+		}
+
+		var y = Math.round(MenuScrollY / (MENU_ITEM_H + MENU_ITEM_MARGIN_Y))
+		y = Math.max(y, 0);
+		y = Math.min(y, MenuItems[MenuColumnIndex].length - 1);
+		y *= MENU_ITEM_H + MENU_ITEM_MARGIN_Y;
+
+		MenuScrollY -= y;
+		MenuScrollY *= MenuNavigatingYRate;
+		MenuScrollY += y;
+	}
+	MenuSlippingY *= 0.95;
+	MenuScrollY += MenuSlippingY;
+
+	if(LastMouseDown && !MouseDown) {
+		var mx = MouseX - HomingX;
+		var my = MouseY - HomingY;
+		var mxr = Math.abs(mx / my);
+		var flg = false;
+
+		LastBgImageIndex = CurrBgImageIndex;
+
+		if(2 < mxr) {
+			if(mx < -10) {
+				MenuColumnIndex++;
+				CurrBgImageIndex++;
+				BgImageChangeReverse = false;
+				flg = true;
+			}
+			else if(10 < mx) {
+				MenuColumnIndex--;
+				CurrBgImageIndex--;
+				BgImageChangeReverse = true;
+				flg = true;
+			}
+		}
+
+		if(flg) {
+			MenuColumnIndex += MenuItems.length;
+			MenuColumnIndex %= MenuItems.length;
+			CurrBgImageIndex += BgImages.length;
+			CurrBgImageIndex %= BgImages.length;
+			BgImageChanging = true;
+			BgImageChangeRate = 1.0;
+		}
+	}
+
+	// ----
+
+	BgImageEachFrame();
+	MenuItemEachFrame();
+
+	// ---- common ---> ----
+
+	Context = null;
+
+	LastMouseDown = MouseDown;
+	LastMouseX = MouseX;
+	LastMouseY = MouseY;
+}
+
+var AnimeTime = 0;
+
+function AnimeLoop() {
+	var currTime = new Date().getTime();
+
+	AnimeTime = Math.max(AnimeTime, currTime - 100);
+	AnimeTime = Math.min(AnimeTime, currTime + 100);
+
+	if(AnimeTime < currTime) {
+		AnimeLoopMain();
+		AnimeTime += 16; // target to 60 hz
+	}
+	requestAnimationFrame(AnimeLoop);
+}
+
+var MouseDown = false;
+var MouseX = 0;
+var MouseY = 0;
+
+function TouchStart(x, y) {
+	MouseDown = true;
+	MouseX = x;
+	MouseY = y;
+}
+
+function TouchMove(x, y) {
+	MouseX = x;
+	MouseY = y;
+}
+
+function TouchEnd(x, y) {
+	MouseDown = false;
+	MouseX = x;
+	MouseY = y;
+}
+
+function GetEvTouch(f) {
+	return function(event) {
+		f(event.changedTouches[0].pageX, event.changedTouches[0].pageY);
+	}
+}
+
+function GetEvMouse(f) {
+	return function(event) {
+		f(event.x, event.y);
+	}
+}
+
+var MainCanvasBox;
+var MainCanvas;
+
+window.onload = function() {
+	MainCanvasBox = document.getElementById("MainCanvasBox");
+	MainCanvas    = document.getElementById("MainCanvas");
+
+	MainCanvas.width  = SW;
+	MainCanvas.height = SH
+
+	if(window.ontouchstart === null) {
+		MainCanvasBox.ontouchstart = GetEvTouch(TouchStart);
+		MainCanvasBox.ontouchmove  = GetEvTouch(TouchMove);
+		MainCanvasBox.ontouchend   = GetEvTouch(TouchEnd);
+	}
+	else {
+		MainCanvasBox.onmousedown  = GetEvMouse(TouchStart);
+		MainCanvasBox.onmousemove  = GetEvMouse(TouchMove);
+		MainCanvasBox.onmouseup    = GetEvMouse(TouchEnd);
+		MainCanvasBox.onmouseleave = GetEvMouse(TouchEnd);
+	}
+	InitContents();
+	AnimeLoop();
+}
+
+</script>
+</head>
+<body>
+<div id="MainCanvasBox">
+<canvas id="MainCanvas">
+</canvas>
+</div>
+</body>
+</html>

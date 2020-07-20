@@ -1,0 +1,56 @@
+<html>
+<head>
+<style>
+
+body {
+	margin: 0px;
+}
+
+#TenantRoom {
+	position: fixed;
+	border: none;
+	box-shadow: 0 0 50px 10px rgba(0, 0, 0, 0.2);
+}
+
+</style>
+<script>
+
+window.onload = function() {
+	Resized();
+}
+
+window.onresize = function() {
+	Resized();
+}
+
+function Resized() {
+	var sw = window.innerWidth;
+	var sh = window.innerHeight;
+
+	var w = Math.min(sw, sh);
+	var h = w;
+
+	var l = Math.round((sw - w) / 2);
+	var t = Math.round((sh - h) / 2);
+
+	var MARGIN = 10;
+
+	l += MARGIN;
+	t += MARGIN;
+	w -= MARGIN * 2;
+	h -= MARGIN * 2;
+
+	var tag = document.getElementById("TenantRoom");
+
+	tag.style.left   = l + "px";
+	tag.style.top    = t + "px";
+	tag.style.width  = w + "px";
+	tag.style.height = h + "px";
+}
+
+</script>
+</head>
+<body>
+<iframe src="tenant-room.html" id="TenantRoom"></iframe>
+</body>
+</html>

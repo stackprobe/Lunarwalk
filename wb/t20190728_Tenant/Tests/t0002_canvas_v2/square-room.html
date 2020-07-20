@@ -1,0 +1,269 @@
+<html>
+<head>
+<style>
+
+body {
+	margin: 0px;
+	overflow-x: hidden;
+	overflow-y: hidden;
+	touch-action: none;
+	touch-callout: none;
+	user-select: none;
+}
+
+#MainCanvasBox {
+	width: 100%;
+	height: 100%;
+}
+
+#MainCanvas {
+	width: 100%;
+	height: 100%;
+}
+
+</style>
+<script>
+
+var SW = 800;
+var SH = 800;
+
+function DrawImage(img, l, t, w, h) {
+	Context.drawImage(img, l, t, w, h);
+}
+
+function DrawImage_Rate(img, l, t, w, h, l2, t2, w2, h2, rate) {
+	l += (l2 - l) * rate;
+	t += (t2 - t) * rate;
+	w += (w2 - w) * rate;
+	h += (h2 - h) * rate;
+
+	DrawImage(img, l, t, w, h);
+}
+
+var LoadingCount = 0;
+
+// ---- BgImages ----
+
+var BgImages = [];
+
+function AddBgImage(src) {
+	var img = new Image();
+
+	img.src = src;
+	img.onload = function() {
+		LoadingCount--;
+	}
+	LoadingCount++;
+
+	BgImages.push(img);
+}
+
+function AddBgImages() {
+	AddBgImage("../imgs/bg0001.png");
+	AddBgImage("../imgs/bg0002.png");
+	AddBgImage("../imgs/bg0003.png");
+}
+
+// ----
+
+function InitContents() {
+	AddBgImages();
+}
+
+// ---- BgImages ----
+
+var CurrBgImageIndex = 0;
+var LastBgImageIndex = -1;
+var BgImageChanging = false;
+var BgImageChangeRate = -1.0;
+var BgImageChangeReverse = false;
+
+function BgImageEachFrame() {
+	if(BgImageChanging) {
+		var dmw = SW / 1.5;
+		var dmh = SH / 5;
+
+		DrawImage_Rate(
+			BgImages[LastBgImageIndex],
+			-dmw / 2 + (BgImageChangeReverse ? SW : 0),
+			-dmh / 2,
+			dmw,
+			dmh + SH,
+			0,
+			0,
+			SW,
+			SH,
+			BgImageChangeRate
+			);
+
+		Context.globalAlpha = 1.0 - BgImageChangeRate;
+
+		DrawImage_Rate(
+			BgImages[CurrBgImageIndex],
+			0,
+			0,
+			SW,
+			SH,
+			-dmw / 2 + (BgImageChangeReverse ? 0 : SW),
+			-dmh / 2,
+			dmw,
+			dmh + SH,
+			BgImageChangeRate
+			);
+
+		Context.globalAlpha = 1.0; // •œŒ³
+
+		BgImageChangeRate *= 0.9;
+		BgImageChanging = 0.001 < BgImageChangeRate;
+	}
+	else {
+		DrawImage(BgImages[CurrBgImageIndex], 0, 0, SW, SH);
+	}
+}
+
+// ----
+
+var LastMouseDown = false;
+var LastMouseX = 0;
+var LastMouseY = 0;
+var HomingX = 0;
+var HomingY = 0;
+var Context;
+
+function AnimeLoopMain() {
+	if(1 <= LoadingCount) {
+		return;
+	}
+
+	MainCanvas.width  = SW;
+	MainCanvas.height = SH
+
+	if(!LastMouseDown && MouseDown) {
+		HomingX = MouseX;
+		HomingY = MouseY;
+	}
+	else {
+		HomingX -= MouseX;
+		HomingX *= 0.5;
+		HomingX += MouseX;
+
+		HomingY -= MouseY;
+		HomingY *= 0.5;
+		HomingY += MouseY;
+	}
+
+	Context = MainCanvas.getContext("2d");
+
+	// ---- <--- common ----
+
+	BgImageEachFrame();
+
+	// ----
+
+	if(LastMouseDown && !MouseDown) {
+		var mx = MouseX - HomingX;
+
+		LastBgImageIndex = CurrBgImageIndex;
+
+		if(mx < 0) {
+			CurrBgImageIndex++;
+			BgImageChangeReverse = false;
+		}
+		else {
+			CurrBgImageIndex--;
+			BgImageChangeReverse = true;
+		}
+		CurrBgImageIndex += BgImages.length;
+		CurrBgImageIndex %= BgImages.length;
+		BgImageChanging = true;
+		BgImageChangeRate = 1.0;
+	}
+
+	// ---- common ---> ----
+
+	Context = null;
+
+	LastMouseDown = MouseDown;
+	LastMouseX = MouseX;
+	LastMouseY = MouseY;
+}
+
+var AnimeTime = 0;
+
+function AnimeLoop() {
+	var currTime = new Date().getTime();
+
+	AnimeTime = Math.max(AnimeTime, currTime - 100);
+	AnimeTime = Math.min(AnimeTime, currTime + 100);
+
+	if(AnimeTime < currTime) {
+		AnimeLoopMain();
+		AnimeTime += 16; // target to 60 hz
+	}
+	requestAnimationFrame(AnimeLoop);
+}
+
+var MouseDown = false;
+var MouseX = 0;
+var MouseY = 0;
+
+function TouchStart(x, y) {
+	MouseDown = true;
+	MouseX = x;
+	MouseY = y;
+}
+
+function TouchMove(x, y) {
+	MouseX = x;
+	MouseY = y;
+}
+
+function TouchEnd(x, y) {
+	MouseDown = false;
+	MouseX = x;
+	MouseY = y;
+}
+
+function GetEvTouch(f) {
+	return function(event) {
+		f(event.changedTouches[0].pageX, event.changedTouches[0].pageY);
+	}
+}
+
+function GetEvMouse(f) {
+	return function(event) {
+		f(event.x, event.y);
+	}
+}
+
+var MainCanvasBox;
+var MainCanvas;
+
+window.onload = function() {
+	MainCanvasBox = document.getElementById("MainCanvasBox");
+	MainCanvas    = document.getElementById("MainCanvas");
+
+	if(window.ontouchstart === null) {
+		MainCanvasBox.ontouchstart = GetEvTouch(TouchStart);
+		MainCanvasBox.ontouchmove  = GetEvTouch(TouchMove);
+		MainCanvasBox.ontouchend   = GetEvTouch(TouchEnd);
+	}
+	else {
+		MainCanvasBox.onmousedown  = GetEvMouse(TouchStart);
+		MainCanvasBox.onmousemove  = GetEvMouse(TouchMove);
+		MainCanvasBox.onmouseup    = GetEvMouse(TouchEnd);
+		MainCanvasBox.onmouseleave = GetEvMouse(TouchEnd);
+	}
+	InitContents();
+	AnimeLoop();
+}
+
+</script>
+</head>
+<body>
+<div id="MainCanvasBox">
+<canvas id="MainCanvas">
+</canvas>
+</div>
+</body>
+</html>

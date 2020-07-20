@@ -1,0 +1,273 @@
+<html>
+<head>
+<style>
+
+body {
+	margin: 0px;
+	overflow-x: hidden;
+	overflow-y: hidden;
+	touch-action: none;
+	touch-callout: none;
+	user-select: none;
+}
+
+#SquareRoom {
+	width: 100%;
+	height: 100%;
+}
+
+</style>
+<script>
+
+function LTWH(tag, l, t, w, h) {
+	tag.style.left   = l + "px";
+	tag.style.top    = t + "px";
+	tag.style.width  = w + "px";
+	tag.style.height = h + "px";
+}
+
+function LTWH_Rate(tag, l, t, w, h, l2, t2, w2, h2, rate) {
+	l += (l2 - l) * rate;
+	t += (t2 - t) * rate;
+	w += (w2 - w) * rate;
+	h += (h2 - h) * rate;
+
+	LTWH(tag, l, t, w, h);
+}
+
+function SW() {
+	return SquareRoom.clientWidth;
+}
+
+function SH() {
+	return SquareRoom.clientHeight;
+}
+
+// ---- BgImages ----
+
+function CreateBgImage(src) {
+	var tag = document.createElement("img");
+
+	tag.src = src;
+	tag.style.pointerEvents = "none";
+	tag.style.position = "fixed";
+	tag.style.opacity = 0.0;
+
+	return tag;
+}
+
+var BgImages = [];
+
+function AddBgImage(src) {
+	var tag = CreateBgImage(src);
+	SquareRoom.appendChild(tag);
+	BgImages.push(tag);
+}
+
+function AddBgImages() {
+	AddBgImage("../imgs/bg0001.png");
+	AddBgImage("../imgs/bg0002.png");
+	AddBgImage("../imgs/bg0003.png");
+}
+
+// ----
+
+function InitContents() {
+	AddBgImages();
+}
+
+// ---- BgImages ----
+
+var CurrBgImageIndex = 0;
+var LastBgImageIndex = -1;
+var BgImageChanging = false;
+var BgImageChangeRate = -1.0;
+var BgImageChangeReverse = false;
+
+var Z_CURR_BG_IMAGE = 2;
+var Z_LAST_BG_IMAGE = 1;
+
+function BgImageEachFrame() {
+	for(var i = 0; i < BgImages.length; i++) {
+		BgImages[i].style.opacity = 0.0;
+
+		LTWH(BgImages[i], 0, 0, SW(), SH());
+	}
+
+	if(BgImageChanging) {
+		BgImages[CurrBgImageIndex].style.opacity = 1.0 - BgImageChangeRate;
+//		BgImages[LastBgImageIndex].style.opacity = BgImageChangeRate;
+		BgImages[LastBgImageIndex].style.opacity = 1.0;
+
+		BgImages[CurrBgImageIndex].style.zIndex = Z_CURR_BG_IMAGE;
+		BgImages[LastBgImageIndex].style.zIndex = Z_LAST_BG_IMAGE;
+
+		var dmw = SW() / 1.5;
+		var dmh = SH() / 5;
+
+		LTWH_Rate(
+			BgImages[CurrBgImageIndex],
+			0,
+			0,
+			SW(),
+			SH(),
+			-dmw / 2 + (BgImageChangeReverse ? 0 : SW()),
+			-dmh / 2,
+			dmw,
+			dmh + SH(),
+			BgImageChangeRate
+			);
+
+		LTWH_Rate(
+			BgImages[LastBgImageIndex],
+			-dmw / 2 + (BgImageChangeReverse ? SW() : 0),
+			-dmh / 2,
+			dmw,
+			dmh + SH(),
+			0,
+			0,
+			SW(),
+			SH(),
+			BgImageChangeRate
+			);
+
+		BgImageChangeRate *= 0.9;
+		BgImageChanging = 0.001 < BgImageChangeRate;
+	}
+	else {
+		BgImages[CurrBgImageIndex].style.opacity = 1.0;
+	}
+}
+
+// ----
+
+var LastMouseDown = false;
+var LastMouseX = 0;
+var LastMouseY = 0;
+var HomingX = 0;
+var HomingY = 0;
+
+function AnimeLoopMain() {
+	//console.log([MouseDown, MouseX - LastMouseX, MouseY - LastMouseY, MouseX - HomingX, MouseY - HomingY].join(", "));
+
+	if(!LastMouseDown && MouseDown) {
+		HomingX = MouseX;
+		HomingY = MouseY;
+	}
+	else {
+		HomingX -= MouseX;
+		HomingX *= 0.5;
+		HomingX += MouseX;
+
+		HomingY -= MouseY;
+		HomingY *= 0.5;
+		HomingY += MouseY;
+	}
+
+	// ---- <--- common ----
+
+	BgImageEachFrame();
+
+	// ----
+
+	if(LastMouseDown && !MouseDown) {
+		var mx = MouseX - HomingX;
+
+		LastBgImageIndex = CurrBgImageIndex;
+
+		if(mx < 0) {
+			CurrBgImageIndex++;
+			BgImageChangeReverse = false;
+		}
+		else {
+			CurrBgImageIndex--;
+			BgImageChangeReverse = true;
+		}
+		CurrBgImageIndex += BgImages.length;
+		CurrBgImageIndex %= BgImages.length;
+		BgImageChanging = true;
+		BgImageChangeRate = 1.0;
+	}
+
+	// ---- common ---> ----
+
+	LastMouseDown = MouseDown;
+	LastMouseX = MouseX;
+	LastMouseY = MouseY;
+}
+
+var AnimeTime = 0;
+
+function AnimeLoop() {
+	var currTime = new Date().getTime();
+
+	AnimeTime = Math.max(AnimeTime, currTime - 100);
+	AnimeTime = Math.min(AnimeTime, currTime + 100);
+
+	if(AnimeTime < currTime) {
+		AnimeLoopMain();
+		AnimeTime += 16; // target to 60 hz
+	}
+	requestAnimationFrame(AnimeLoop);
+}
+
+var MouseDown = false;
+var MouseX = 0;
+var MouseY = 0;
+
+function TouchStart(x, y) {
+	MouseDown = true;
+	MouseX = x;
+	MouseY = y;
+}
+
+function TouchMove(x, y) {
+	MouseX = x;
+	MouseY = y;
+}
+
+function TouchEnd(x, y) {
+	MouseDown = false;
+	MouseX = x;
+	MouseY = y;
+}
+
+function GetEvTouch(f) {
+	return function(event) {
+		f(event.changedTouches[0].pageX, event.changedTouches[0].pageY);
+	}
+}
+
+function GetEvMouse(f) {
+	return function(event) {
+		f(event.x, event.y);
+	}
+}
+
+var SquareRoom;
+
+window.onload = function() {
+	SquareRoom = document.getElementById("SquareRoom");
+
+	if(window.ontouchstart === null) {
+		SquareRoom.ontouchstart = GetEvTouch(TouchStart);
+		SquareRoom.ontouchmove  = GetEvTouch(TouchMove);
+		SquareRoom.ontouchend   = GetEvTouch(TouchEnd);
+	}
+	else {
+		SquareRoom.onmousedown  = GetEvMouse(TouchStart);
+		SquareRoom.onmousemove  = GetEvMouse(TouchMove);
+		SquareRoom.onmouseup    = GetEvMouse(TouchEnd);
+		SquareRoom.onmouseleave = GetEvMouse(TouchEnd);
+	}
+	InitContents();
+	AnimeLoop();
+}
+
+</script>
+</head>
+<body>
+<div id="SquareRoom">
+</div>
+</body>
+</html>

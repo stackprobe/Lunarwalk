@@ -1,0 +1,5 @@
+MD S:\_rosetta\_reflection\TenantTests
+ROBOCOPY . S:\_rosetta\_reflection\TenantTests /MIR
+CALL C:\home\bat\syncRosetta.bat
+START http://stackprobe.dip.jp:58946/_rosetta/_reflection/TenantTests
+C:\Factory\Tools\Sleep 2000
