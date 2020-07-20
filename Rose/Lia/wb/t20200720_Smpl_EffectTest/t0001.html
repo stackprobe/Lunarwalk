@@ -1,0 +1,63 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<script src="../../module.js" charset="Shift_JIS"></script>
+<script>
+
+var Star = DD_LoadRes_Image("res/star1305.png");
+
+function Main() {
+	Rose_Visitor_Wait(Main2);
+}
+
+function Main2() {
+	DD_Main(GameMain);
+}
+
+function* GetEffect(x, y) {
+	var end = 90;
+
+	for(var i = 0; i <= end; i++) {
+		var rate = i / end;
+		var iRate = 1.0 - rate;
+
+		DD_Draw(Star, x, y, iRate, rate * 10.0, iRate + 0.5);
+
+		yield 1;
+	}
+}
+
+var LastMouseDown = false;
+
+function* GameMain() {
+	for(; ; ) {
+		DD_Clear();
+
+		DD_Ctx.fillStyle = "#ffffff";
+		DD_Ctx.font = "30px 'メイリオ'";
+		DD_Ctx.fillText("★好きなところをクリックしてね。", 50, 80);
+
+		if(LastMouseDown && !DD_Mouse_Down) {
+			DD_Effect_Add(function() {
+				return GetEffect(DD_Mouse_X, DD_Mouse_Y);
+			});
+		}
+		LastMouseDown = DD_Mouse_Down;
+
+		yield 1;
+	}
+}
+
+</script>
+<style>
+
+body {
+	background-color: #000;
+}
+
+</style>
+</head>
+<body>
+
+</body>
+</html>

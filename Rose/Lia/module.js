@@ -75,6 +75,7 @@ function DD_Anime() {
 
 	if(DD_Time < currTime) {
 		DD_GameIte.next();
+		DD_EachFrame();
 		DD_Time += 16; // 16.666 == 60Hz
 		DD_Frame++;
 	}
@@ -84,7 +85,8 @@ function DD_Anime() {
 var DD_Ctx;
 
 function DD_EachFrame() {
-	// none
+	DD_Effect_EachFrame();
+	DD_Ctx = null;
 
 	// ----
 
@@ -409,6 +411,31 @@ function Rose_Append(parentTag, tag) {
 
 function Rose_Remove(tag) {
 	tag.parentNode.removeChild(tag);
+}
+
+function Rose_ToRange(value, minval, maxval)
+{
+	value = Math.max(value, minval);
+	value = Math.min(value, maxval);
+
+	return value;
+}
+
+var DD_Effect_EffectItes = [];
+
+function DD_Effect_Add(effect) {
+	var effectIte = effect();
+
+	DD_Effect_EffectItes.push(effectIte);
+}
+
+function DD_Effect_EachFrame() {
+	for(var i = 0; i < DD_Effect_EffectItes.length; i++) {
+		if(!DD_Effect_EffectItes[i].next().value) {
+			DD_Effect_EffectItes.splice(i, 1);
+			i--;
+		}
+	}
 }
 
 function DD_LoadRes_Image(url) {

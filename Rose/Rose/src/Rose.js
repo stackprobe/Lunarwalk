@@ -283,3 +283,11 @@ function @@_Append(parentTag, tag) {
 function @@_Remove(tag) {
 	tag.parentNode.removeChild(tag);
 }
+
+function @@_ToRange(value, minval, maxval)
+{
+	value = Math.max(value, minval);
+	value = Math.min(value, maxval);
+
+	return value;
+}
