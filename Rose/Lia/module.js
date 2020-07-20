@@ -75,7 +75,7 @@ function DD_Anime() {
 
 	if(DD_Time < currTime) {
 		DD_GameIte.next();
-		DD_Time += 16;
+		DD_Time += 16; // 16.666 == 60Hz
 		DD_Frame++;
 	}
 	requestAnimationFrame(DD_Anime);
@@ -99,7 +99,7 @@ function DD_Clear() {
 	DD_Ctx.clearRect(0, 0, DD_W, DD_H) ;
 }
 
-function DD_Draw(image, x, y, a, r, z) {
+function DD_Draw(image, x, y, a = 1.0, r = 0.0, z = 1.0) {
 	var w = image.naturalWidth;
 	var h = image.naturalHeight;
 
@@ -426,6 +426,9 @@ function DD_LoadRes_Audio(url) {
 	var audio = new Audio(url);
 
 	audio.load();
+	audio.addEventListener("canplaythrough", Rose_Visitor_Leave);
+
+	Rose_Visitor_Enter();
 
 	return audio;
 }

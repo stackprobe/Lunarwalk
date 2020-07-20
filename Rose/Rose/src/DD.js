@@ -73,7 +73,7 @@ function @@_Anime() {
 
 	if(@@_Time < currTime) {
 		@@_GameIte.next();
-		@@_Time += 16;
+		@@_Time += 16; // 16.666 == 60Hz
 		@@_Frame++;
 	}
 	requestAnimationFrame(@@_Anime);
@@ -97,7 +97,7 @@ function @@_Clear() {
 	@@_Ctx.clearRect(0, 0, @@_W, @@_H) ;
 }
 
-function @@_Draw(image, x, y, a, r, z) {
+function @@_Draw(image, x, y, a = 1.0, r = 0.0, z = 1.0) {
 	var w = image.naturalWidth;
 	var h = image.naturalHeight;
 
