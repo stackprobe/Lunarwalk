@@ -15,15 +15,69 @@ function Main2() {
 }
 
 function* GetEffect(x, y) {
-	var end = 90;
+	var r = Math.floor(Math.random() * 3);
 
-	for(var i = 0; i <= end; i++) {
-		var rate = i / end;
-		var iRate = 1.0 - rate;
+	if(r == 0) {
+		var end = 90;
 
-		DD_Draw(Star, x, y, iRate, rate * 10.0, iRate + 0.5);
+		for(var i = 0; i <= end; i++) {
+			var rate = i / end;
+			var iRate = 1.0 - rate;
 
-		yield 1;
+			DD_Draw(Star, x, y, iRate, rate * 10.0, iRate + 0.5);
+
+			yield 1;
+		}
+	}
+	else if(r == 1) {
+		var x = DD_Mouse_X;
+		var y = DD_Mouse_Y;
+		var ya = 0.0;
+
+		while(y < DD_H) {
+			DD_Draw(Star, x, y);
+
+			y += ya;
+			ya += 0.02;
+
+			yield 1;
+		}
+	}
+	else { // r == 2
+		for(var c = 0; c < 30; c++) {
+			DD_Effect_Add(function*() {
+				var x = DD_Mouse_X;
+				var y = DD_Mouse_Y;
+
+				var rad = Math.random() * 2.0 * Math.PI;
+				var speed = Math.random() * 30.0 + 30.0;
+
+				var xa = Math.cos(rad) * speed;
+				var ya = Math.sin(rad) * speed;
+
+				var a = 1.0;
+
+				var r = 0.0;
+				var ra = Math.random() * 2.0 - 1.0;
+
+				while(0.0 < a) {
+					DD_Draw(Star, x, y, a, r, 0.5);
+
+					x += xa;
+					y += ya;
+
+					xa *= 0.9;
+					ya *= 0.9;
+
+					a -= 0.01;
+
+					r += ra;
+					ra *= 0.95;
+
+					yield 1;
+				}
+			});
+		}
 	}
 }
 
