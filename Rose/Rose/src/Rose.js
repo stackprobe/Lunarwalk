@@ -291,3 +291,11 @@ function @@_ToRange(value, minval, maxval)
 
 	return value;
 }
+
+function @@_FastDesertElement(arr, index) {
+	var element = arr.pop();
+
+	if(index < arr.length) {
+		arr[index] = element;
+	}
+}

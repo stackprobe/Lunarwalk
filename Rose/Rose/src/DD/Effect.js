@@ -9,7 +9,7 @@ function @@_Add(effect) {
 function @@_EachFrame() {
 	for(var i = 0; i < @@_EffectItes.length; i++) {
 		if(!@@_EffectItes[i].next().value) {
-			@@_EffectItes.splice(i, 1);
+			Rose_FastDesertElement(@@_EffectItes, i);
 			i--;
 		}
 	}

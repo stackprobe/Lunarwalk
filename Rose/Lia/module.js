@@ -421,6 +421,14 @@ function Rose_ToRange(value, minval, maxval)
 	return value;
 }
 
+function Rose_FastDesertElement(arr, index) {
+	var element = arr.pop();
+
+	if(index < arr.length) {
+		arr[index] = element;
+	}
+}
+
 var DD_Effect_EffectItes = [];
 
 function DD_Effect_Add(effect) {
@@ -432,7 +440,7 @@ function DD_Effect_Add(effect) {
 function DD_Effect_EachFrame() {
 	for(var i = 0; i < DD_Effect_EffectItes.length; i++) {
 		if(!DD_Effect_EffectItes[i].next().value) {
-			DD_Effect_EffectItes.splice(i, 1);
+			Rose_FastDesertElement(DD_Effect_EffectItes, i);
 			i--;
 		}
 	}
