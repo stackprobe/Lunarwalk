@@ -1,0 +1,50 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<script src="../../Rose.js" charset="Shift_JIS"></script>
+<script>
+
+function* Test01() {
+	console.log("before yield 3;");
+	yield 3;
+	console.log("before yield 2;");
+	yield 2;
+	console.log("before yield 1;");
+	yield 1;
+	console.log("before yield 0;");
+	yield 0;
+	console.log("after yield 0;");
+}
+
+function Main() {
+	var ite = Test01();
+
+	for(var i = 0; i < 5; i++) {
+		var value = ite.next().value;
+
+		console.log("value: " + value);
+
+		if(value) {
+			console.log("value is true");
+		}
+		else {
+			console.log("value is false");
+		}
+	}
+}
+
+</script>
+<style>
+
+body {
+	background-color: #fff;
+}
+
+</style>
+</head>
+<body>
+
+see console
+
+</body>
+</html>

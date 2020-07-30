@@ -431,6 +431,24 @@ function Rose_FastDesertElement(arr, index) {
 
 var DD_Effect_EffectItes = [];
 
+/*
+使い方
+	DD_Effect_Add(function*() {
+		for(var i = 0; i < xxx; i++) {
+
+			xxx(); // フレーム毎の処理
+
+			if(i == xxx) {
+				yield 0; // 偽を返すとエフェクトは終了する。
+			}
+
+			yield 1; // 真を返し続ける間エフェクトは維持される。
+		}
+
+		// ジェネレータを終了しても良い。エフェクトは終了する。
+	});
+*/
+
 function DD_Effect_Add(effect) {
 	var effectIte = effect();
 
@@ -439,7 +457,7 @@ function DD_Effect_Add(effect) {
 
 function DD_Effect_EachFrame() {
 	for(var i = 0; i < DD_Effect_EffectItes.length; i++) {
-		if(!DD_Effect_EffectItes[i].next().value) {
+		if(!DD_Effect_EffectItes[i].next().value) { // ジェネレータが終了した場合 .next().value は undefined (false) になる。
 			Rose_FastDesertElement(DD_Effect_EffectItes, i);
 			i--;
 		}
