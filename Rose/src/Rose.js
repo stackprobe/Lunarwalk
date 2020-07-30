@@ -25,9 +25,6 @@ function DD_Main(gameMain) {
 	Rose_Append(DD_CanvasBox, DD_Canvas);
 	Rose_Append(document.body, DD_CanvasBox);
 
-	document.body.appendChild(DD_Canvas);
-	document.body.appendChild(DD_CanvasBox);
-
 	DD_Mouse_INIT(DD_Canvas);
 
 	Rose_Resize_Add(function() {

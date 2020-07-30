@@ -31,6 +31,7 @@ namespace Charlotte
 			string resDir = null;
 			List<string> srcDirs = new List<string>();
 			string outJSFile = null;
+			string tagsFile = null;
 
 			while (true)
 			{
@@ -44,9 +45,16 @@ namespace Charlotte
 					srcDirs.Add(ar.NextArg());
 					continue;
 				}
-				if (ar.ArgIs("/W"))
+				if (ar.ArgIs("/WB"))
 				{
 					outJSFile = ar.NextArg();
+					outJSFile = FileTools.MakeFullPath(outJSFile);
+					outJSFile += ".js";
+					continue;
+				}
+				if (ar.ArgIs("/T"))
+				{
+					tagsFile = ar.NextArg();
 					continue;
 				}
 				if (ar.HasArgs())
@@ -64,6 +72,9 @@ namespace Charlotte
 			if (outJSFile == null)
 				throw new Exception("出力JSファイルを指定して下さい。");
 
+			if (tagsFile == null)
+				throw new Exception("tagsファイルを指定して下さい。");
+
 			{
 				JSModuleConverter mc = new JSModuleConverter();
 
@@ -73,6 +84,23 @@ namespace Charlotte
 					mc.LoadSourceDir(srcDir);
 
 				mc.WriteJSFile(outJSFile);
+			}
+
+			using (WorkingDir wd = new WorkingDir())
+			{
+				const string MID_TAGS_FILE = "tags.mid.tmp";
+
+				ProcessTools.Batch(new string[]
+				{
+					string.Format(@"C:\Factory\DevTools\makeTags.exe /JS {0} {1}", outJSFile, MID_TAGS_FILE),
+				},
+				wd.GetPath(".")
+				);
+
+				if (File.Exists(wd.GetPath(MID_TAGS_FILE)) == false)
+					throw new Exception("tagsファイルの生成に失敗しました。");
+
+				File.AppendAllLines(tagsFile, File.ReadAllLines(wd.GetPath(MID_TAGS_FILE)), StringTools.ENCODING_SJIS); // 注意：追記する。
 			}
 		}
 	}

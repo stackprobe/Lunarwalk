@@ -23,9 +23,6 @@ function @@_Main(gameMain) {
 	Rose_Append(@@_CanvasBox, @@_Canvas);
 	Rose_Append(document.body, @@_CanvasBox);
 
-	document.body.appendChild(@@_Canvas);
-	document.body.appendChild(@@_CanvasBox);
-
 	@@_Mouse_INIT(@@_Canvas);
 
 	Rose_Resize_Add(function() {
