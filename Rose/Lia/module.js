@@ -550,7 +550,7 @@ window.onresize = function() {
 
 var Rose_Visitor_Count = 0;
 
-function Rose_Visitor_Enter(f) {
+function Rose_Visitor_Enter() {
 console.log("C:/Dev/HtmlJS/Lunarwalk/Rose/Rose/src/Rose/Visitor.js (4)"); // @:LOGPOS
 
 	Rose_Visitor_Count++;
