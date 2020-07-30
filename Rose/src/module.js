@@ -551,14 +551,14 @@ window.onresize = function() {
 var Rose_Visitor_Count = 0;
 
 function Rose_Visitor_Enter() {
-console.log("C:/Dev/HtmlJS/Lunarwalk/Rose/Rose/src/Rose/Visitor.js (4)"); // @:LOGPOS
+console.log("C:/Dev/HtmlJS/Lunarwalk/Rose/src/Rose/src/Rose/Visitor.js (4)"); // @:LOGPOS
 
 	Rose_Visitor_Count++;
 }
 
 function Rose_Visitor_Leave() {
-console.log("C:/Dev/HtmlJS/Lunarwalk/Rose/Rose/src/Rose/Visitor.js (10)"); // @:LOGPOS
-if(Rose_Visitor_Count < 1) { console.error("C:/Dev/HtmlJS/Lunarwalk/Rose/Rose/src/Rose/Visitor.js (11)"); } // @:errorCase
+console.log("C:/Dev/HtmlJS/Lunarwalk/Rose/src/Rose/src/Rose/Visitor.js (10)"); // @:LOGPOS
+if(Rose_Visitor_Count < 1) { console.error("C:/Dev/HtmlJS/Lunarwalk/Rose/src/Rose/src/Rose/Visitor.js (11)"); } // @:errorCase
 
 	Rose_Visitor_Count--;
 }
