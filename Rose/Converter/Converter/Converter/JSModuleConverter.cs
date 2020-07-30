@@ -89,7 +89,7 @@ namespace Charlotte
 				}
 				else if (tLine.StartsWith("@:errorCase "))
 				{
-					string cond = tLine.Substring(tLine.IndexOf(' ')).Trim();
+					string cond = tLine.Substring(tLine.IndexOf(' ') + 1).Trim();
 
 					lines[index] = string.Format(
 						"if({0}) {{ console.error(\"{1} ({2})\"); }} // @:errorCase",

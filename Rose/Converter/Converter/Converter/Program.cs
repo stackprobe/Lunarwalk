@@ -100,7 +100,9 @@ namespace Charlotte
 				if (File.Exists(wd.GetPath(MID_TAGS_FILE)) == false)
 					throw new Exception("tagsファイルの生成に失敗しました。");
 
-				File.AppendAllLines(tagsFile, File.ReadAllLines(wd.GetPath(MID_TAGS_FILE)), StringTools.ENCODING_SJIS); // 注意：追記する。
+				string[] tagsLines = File.ReadAllLines(wd.GetPath(MID_TAGS_FILE), StringTools.ENCODING_SJIS);
+
+				File.AppendAllLines(tagsFile, tagsLines, StringTools.ENCODING_SJIS); // 注意：追記する。
 			}
 		}
 	}
