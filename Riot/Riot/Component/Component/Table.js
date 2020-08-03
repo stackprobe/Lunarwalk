@@ -57,7 +57,7 @@ function @@_AddRow(coName) { // ret: added @@_Row's coName
 
 	@@^_DraggableList_Row_Append(pcn, @@_Row_CreateElement(cn));
 
-	@@^_DraggableList_Row_SetWidth(pcn, @@_GetRowWidth(coName) + 20); // XXX パディング分足している。
+	@@^_DraggableList_Row_SetWidth(pcn, @@_GetRowWidth(coName) + 20); // todo パディング分足している。
 
 	return cn;
 }

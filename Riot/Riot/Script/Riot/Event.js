@@ -7,7 +7,7 @@ var @@_HashedLater = new Map(); // ç°ÇÃÇ∆Ç±ÇÎ _SetUI óp
 // }
 
 function @@_Early(routine) {
-	@@_QueueEarly.unshift(routine); // XXX
+	@@_QueueEarly.unshift(routine); // todo
 }
 
 function @@_Add(routine) {

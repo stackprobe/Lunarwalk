@@ -153,7 +153,7 @@ namespace Charlotte
 					JS_INDENT + JS_INDENT + script,
 				});
 
-				lines.Add(JS_INDENT + "// " + script); // xxx 不要
+				lines.Add(JS_INDENT + "// " + script); // ToDouble 不要
 
 				code.NotUsingVar = true;
 			}
@@ -222,7 +222,7 @@ namespace Charlotte
 
 				if (subCode.NotUsingVar)
 				{
-					//lines.Add(JS_INDENT + "// " + subCode.VarName); // xxx 不要
+					//lines.Add(JS_INDENT + "// " + subCode.VarName); // todo 不要
 				}
 				else if (rootTag is HtmlDataModel.OtherComponent)
 				{

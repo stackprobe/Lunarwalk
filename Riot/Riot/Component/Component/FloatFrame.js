@@ -22,7 +22,7 @@ function @@_Append(coName, tag) {
 
 
 
-	// XXX
+	// todo
 	if(tag.style.float != "right") {
 		Riot_SetFloat(tag);
 	}
