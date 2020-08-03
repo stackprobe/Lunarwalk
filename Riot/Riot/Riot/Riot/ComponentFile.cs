@@ -222,7 +222,7 @@ namespace Charlotte
 
 				if (subCode.NotUsingVar)
 				{
-					//lines.Add(JS_INDENT + "// " + subCode.VarName); // todo 不要
+					//lines.Add(JS_INDENT + "// " + subCode.VarName); // HACK 不要
 				}
 				else if (rootTag is HtmlDataModel.OtherComponent)
 				{

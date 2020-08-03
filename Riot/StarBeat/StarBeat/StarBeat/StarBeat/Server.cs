@@ -54,7 +54,7 @@ namespace Charlotte.StarBeat
 					hr.Method = JString.ToJString(channel.Method, false, false, false, false); // 正規化
 					hr.URLPath = JString.ToJString(channel.Path, true, false, false, true); // 正規化
 
-					// todo ??? ParsePathQuery より前に DecodeURL しているのでクエリに '?', '&', '=' を使えない？？？
+					// HACK ??? ParsePathQuery より前に DecodeURL しているのでクエリに '?', '&', '=' を使えない？？？
 
 					ParsePathQuery(hr);
 
@@ -96,7 +96,7 @@ namespace Charlotte.StarBeat
 						throw new Exception("不明なメソッド");
 					}
 
-					// todo ??? フォルダの場合の 301 対応
+					// HACK ??? フォルダの場合の 301 対応
 
 					string targetFile = docRoot.GetRootDirs().Select(v => Path.Combine(v, hr.Path)).FirstOrDefault(v => File.Exists(v));
 

@@ -28,7 +28,7 @@ function @@_AddRow(coName) {
 	Component_DraggableList_Row_Append(cn, @@_Row_CreateElement(cn + "Row"));
 //	Component_DraggableList_Row_Append(cn, @@_Row_CreateElement(cn + "_Row")); // cn の名前空間を侵食する。
 
-	Component_DraggableList_Row_SetWidth(cn, Riot_Get(coName + "_ListHeader").clientWidth - 20); // todo パディング分引いてる。
+	Component_DraggableList_Row_SetWidth(cn, Riot_Get(coName + "_ListHeader").clientWidth - 20); // HACK パディング分引いてる。
 
 	return cn;
 }
