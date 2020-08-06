@@ -10,7 +10,7 @@ namespace Charlotte
 {
 	class Program
 	{
-		public const string APP_IDENT = "{5f88321b-fe1f-44f8-a2ea-96597b84aeae}";
+		public const string APP_IDENT = "{dea26052-7e12-4150-a908-1bf86c1af60d}";
 		public const string APP_TITLE = "Converter";
 
 		static void Main(string[] args)
