@@ -413,8 +413,7 @@ function Rose_Remove(tag) {
 	tag.parentNode.removeChild(tag);
 }
 
-function Rose_ToRange(value, minval, maxval)
-{
+function Rose_ToRange(value, minval, maxval) {
 	value = Math.max(value, minval);
 	value = Math.min(value, maxval);
 

@@ -284,8 +284,7 @@ function @@_Remove(tag) {
 	tag.parentNode.removeChild(tag);
 }
 
-function @@_ToRange(value, minval, maxval)
-{
+function @@_ToRange(value, minval, maxval) {
 	value = Math.max(value, minval);
 	value = Math.min(value, maxval);
 
