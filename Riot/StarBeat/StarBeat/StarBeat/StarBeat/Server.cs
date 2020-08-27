@@ -32,6 +32,10 @@ namespace Charlotte.StarBeat
 			HTTPServerChannel.BodySizeMax = 2000000; // 2 MB
 			HTTPServerChannel.BuffSize = 500000; // 500 KB
 
+			JsonTools.DecodeStringFilter = v => JString.ToJString(v, true, true, true, true);
+			JsonTools.DecodeNestingLevelMax = 30;
+			JsonTools.DecodeObjectCountMax = 1000;
+
 			HTTPServer hs = new HTTPServer()
 			{
 				PortNo = portNo,
@@ -86,9 +90,6 @@ namespace Charlotte.StarBeat
 					}
 					else if (method == "POST")
 					{
-						JsonTools.DecodeStringFilter = v => JString.ToJString(v, true, true, true, true);
-						JsonTools.DecodeObjectCountMax = 1000;
-
 						hr.Json = JsonTools.Decode(channel.Body); // 正規化
 					}
 					else
