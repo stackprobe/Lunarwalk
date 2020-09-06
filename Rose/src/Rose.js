@@ -428,6 +428,10 @@ function Rose_FastDesertElement(arr, index) {
 	}
 }
 
+function Rose_Res(res) {
+	return res;
+}
+
 var DD_Effect_EffectItes = [];
 
 /*

@@ -1,1 +1,1 @@
-CALL C:\Dev\HtmlJS\Lunarwalk\Rose\Tools\unsafe\MakeModule.bat
+CALL C:\Dev\HtmlJS\Lunarwalk\Rose\Tools\bat\unsafe\MakeModule.bat

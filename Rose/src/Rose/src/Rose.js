@@ -298,3 +298,7 @@ function @@_FastDesertElement(arr, index) {
 		arr[index] = element;
 	}
 }
+
+function @@_Res(res) {
+	return res;
+}
